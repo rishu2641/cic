@@ -38,7 +38,6 @@ public class LoginAction {
     public String LoginPage(LoginForm loginForm, HttpServletRequest request) {
     	boolean result = loginService.createLogin(loginForm);
     	System.out.println(result);
-    	
     	return "homepage";
     	
     }
