@@ -18,6 +18,10 @@
     <title>
       Can I Cook?
     </title>
+    <link rel="stylesheet"
+		href="/PRIT/resources/app_srv/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="/PRIT/resources/app_srv/css/bootstrap-theme.min.css" />
     
  
 </html>
