@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class LoginForm {
 
-	int userid;
+	String userid;
 	
 	String firstName;
 	
@@ -14,11 +14,11 @@ public class LoginForm {
 	
 	String strGender;
 	
-	Date dateOfBirth;
+	String dateOfBirth;
 	
-	int dietID;
+	String dietID;
 	
-	int strLifeStyle;
+	String strLifeStyle;
 	
 	int weight;
 	
@@ -26,11 +26,12 @@ public class LoginForm {
 	
 	int isValid;
 
-	public int getUserid() {
+
+	public String getUserid() {
 		return userid;
 	}
 
-	public void setUserid(int userid) {
+	public void setUserid(String userid) {
 		this.userid = userid;
 	}
 
@@ -65,28 +66,28 @@ public class LoginForm {
 	public void setStrGender(String strGender) {
 		this.strGender = strGender;
 	}
-
-	public Date getDateOfBirth() {
+	
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public int getDietID() {
+	public String getDietID() {
 		return dietID;
 	}
 
-	public void setDietID(int dietID) {
+	public void setDietID(String dietID) {
 		this.dietID = dietID;
 	}
 
-	public int getStrLifeStyle() {
+	public String getStrLifeStyle() {
 		return strLifeStyle;
 	}
 
-	public void setStrLifeStyle(int strLifeStyle) {
+	public void setStrLifeStyle(String strLifeStyle) {
 		this.strLifeStyle = strLifeStyle;
 	}
 

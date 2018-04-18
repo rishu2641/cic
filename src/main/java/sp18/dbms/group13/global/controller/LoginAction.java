@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import sp18.dbms.group13.global.dao.LoginDao;
 import sp18.dbms.group13.global.model.LoginForm;
@@ -34,11 +35,10 @@ public class LoginAction {
     	
     }
     
-    @RequestMapping(value = "/LoginPage", method = RequestMethod.GET)
-    public String LoginPage(LoginForm loginForm, HttpServletRequest request) {
-    	boolean result = loginService.createLogin(loginForm);
-    	System.out.println(result);
-    	return "homepage";
+    @RequestMapping(value = "/RegisterUser", method = RequestMethod.POST)
+    public @ResponseBody Boolean LoginPage(LoginForm loginForm, HttpServletRequest request) {
+    	boolean result = loginService.createRegistration(loginForm);
+    	return result;
     	
     }
 

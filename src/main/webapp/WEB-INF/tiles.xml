@@ -9,7 +9,7 @@
 	
 	<definition name="homepage" extends="base.definition">
 		<put-attribute name="body"
-			value="/app_srv/jsp/HomePage.jsp" />
+			value="/app_srv/jsp/MainLayout.jsp" />
 	</definition>
 </tiles-definitions>
  

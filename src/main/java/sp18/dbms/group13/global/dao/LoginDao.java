@@ -20,6 +20,23 @@ public class LoginDao {
 		}
 		else return false;
 	}
+
+	public boolean createRegistration(LoginForm loginForm) {
+		
+		String query1 = " insert into user_details (userid, fname, lname, password, gender, dob) values (?,?,?,?,?,?)";
+		int result = jdbcTemplate.update(query1,loginForm.getUserid(),loginForm.getFirstName(),loginForm.getLastName(),loginForm.getStrPassword(),loginForm.getStrGender(),loginForm.getDateOfBirth());
+		
+        int count = jdbcTemplate.queryForObject("select count(*) from user_profile", Integer.class)+1; 
+		
+		String query2 = " insert into user_profile (id, userid, dietid, lifestyle, weight, height, isvalid) values (?,?,?,?,?,?,?)";
+		int result2 = jdbcTemplate.update(query2, count,loginForm.getUserid(),loginForm.getDietID(),loginForm.getStrLifeStyle(),loginForm.getWeight(),loginForm.getHeight(),1);
+		
+		
+		if(result>0 && result2>0) {
+			return true;
+		}
+		return false;
+	}
 	
 	
 	
