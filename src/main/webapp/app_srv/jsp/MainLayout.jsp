@@ -42,10 +42,9 @@
 	</style>
 	<script>
 	  function onSubmit() {
-		  $("#success").modal("show").delay(2000).modal("hide");
 		  $.ajax({
 			  type: "POST",
-			  url: "/CIC/Register",
+			  url: "/CIC/RegisterUser",
 			  data: {
 				  "username" : $.trim($("#username").val()),
 				  "password" : $.trim($("#password").val()),
@@ -60,13 +59,13 @@
 			  },
 			  success: function (response) {
 				  if(response) {
-					  $("#success").modal("show").delay(2000).modal("hide");
+					  $("#success-dialog").show();
 				  } else {
-					  $("#error").modal("show").delay(2000).modal("hide");
+					  $("#error-dialog").show();
 				  }
 			  },
 			  error: function (error) {
-				  $("#error").modal("show").delay(2000).modal("hide");
+				  $("#error-dialog").show();
 			  }
 		  });
 	  }
@@ -181,34 +180,15 @@
 	    	<button type="submit" class="btn btn-primary" onclick="onSubmit()">Register</button>
 	    </div>
 	    </form>
-      </div>
-      
-      <div id="success" class="modal" tabindex="-1" role="dialog">
-	    <div class="modal-dialog" role="document">
-		  <div class="modal-content">
-		    <div class="modal-body">
-		      <div class="alert alert-success">
-  				<strong>Success!</strong>
-  				Redirecting you to login page.
-              </div>
-		    </div>
-		  </div>
+	    <div id="success-dialog" style="display:none;" class="alert alert-success">
+  			<strong>Success!</strong>
+  		    Redirecting you to login page.
+		</div>
+	    <div id="error-dialog" style="display:none;" class="alert alert-danger">
+  			<strong>Error!</strong>
+  			Please try again.
 		</div>
       </div>
-      
-      <div id="error" class="modal" tabindex="-1" role="dialog">
-	    <div class="modal-dialog" role="document">
-		  <div class="modal-content">
-		    <div class="modal-body">
-		      <div class="alert alert-danger">
-  				<strong>Error!</strong>
-  				Please try again.
-              </div>
-		    </div>
-		  </div>
-		</div>
-      </div>
-
   </body>
     
  
