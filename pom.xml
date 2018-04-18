@@ -21,7 +21,6 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
 		<!--dependency for password encryption -->
 		<dependency>
 			<groupId>org.jasypt</groupId>
