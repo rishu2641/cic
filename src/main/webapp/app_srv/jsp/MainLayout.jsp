@@ -40,11 +40,42 @@
 	    padding-top: 10px;
 	  }
 	</style>
+	<script>
+	  function onSubmit() {
+		  $("#success").modal("show").delay(2000).modal("hide");
+		  $.ajax({
+			  type: "POST",
+			  url: "/CIC/Register",
+			  data: {
+				  "username" : $.trim($("#username").val()),
+				  "password" : $.trim($("#password").val()),
+				  "firstname" : $.trim($("#firstname").val()),
+				  "lastname" : $.trim($("#lastname").val()),
+				  "gender": $("input[name=gender]:checked").val(),
+				  "dob": $("#dob").val(),
+				  "height" : $.trim($("#height").val()),
+				  "weight" : $.trim($("#weight").val()),
+				  "lifestyle": $("#lifestyle").val(),
+				  "diet": $("#diet").val()
+			  },
+			  success: function (response) {
+				  if(response) {
+					  $("#success").modal("show").delay(2000).modal("hide");
+				  } else {
+					  $("#error").modal("show").delay(2000).modal("hide");
+				  }
+			  },
+			  error: function (error) {
+				  $("#error").modal("show").delay(2000).modal("hide");
+			  }
+		  });
+	  }
+	</script>
   </head>
   <body class="text-center">
     <div class="container" style="max-width:800px;">
       <h2>Registration</h2>
-      <form>
+      <form action=" " method="post">
         <div class="panel panel-primary">
           <div class="panel-heading">Primary Details</div>
           <div class="panel-body">
@@ -126,7 +157,7 @@
               <div class="col-md-6 label-input">
                 <span class="label-container"><label for="lifestyle" class="col-md-4 col-form-label">Lifestyle</label></span>
                 <div class="col-md-8">
-                	<select class="form-control">
+                	<select class="form-control" name=lifestyle" id="lifestyle">
                 	  <option value="lifestyle1">lifestyle1</option>
                 	  <option value="lifestyle2">lifestyle2</option>
                 	  <option value="lifestyle3">lifestyle3</option>
@@ -136,7 +167,7 @@
               <div class="col-md-6 label-input">
                 <span class="label-container"><label for="diet" class="col-md-4 col-form-label">Diet</label></span>
                 <div class="col-md-8">
-                	<select class="form-control">
+                	<select class="form-control" name="diet" id="diet">
                 	  <option value="diet1">diet1</option>
                 	  <option value="diet2">diet2</option>
                 	  <option value="diet3">diet3</option>
@@ -147,10 +178,37 @@
           </div>
         </div>
 	    <div class="col-4">
-	    	<button type="submit" class="btn btn-primary">Register</button>
+	    	<button type="submit" class="btn btn-primary" onclick="onSubmit()">Register</button>
 	    </div>
 	    </form>
       </div>
+      
+      <div id="success" class="modal" tabindex="-1" role="dialog">
+	    <div class="modal-dialog" role="document">
+		  <div class="modal-content">
+		    <div class="modal-body">
+		      <div class="alert alert-success">
+  				<strong>Success!</strong>
+  				Redirecting you to login page.
+              </div>
+		    </div>
+		  </div>
+		</div>
+      </div>
+      
+      <div id="error" class="modal" tabindex="-1" role="dialog">
+	    <div class="modal-dialog" role="document">
+		  <div class="modal-content">
+		    <div class="modal-body">
+		      <div class="alert alert-danger">
+  				<strong>Error!</strong>
+  				Please try again.
+              </div>
+		    </div>
+		  </div>
+		</div>
+      </div>
+
   </body>
     
  
