@@ -17,7 +17,7 @@ public class LoginAction {
 
     
     @Autowired
-    public LoginDao loginDao;
+    public LoginDao loginService ;
 
     @ExceptionHandler(Exception.class)
     public String exc(HttpServletRequest request, Exception e) {
@@ -29,7 +29,16 @@ public class LoginAction {
     }
 
     @RequestMapping(value = "/HomePage", method = RequestMethod.GET)
+    public String HomePage(LoginForm loginForm, HttpServletRequest request) {
+    	return "homepage";
+    	
+    }
+    
+    @RequestMapping(value = "/LoginPage", method = RequestMethod.GET)
     public String LoginPage(LoginForm loginForm, HttpServletRequest request) {
+    	boolean result = loginService.createLogin(loginForm);
+    	System.out.println(result);
+    	
     	return "homepage";
     	
     }
