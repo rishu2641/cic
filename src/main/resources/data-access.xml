@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+           http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+
+	<bean id="dataSourceTarget" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+
+		<property name="url" value="jdbc:oracle:thin:@LAPTOP-7ML3CG5P:1521:xe"/>
+		<property name="username" value="dbms" />
+		<property name="password" value="dbms" /> 
+		
+		<!-- Connection Pooling DBCP -->
+		<property name="initialSize" value="25" />
+		<property name="maxActive" value="500" />
+		<property name="maxIdle" value="25" />
+		<property name="maxWait" value="1000" />
+		<property name="poolPreparedStatements" value="true" />
+		<property name="defaultAutoCommit" value="false" />
+	</bean>
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+		<property name="targetDataSource">
+			<ref bean="dataSourceTarget" />
+		</property>
+	</bean>
+
+
+</beans>
