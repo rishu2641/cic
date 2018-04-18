@@ -7,6 +7,16 @@
 <title>Test Works</title>
 </head>
 <body>
-Welcome to Can I Cook!
+<form>
+  <div class="form-group">
+    <label for="username">User Name</label>
+    <input type="text" class="form-control" id="username" placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label for="firstname">First Name</label>
+    <input type="text" class="form-control" id="firstname" placeholder="First Name">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </body>
 </html>
