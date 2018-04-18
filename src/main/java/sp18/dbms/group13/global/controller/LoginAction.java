@@ -37,7 +37,7 @@ public class LoginAction {
     
     @RequestMapping(value = "/RegisterUser", method = RequestMethod.POST)
     public @ResponseBody Boolean LoginPage(LoginForm loginForm, HttpServletRequest request) {
-    	boolean result = loginService.createRegistration(loginForm);
+    	boolean result = loginService.createRegistration(loginForm); 
     	return result;
     	
     }
