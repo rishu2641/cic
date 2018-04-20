@@ -1,6 +1,10 @@
 
 <title>All Recipes</title>
-
+<script>
+$(document).ready(function() {
+	$("#allrecipes").addClass("active");
+});
+</script>
 <style>
 * {
     box-sizing: border-box;
