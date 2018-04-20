@@ -70,6 +70,16 @@ public class LoginAction {
 		}
 		return false;
 	}
+	
+	@RequestMapping(value = "/AllRecipes", method = RequestMethod.GET)
+  public String AllRecipes() {
+    return "allrecipes";
+  }
+	
+	@RequestMapping(value = "/About", method = RequestMethod.GET)
+  public String About() {
+    return "about";
+  }
 
 	@RequestMapping(value = "/Login", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView Login(LoginForm loginForm, HttpServletRequest request, HttpServletResponse response) {

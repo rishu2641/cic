@@ -16,36 +16,20 @@
     <title>
         Can I Cook
     </title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--<link rel="stylesheet"
-      href="/PRIT/resources/app_srv/css/bootstrap.min.css" />
-    <link rel="stylesheet"
-      href="/PRIT/resources/app_srv/css/bootstrap-theme.min.css" /> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
-    <link rel="stylesheet"
-	href="/cic/resources/app_srv/css/custom.css" />
-	<style>
-	  span.label-container {
-        text-align: left;
-        line-height: 29px;
-	  }
-	  .label-input {
-	    padding-top: 10px;
-	  }
-	  .help-block {
-	    font-size: 11px;
-        color: #CC3300;
-      }
-	</style>
+    <script src="/CIC/resources/app_srv/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/CIC/resources/app_srv/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/CIC/resources/app_srv/css/bootstrap-theme.min.css" />
+    <script src="/CIC/resources/app_srv/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/CIC/resources/app_srv/css/custom.css" />
   </head>
   <body class="text-center">
+    <div class="topnav">
+      <a class="active" href="#">Home</a>
+      <a href="/CIC/AllRecipes">All Recipes</a>
+      <a href="/CIC/About">About</a>
+      <a href="/CIC/Login" style="float:right;">Sign In</a>
+      <a href="/CIC/Register" style="float:right;">Register</a>
+    </div>
   	<div id="body">
   	  <tiles:insertAttribute name="body" />
   	</div>
