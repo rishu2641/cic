@@ -121,7 +121,7 @@ html {
 	<div class="btcollapse">
 	<button class="btcollapse" type="button" data-toggle="collapse" data-target="#dietCheckBox">Diet</button>
 	<div id="dietCheckBox" class="collapse btcollapse">
-		<div class="container btcollapse">
+		<div class="btcollapse">
 			<form>
 			<div class="checkbox">
 				<label class="checkbox-inline"><input type="checkbox" value="keto">Keto</label>
@@ -163,7 +163,7 @@ html {
 <div class="btcollapse">
 	<button class="btcollapse" type="button" data-toggle="collapse" data-target="#timeFilter">Time</button>
 	<div id="timeFilter" class="collapse btcollapse">
-		<div class="container btcollapse">
+		<div class="btcollapse">
 			<form>
 			<label>Prep Time (less than)</label>
 			<div>
@@ -214,7 +214,7 @@ html {
 <div class="btcollapse">
 	<button class="btcollapse" type="button" data-toggle="collapse" data-target="#nutritionFilter">Nutritional Value</button>
 	<div id="nutritionFilter" class="collapse btcollapse">
-		<div class="container btcollapse">
+		<div class="btcollapse">
 			<form>
 			<label>Cholesterol</label>
 			<div>
