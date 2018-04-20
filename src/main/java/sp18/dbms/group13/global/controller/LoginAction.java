@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -77,7 +78,7 @@ public class LoginAction {
   }
 
 	@RequestMapping(value = "/Login", method = { RequestMethod.POST, RequestMethod.GET })
-	public ModelAndView Login(LoginForm loginForm, HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView Login(@ModelAttribute("loginform")LoginForm loginForm, HttpServletRequest request, HttpServletResponse response) {
 
 		ModelAndView modelandview = new ModelAndView("loginpage");
 		UserInfo usrInfo = (UserInfo) request.getSession().getAttribute("UserInfo");
@@ -91,8 +92,8 @@ public class LoginAction {
 							UserInfo userInfo = new UserInfo();
 							userInfo.setUserid(loginForm.getUserid());
 							request.getSession().setAttribute("UserInfo", userInfo);
-							UserProfile lf = loginService.getUserDetails(loginForm);
-							modelandview.addObject("userDetails", lf);
+							List<UserProfile> lf = loginService.getUserDetails(loginForm);
+							modelandview.addObject("userDetails", lf.get(0));
 							modelandview.setViewName("dashboard");
 
 						}
@@ -111,8 +112,8 @@ public class LoginAction {
 
 			} else {
 				loginForm.setUserid(usrInfo.getUserid());
-				UserProfile lf = loginService.getUserDetails(loginForm);
-				modelandview.addObject("userDetails", lf);
+				List<UserProfile> lf = loginService.getUserDetails(loginForm);
+				modelandview.addObject("userDetails", lf.get(0));
 				modelandview.setViewName("dashboard");
 			}
 		return modelandview;

@@ -1,3 +1,11 @@
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
+
 <title>Login</title>
 <script>
 $(document).ready(function() {
@@ -6,12 +14,14 @@ $(document).ready(function() {
 </script>
 
   <script>
-  function login(){
+  function loginme(){
 	  var Message=$('#pass').val();
 	$('#strPassword').val(Message);
 	$('#userid').val($('#user').val());
+	alert(Message);
+	alert($('#user').val());
 	//alert(hash);
-	document.getElementById("login-form").action="/PRIT/Login";
+	document.getElementById("login-form").action="/CIC/Login";
 	//alert("before submit");
 	document.getElementById("login-form").submit();
   }
@@ -92,13 +102,14 @@ $(document).ready(function() {
   
 
   <div class="login-card">
-    <h1>Log-in</h1><br>
-  <form action="Login" id="login-form" method="post">
-  	
+    <h1>Sign In</h1><br>
+  <form:form action="Login" modelAttribute="loginform" id="login-form" method="post">
+  	<form:input type="hidden" path="strPassword" id="strPassword" name="strPassword"/>
+  		<form:input type="hidden" path="userid" id="userid" name="userid"/>
     <input id="user" type="text" name="user" placeholder="Username">
     <input id="pass" type="password" name="pass" placeholder="Password">
-    <input type="button" name="login" class="login login-submit" value="login" onclick="login()">
-  </form>
+    <input type="button" name="login" class="login login-submit" value="login" onclick="loginme()">
+  </form:form>
 
   <div class="login-help">
     <a href="#">Register</a>  <a href="#">Forgot Password</a>

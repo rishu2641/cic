@@ -54,9 +54,9 @@ public class LoginDao {
 		return users;
 	}
 
-	public UserProfile getUserDetails(LoginForm loginForm) {
-		String query = " select * from user_profile where userid = '"+loginForm.getUserid()+"' where isvalid = 1";
-		UserProfile users  = (UserProfile) jdbcTemplate.query(query,
+	public List<UserProfile> getUserDetails(LoginForm loginForm) {
+		String query = " select * from user_profile where userid = '"+loginForm.getUserid()+"' and isvalid = 1";
+		List<UserProfile> users  = jdbcTemplate.query(query,
 				new BeanPropertyRowMapper(UserProfile.class));
 		
 		return users;
