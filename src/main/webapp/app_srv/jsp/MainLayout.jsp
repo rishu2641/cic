@@ -1,6 +1,11 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
+<script src="https://www.google.com/recaptcha/api.js"></script>
     
 <!DOCTYPE html>
 
@@ -21,6 +26,7 @@
     <link rel="stylesheet" href="/CIC/resources/app_srv/css/bootstrap-theme.min.css" />
     <script src="/CIC/resources/app_srv/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/CIC/resources/app_srv/css/custom.css" />
+    <link rel="stylesheet" href="/CIC/resources/app_srv/css/font-awesome.min.css" />
   </head>
   <body class="text-center">
     <div id="navbar" class="topnav">
