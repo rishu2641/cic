@@ -41,21 +41,26 @@
 	  }
 	</style>
 	<script>
+	  function validateForm() {
+		  
+	  }
+	  
 	  function onSubmit() {
+		  validateForm();
 		  $.ajax({
 			  type: "POST",
 			  url: "/CIC/RegisterUser",
 			  data: {
-				  "username" : $.trim($("#username").val()),
-				  "password" : $.trim($("#password").val()),
-				  "firstname" : $.trim($("#firstname").val()),
-				  "lastname" : $.trim($("#lastname").val()),
-				  "gender": $("input[name=gender]:checked").val(),
-				  "dob": $("#dob").val(),
+				  "userid" : $.trim($("#userid").val()),
+				  "strPassword" : $.trim($("#strPassword").val()),
+				  "firstName" : $.trim($("#firstName").val()),
+				  "lastName" : $.trim($("#lastName").val()),
+				  "strGender": $("input[name=strGender]:checked").val(),
+				  "dateOfBirth": $("#dateOfBirth").val(),
 				  "height" : $.trim($("#height").val()),
 				  "weight" : $.trim($("#weight").val()),
-				  "lifestyle": $("#lifestyle").val(),
-				  "diet": $("#diet").val()
+				  "strLifeStyle": $("#strLifeStyle").val(),
+				  "dietID": $("#dietID").val()
 			  },
 			  success: function (response) {
 				  if(response) {
@@ -73,17 +78,17 @@
   </head>
   <body class="text-center">
     <div class="container" style="max-width:800px;">
-      <h2>Registration</h2>
-      <form action=" " method="post">
+      <h2 class="display-2">Registration</h2>
+      <form action=" " method="post" class="needs-validation" novalidate>
         <div class="panel panel-primary">
           <div class="panel-heading">Primary Details</div>
           <div class="panel-body">
             <div class="row">
               <div class="col-md-2"></div>
               <div class="col-md-7 label-input">
-	            <span class="label-container"><label for="username" class="col-md-4 col-form-label">User Name</label></span>
-                <div class="col-md-8">
-	              <input type="text" class="form-control" id="username" placeholder="Username">
+	            <span class="label-container"><label for="userid" class="col-md-5 col-form-label">User Name</label></span>
+                <div class="col-md-7">
+	              <input type="text" class="form-control" id="userid" placeholder="Username" required>
 	            </div>
 	          </div>
               <div class="col-md-2"></div>
@@ -91,9 +96,18 @@
             <div class="row">
               <div class="col-md-2"></div>
               <div class="col-md-7 label-input">
-	            <span class="label-container"><label for="password" class="col-md-4 col-form-label">Password</label></span>
-                <div class="col-md-8">
-                  <input type="password" class="form-control" id="password" placeholder="Password">
+	            <span class="label-container"><label for="strPassword" class="col-md-5 col-form-label">Password</label></span>
+                <div class="col-md-7">
+                  <input type="password" class="form-control" id="strPassword" placeholder="Password" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-7 label-input">
+	            <span class="label-container"><label for="confirmpassword" class="col-md-5 col-form-label">Confirm Password</label></span>
+                <div class="col-md-7">
+                  <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" required>
                 </div>
               </div>
             </div>
@@ -105,15 +119,15 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-md-6 label-input">
-	            <span class="label-container"><label for="firstname" class="col-md-4 col-form-label">First Name</label></span>
+	            <span class="label-container"><label for="firstName" class="col-md-4 col-form-label">First Name</label></span>
 	            <div class="col-md-8">
-	              <input type="text" class="form-control" id="firstname" placeholder="First Name">
+	              <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
 	            </div>
 	          </div>
               <div class="col-md-6 label-input">
-	            <span class="label-container"><label for="lastname" class="col-md-4 col-form-label">Last Name</label></span>
+	            <span class="label-container"><label for="lastName" class="col-md-4 col-form-label">Last Name</label></span>
 	            <div class="col-md-8">
-	              <input type="text" class="form-control" id="lastname" placeholder="Last Name">
+	              <input type="text" class="form-control" id="lastName" placeholder="Last Name">
 	            </div>
 	          </div>
 	        </div>
@@ -123,18 +137,18 @@
                 <div class="col-md-8">
 	              <label class="col-md-6" for="male">
                     Male
-                    <input class="" type="radio" name="gender" id="male" value="male">
+                    <input class="" type="radio" name="strGender" id="male" value="male">
                   </label>
 	              <label class="col-md-6" for="female">
                      Female
-                    <input class="" type="radio" name="gender" id="female" value="female">
+                    <input class="" type="radio" name="strGender" id="female" value="female">
                   </label>
                 </div>
               </div>
               <div class="col-md-6 label-input">
-                <span class="label-container"><label for="dob" class="col-md-4 col-form-label">Date of Birth</label></span>
+                <span class="label-container"><label for="dateOfBirth" class="col-md-4 col-form-label">Date of Birth</label></span>
                 <div class="col-md-8">
-	            	<input type="date" class="form-control" id="dob">
+	            	<input type="date" class="form-control" id="dateOfBirth">
 	            </div>
 	          </div>
 	        </div>
@@ -142,21 +156,21 @@
               <div class="col-md-6 label-input">
                 <span class="label-container"><label for="height" class="col-md-4 col-form-label">Height</label></span>
                 <div class="col-md-8">
-	            	<input type="text" class="form-control" id="height" placeholder="Height in cm">
+	            	<input type="number" class="form-control" id="height" placeholder="Height in cm" min="0" max="999">
                 </div>
               </div>
               <div class="col-md-6 label-input">
                 <span class="label-container"><label for="weight" class="col-md-4 col-form-label">Weight</label></span>
                 <div class="col-md-8">
-	            	<input type="text" class="form-control" id="weight" placeholder="Weight in lbs">
+	            	<input type="number" class="form-control" id="weight" placeholder="Weight in lbs" min="0" max="999">
                 </div>
 	          </div>
 	        </div>
             <div class="row">
               <div class="col-md-6 label-input">
-                <span class="label-container"><label for="lifestyle" class="col-md-4 col-form-label">Lifestyle</label></span>
+                <span class="label-container"><label for="strLifeStyle" class="col-md-4 col-form-label">Lifestyle</label></span>
                 <div class="col-md-8">
-                	<select class="form-control" name=lifestyle" id="lifestyle">
+                	<select class="form-control" name=strLifeStyle" id="strLifeStyle">
                 	  <option value="lifestyle1">lifestyle1</option>
                 	  <option value="lifestyle2">lifestyle2</option>
                 	  <option value="lifestyle3">lifestyle3</option>
@@ -164,9 +178,9 @@
                 </div>
               </div>
               <div class="col-md-6 label-input">
-                <span class="label-container"><label for="diet" class="col-md-4 col-form-label">Diet</label></span>
+                <span class="label-container"><label for="dietID" class="col-md-4 col-form-label">Diet</label></span>
                 <div class="col-md-8">
-                	<select class="form-control" name="diet" id="diet">
+                	<select class="form-control" name="dietID" id="dietID">
                 	  <option value="diet1">diet1</option>
                 	  <option value="diet2">diet2</option>
                 	  <option value="diet3">diet3</option>
@@ -177,7 +191,7 @@
           </div>
         </div>
 	    <div class="col-4">
-	    	<button type="submit" class="btn btn-primary btn-lg" onclick="onSubmit()">Register</button>
+	    	<button type="button" class="btn btn-primary btn-lg" onclick="onSubmit()">Register</button>
 	    </div>
 	    </form>
 	    <div id="success-dialog" style="display:none;" class="alert alert-success">
