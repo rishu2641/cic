@@ -43,6 +43,13 @@
 	    font-size: 11px;
         color: #CC3300;
       }
+      .dialog {
+        margin-top: 10px;
+        margin-bottom:10px;
+      }
+      .checkbox-container span {
+        text-align: left;
+      }
 	</style>
 	<script>
 	  $(document).ready(function () {
@@ -69,42 +76,87 @@
 				  $("#help-block-password-mismatch").hide();
 			  }
 		  } else if (id == "strPassword") {
-			  var capital = RegExp("[A-Z]");
-			  if(!capital.test($("#strPassword").val())) {
-				  $("#help-block-capital").show();
+			  var len = $("#strPassword").val().length;
+			  if(len<8 || len>16) {
+				  $("#help-block-len-password").show();
 				  valid = false;
 			  } else {
-				  $("#help-block-capital").hide();
+				  $("#help-block-len-password").hide();
 			  }
-			  var number = RegExp("[0-9]");
-			  if(!number.test($("#strPassword").val())) {
-				  $("#help-block-number").show();
+		  } else if(id == "userid") {
+			  var len = $("#userid").val().length;
+			  if(len<=0 || len >20) {
+				  $("#help-block-len-userid").show();
 				  valid = false;
 			  } else {
-				  $("#help-block-number").hide();
+				  $("#help-block-len-userid").hide();
+			  }
+		  } else if(id == "firstName") {
+			  var len = $("#firstName").val().length;
+			  if(len<=0 || len >20) {
+				  $("#help-block-len-firstname").show();
+				  valid = false;
+			  } else {
+				  $("#help-block-len-firstname").hide();
+			  }
+		  } else if(id == "lastName") {
+			  var len = $("#lastName").val().length;
+			  if(len >16) {
+				  $("#help-block-len-lastname").show();
+				  valid = false;
+			  } else {
+				  $("#help-block-len-lastname").hide();
+			  }
+		  } else if(id == "height") {
+			  var val = $("#height").val();
+			  if(val<0 || val >999) {
+				  $("#help-block-max-height").show();
+				  valid = false;
+			  } else {
+				  $("#help-block-max-height").hide();
+			  }
+		  } else if(id == "weight") {
+			  var val = $("#weight").val().length;
+			  if(val<0 || val >999) {
+				  $("#help-block-max-weight").show();
+				  valid = false;
+			  } else {
+				  $("#help-block-max-weight").hide();
 			  }
 		  }
 		  return valid;
 	  }
 	  function submit() {
-		  $.each($(input), function(key, value) {
-			  if(!validateField($(key).attr("id"))) return false;
+		  var valid = true;
+		  $.each($("input"), function(index, value) {
+			  valid = validateField($(value).attr("id")) && valid;
 		  });
+		  if(!valid) {
+			  return;
+		  }
+		  checkDuplicateUser();
+		  sendData();
+	  }
+	  function checkDuplicateUser() {
 		  $.ajax({
 			  type: "POST",
 			  url: "/CIC/DuplicateUser",
 			  data: {
 				  "userid" : $.trim($("#userid").val())
 			  },
-			  success: function (response) {
-				  if(!response) {
-					  $("#help-block-dulpicate-userid").show();
+			  success: function (success) {
+				  alert("success : " + success);
+				  if(!success) {
+					  $("#help-block-duplicate-userid").show();
 				  }
 			  },
 			  error: function (error) {
-				  $("#help-block-dulpicate-userid").show();
+				  alert("error : " + error);
+				  $("#help-block-duplicate-userid").show();
 			  }
 		  });
+	  }
+	  function sendData() {
 		  $.ajax({
 			  type: "POST",
 			  url: "/CIC/RegisterUser",
@@ -115,8 +167,8 @@
 				  "lastName" : $.trim($("#lastName").val()),
 				  "strGender": $("input[name=strGender]:checked").val(),
 				  "dateOfBirth": $("#dateOfBirth").val(),
-				  "height" : $.trim($("#height").val()),
-				  "weight" : $.trim($("#weight").val()),
+				  "height" : $("#height").val() || 0,
+				  "weight" : $("#weight").val() || 0,
 				  "strLifeStyle": $("#strLifeStyle").val(),
 				  "dietID": $("#dietID").val()
 			  },
@@ -137,7 +189,14 @@
   <body class="text-center">
     <div class="container" style="max-width:800px;">
       <h2 class="display-2">Registration</h2>
-      <form action=" " method="post" class="needs-validation" novalidate>
+	    <div id="success-dialog" class="dialog" style="display:none;" class="alert alert-success">
+  			<strong>Success!</strong>
+  		    Redirecting you to login page.
+		</div>
+	    <div id="error-dialog" class="dialog" style="display:none;" class="alert alert-danger">
+  			<strong>Error!</strong>
+  			Please try again.
+		</div>
         <div class="panel panel-primary">
           <div class="panel-heading">Primary Details</div>
           <div class="panel-body">
@@ -147,7 +206,8 @@
 	            <span class="label-container"><label for="userid" class="col-md-5 col-form-label">User Name</label></span>
                 <div class="col-md-7">
 	              <input type="text" class="form-control" id="userid" placeholder="Username" required>
-	              <span id="help-block-dulpicate-userid" class="help-block help-block-userid">Username already exists. Get creative!</span>
+	              <span id="help-block-duplicate-userid" class="help-block help-block-userid">Username already exists. Get creative!</span>
+	              <span id="help-block-len-userid" class="help-block help-block-userid">Username is mandatory and can only have a maximum of 16 characters.</span>
 	            </div>
 	          </div>
               <div class="col-md-2"></div>
@@ -158,8 +218,7 @@
 	            <span class="label-container"><label for="strPassword" class="col-md-5 col-form-label">Password</label></span>
                 <div class="col-md-7">
                   <input type="password" class="form-control" id="strPassword" placeholder="Password" required>
-                  <span id="help-block-capital" class="help-block help-block-strPassword">Sorry, your password must contain a capital letter, two numbers, a symbol, an inspiring message, a spell, a gang sign, a hieroglyph and the blood of a virgin.</span>
-                  <span id="help-block-number" class="help-block help-block-strPassword">Sorry, your password is not good enough. Just like you.</span>
+                  <span id="help-block-len-password" class="help-block help-block-strPassword">Password can have a minimum of 8 and a maximum of 16 characters.</span>
                 </div>
               </div>
             </div>
@@ -169,7 +228,7 @@
 	            <span class="label-container"><label for="confirmpassword" class="col-md-5 col-form-label">Confirm Password</label></span>
                 <div class="col-md-7">
                   <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" required>
-                  <span id="help-block-password-mismatch" class="help-block help-block-confirmpassword">Check that you used the same password in both the fields, you imbecile!</span>
+                  <span id="help-block-password-mismatch" class="help-block help-block-confirmpassword">Password mismatch</span>
                 </div>
               </div>
             </div>
@@ -184,12 +243,14 @@
 	            <span class="label-container"><label for="firstName" class="col-md-4 col-form-label">First Name</label></span>
 	            <div class="col-md-8">
 	              <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+	              <span id="help-block-len-firstname" class="help-block help-block-firstName">First name is mandatory and can only have a maximum of 20 characters.</span>
 	            </div>
 	          </div>
               <div class="col-md-6 label-input">
 	            <span class="label-container"><label for="lastName" class="col-md-4 col-form-label">Last Name</label></span>
 	            <div class="col-md-8">
 	              <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+	              <span id="help-block-len-lastname" class="help-block help-block-lastName">Last name can only have a maximum of 20 characters.</span>
 	            </div>
 	          </div>
 	        </div>
@@ -219,51 +280,80 @@
                 <span class="label-container"><label for="height" class="col-md-4 col-form-label">Height</label></span>
                 <div class="col-md-8">
 	            	<input type="number" class="form-control" id="height" placeholder="Height in cm" min="0" max="999">
+	            	<span id="help-block-max-height" class="help-block help-block-height">Height can only be a number between 0 and 999 cm.</span>
                 </div>
               </div>
               <div class="col-md-6 label-input">
                 <span class="label-container"><label for="weight" class="col-md-4 col-form-label">Weight</label></span>
                 <div class="col-md-8">
 	            	<input type="number" class="form-control" id="weight" placeholder="Weight in lbs" min="0" max="999">
+	            	<span id="help-block-max-weight" class="help-block help-block-weight">Weight can only be a number between 0 and 999 lbs.</span>
                 </div>
 	          </div>
 	        </div>
-            <div class="row">
-              <div class="col-md-6 label-input">
-                <span class="label-container"><label for="strLifeStyle" class="col-md-4 col-form-label">Lifestyle</label></span>
-                <div class="col-md-8">
-                	<select class="form-control" name=strLifeStyle" id="strLifeStyle">
-                	  <option value="lifestyle1">lifestyle1</option>
-                	  <option value="lifestyle2">lifestyle2</option>
-                	  <option value="lifestyle3">lifestyle3</option>
-                	</select>
-                </div>
+	        <div class="row">
+              <div class="col-md-2 label-input">
+                <span class="label-container"><label for="height" class="col-md-4 col-form-label">Diet</label></span>
               </div>
-              <div class="col-md-6 label-input">
-                <span class="label-container"><label for="dietID" class="col-md-4 col-form-label">Diet</label></span>
-                <div class="col-md-8">
-                	<select class="form-control" name="dietID" id="dietID">
-                	  <option value="diet1">diet1</option>
-                	  <option value="diet2">diet2</option>
-                	  <option value="diet3">diet3</option>
-                	</select>
-                </div>
+              <div class="col-md-10 checkbox-container btn-group btn"  data-toggle="buttons">
+              <div class="btn">
+                <span class="col-md-4 btn">
+                    <label class="btn btn-primary form-check-label">
+                	<input type="checkbox" value="keto" name="dietID" class="form-check-input">Keto
+                	</label>
+                </span>
+                <span class="col-md-4 btn">
+                	<label class="btn btn-primary form-check-label">
+                	<input type="checkbox" value="paleo" name="dietID">Paleo
+                	</label>
+                </span>
+                <span class="col-md-4 btn">
+                	<label class="btn btn-primary form-check-label">
+                	<input type="checkbox" value="ovo" name="dietID">Ovo
+                	</label>
+                </span>
+                <span class="col-md-4 btn">
+                	<label class="btn btn-primary form-check-label">
+                	<input type="checkbox" value="lactose-intolerance" name="dietID">Lactose Intolerance
+                	</label>
+                </span>
+                <span class="col-md-4 btn">
+                	<label class="btn btn-primary form-check-label">
+                	<input type="checkbox" value="vegan" name="dietID">Vegan
+                	</label>
+                </span>
+                <span class="col-md-4 btn">
+                	<label class="btn btn-primary form-check-label">
+                	<input type="checkbox" value="vegetarian" name="dietID">Vegetarian
+                	</label>
+                </span>
+                <span class="col-md-4 btn">
+                	<label class="btn btn-primary form-check-label">
+                	<input type="checkbox" value="non-vegetarian" name="dietID">Non Vegetarian
+                	</label>
+                </span>
+                <span class="col-md-4 btn">
+                	<label class="btn btn-primary form-check-label">
+                	<input type="checkbox" value="pescatarian" name="dietID">Pescatarian
+                	</label>
+                </span>
+                <span class="col-md-4 btn">
+                	<label class="btn btn-primary form-check-label">
+                	<input type="checkbox" value="pollotarian" name="dietID">Pollotarian
+                	</label>
+                </span>
+                <span class="col-md-4 btn">
+                	<label class="btn btn-primary form-check-label">
+                	<input type="checkbox" value="jain" name="dietID">Jain
+                	</label>
+                </span>
               </div>
 	        </div>
           </div>
         </div>
 	    <div class="col-4">
-	    	<button type="button" class="btn btn-primary btn-lg" onclick="submit()">Register</button>
+	    	<button type="button" class="btn btn-primary btn-lg" onclick="submit();">Register</button>
 	    </div>
-	    </form>
-	    <div id="success-dialog" style="display:none;" class="alert alert-success">
-  			<strong>Success!</strong>
-  		    Redirecting you to login page.
-		</div>
-	    <div id="error-dialog" style="display:none;" class="alert alert-danger">
-  			<strong>Error!</strong>
-  			Please try again.
-		</div>
       </div>
   </body>
     
