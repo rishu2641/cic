@@ -1,10 +1,17 @@
 package sp18.dbms.group13.global.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import sp18.dbms.group13.global.model.Ingredients;
 import sp18.dbms.group13.global.model.LoginForm;
+import sp18.dbms.group13.global.model.Recipe;
+import sp18.dbms.group13.global.model.UserDetails;
+import sp18.dbms.group13.global.model.UserProfile;
 
 @Repository
 public class LoginDao {
@@ -36,6 +43,33 @@ public class LoginDao {
 			return true;
 		}
 		return false;
+	}
+
+	public List<UserDetails> checkLogin(LoginForm loginForm) {
+		
+		String query = " select * from user_details where userid = '"+loginForm.getUserid()+"'";
+		List<UserDetails> users  = jdbcTemplate.query(query,
+				new BeanPropertyRowMapper(UserDetails.class));
+		
+		return users;
+	}
+
+	public UserProfile getUserDetails(LoginForm loginForm) {
+		String query = " select * from user_profile where userid = '"+loginForm.getUserid()+"' where isvalid = 1";
+		UserProfile users  = (UserProfile) jdbcTemplate.query(query,
+				new BeanPropertyRowMapper(UserProfile.class));
+		
+		return users;
+	}
+
+	public List<Recipe> getRecipeDetails(Recipe recipe) {
+		
+		String query = " select r.* from ingredients i, recipe r, ingredient_recipe_mapping irm where lower(name) like '%"+recipe.getSearchString().toLowerCase()+"%'" + 
+				"and i.id = irm.ingredientid and r.id = irm.recipeid;";
+		List<Recipe> users  = jdbcTemplate.query(query,
+				new BeanPropertyRowMapper(Recipe.class));
+		
+		return users;
 	}
 	
 	
