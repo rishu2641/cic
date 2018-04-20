@@ -92,8 +92,8 @@ public class LoginAction {
 							UserInfo userInfo = new UserInfo();
 							userInfo.setUserid(loginForm.getUserid());
 							request.getSession().setAttribute("UserInfo", userInfo);
-							UserProfile lf = loginService.getUserDetails(loginForm);
-							modelandview.addObject("userDetails", lf);
+							List<UserProfile> lf = loginService.getUserDetails(loginForm);
+							modelandview.addObject("userDetails", lf.get(0));
 							modelandview.setViewName("dashboard");
 
 						}
@@ -112,8 +112,8 @@ public class LoginAction {
 
 			} else {
 				loginForm.setUserid(usrInfo.getUserid());
-				UserProfile lf = loginService.getUserDetails(loginForm);
-				modelandview.addObject("userDetails", lf);
+				List<UserProfile> lf = loginService.getUserDetails(loginForm);
+				modelandview.addObject("userDetails", lf.get(0));
 				modelandview.setViewName("dashboard");
 			}
 		return modelandview;
