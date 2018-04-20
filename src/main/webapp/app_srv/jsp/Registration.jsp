@@ -39,14 +39,72 @@
 	  .label-input {
 	    padding-top: 10px;
 	  }
+	  .help-block {
+	    font-size: 11px;
+        color: #CC3300;
+      }
 	</style>
 	<script>
-	  function validateForm() {
-		  
+	  $(document).ready(function () {
+		  $(".help-block").hide();
+		  $("input").keyup(function() {
+			  var id = $(this).attr("id");
+			  $(".help-block-" + id).hide();
+			  validateField(id);
+		  });
+		  $("input").change(function() {
+			  var id = $(this).attr("id");
+			  $(".help-block-" + id).hide();
+			  validateField(id);
+		  });
+	  });
+	  function validateField(id) {
+		  var valid = true;
+		  if(id == "confirmpassword") {
+			  var elemId = "confirmpassword";
+			  if($("#confirmpassword").val() != $("#strPassword").val()) {
+				  $("#help-block-password-mismatch").show();
+				  valid = false;
+			  } else {
+				  $("#help-block-password-mismatch").hide();
+			  }
+		  } else if (id == "strPassword") {
+			  var capital = RegExp("[A-Z]");
+			  if(!capital.test($("#strPassword").val())) {
+				  $("#help-block-capital").show();
+				  valid = false;
+			  } else {
+				  $("#help-block-capital").hide();
+			  }
+			  var number = RegExp("[0-9]");
+			  if(!number.test($("#strPassword").val())) {
+				  $("#help-block-number").show();
+				  valid = false;
+			  } else {
+				  $("#help-block-number").hide();
+			  }
+		  }
+		  return valid;
 	  }
-	  
-	  function onSubmit() {
-		  validateForm();
+	  function submit() {
+		  $.each($(input), function(key, value) {
+			  if(!validateField($(key).attr("id"))) return false;
+		  });
+		  $.ajax({
+			  type: "POST",
+			  url: "/CIC/DuplicateUser",
+			  data: {
+				  "userid" : $.trim($("#userid").val())
+			  },
+			  success: function (response) {
+				  if(!response) {
+					  $("#help-block-dulpicate-userid").show();
+				  }
+			  },
+			  error: function (error) {
+				  $("#help-block-dulpicate-userid").show();
+			  }
+		  });
 		  $.ajax({
 			  type: "POST",
 			  url: "/CIC/RegisterUser",
@@ -89,6 +147,7 @@
 	            <span class="label-container"><label for="userid" class="col-md-5 col-form-label">User Name</label></span>
                 <div class="col-md-7">
 	              <input type="text" class="form-control" id="userid" placeholder="Username" required>
+	              <span id="help-block-dulpicate-userid" class="help-block help-block-userid">Username already exists. Get creative!</span>
 	            </div>
 	          </div>
               <div class="col-md-2"></div>
@@ -99,6 +158,8 @@
 	            <span class="label-container"><label for="strPassword" class="col-md-5 col-form-label">Password</label></span>
                 <div class="col-md-7">
                   <input type="password" class="form-control" id="strPassword" placeholder="Password" required>
+                  <span id="help-block-capital" class="help-block help-block-strPassword">Sorry, your password must contain a capital letter, two numbers, a symbol, an inspiring message, a spell, a gang sign, a hieroglyph and the blood of a virgin.</span>
+                  <span id="help-block-number" class="help-block help-block-strPassword">Sorry, your password is not good enough. Just like you.</span>
                 </div>
               </div>
             </div>
@@ -108,6 +169,7 @@
 	            <span class="label-container"><label for="confirmpassword" class="col-md-5 col-form-label">Confirm Password</label></span>
                 <div class="col-md-7">
                   <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" required>
+                  <span id="help-block-password-mismatch" class="help-block help-block-confirmpassword">Check that you used the same password in both the fields, you imbecile!</span>
                 </div>
               </div>
             </div>
@@ -191,7 +253,7 @@
           </div>
         </div>
 	    <div class="col-4">
-	    	<button type="button" class="btn btn-primary btn-lg" onclick="onSubmit()">Register</button>
+	    	<button type="button" class="btn btn-primary btn-lg" onclick="submit()">Register</button>
 	    </div>
 	    </form>
 	    <div id="success-dialog" style="display:none;" class="alert alert-success">
