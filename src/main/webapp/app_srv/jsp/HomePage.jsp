@@ -187,6 +187,11 @@ html {
 	background: #ccc;
 }
 </style>
+<script>
+$(document).ready(function() {
+	$("#home").addClass("active");
+});
+</script>
 <div class="row">
 
 <div class="col-4 col-s-4 menu">

@@ -1,5 +1,6 @@
 <script>
 	  $(document).ready(function () {
+		  $("#register").addClass("active");
 		  $(".help-block").hide();
 		  $("input").keyup(function() {
 			  var id = $(this).attr("id");

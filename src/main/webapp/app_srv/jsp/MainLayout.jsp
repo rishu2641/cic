@@ -23,12 +23,12 @@
     <link rel="stylesheet" href="/CIC/resources/app_srv/css/custom.css" />
   </head>
   <body class="text-center">
-    <div class="topnav">
-      <a class="active" href="#">Home</a>
-      <a href="/CIC/AllRecipes">All Recipes</a>
-      <a href="/CIC/About">About</a>
-      <a href="/CIC/Login" style="float:right;">Sign In</a>
-      <a href="/CIC/Register" style="float:right;">Register</a>
+    <div id="navbar" class="topnav">
+      <a id="home" href="/CIC/HomePage">Home</a>
+      <a id="allrecipes" href="/CIC/AllRecipes">All Recipes</a>
+      <a id="about" href="/CIC/About">About</a>
+      <a id="login" href="/CIC/Login" style="float:right;">Sign In</a>
+      <a id="register" href="/CIC/Register" style="float:right;">Register</a>
     </div>
   	<div id="body">
   	  <tiles:insertAttribute name="body" />
