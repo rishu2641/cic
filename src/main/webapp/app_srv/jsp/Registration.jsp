@@ -177,7 +177,7 @@
           </div>
         </div>
 	    <div class="col-4">
-	    	<button type="submit" class="btn btn-primary btn-lg" onclick="onSubmit()">Register</button>
+	    	<button type="button" class="btn btn-primary btn-lg" onclick="onSubmit()">Register</button>
 	    </div>
 	    </form>
 	    <div id="success-dialog" style="display:none;" class="alert alert-success">
