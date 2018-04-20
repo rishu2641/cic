@@ -47,9 +47,6 @@
         margin-top: 10px;
         margin-bottom:10px;
       }
-      .checkbox-container span {
-        text-align: left;
-      }
 	</style>
 	<script>
 	  $(document).ready(function () {
@@ -58,11 +55,15 @@
 			  var id = $(this).attr("id");
 			  $(".help-block-" + id).hide();
 			  validateField(id);
+			  $("#error-dialog").hide();
+			  $("#success-dialog").hide();
 		  });
 		  $("input").change(function() {
 			  var id = $(this).attr("id");
 			  $(".help-block-" + id).hide();
 			  validateField(id);
+			  $("#error-dialog").hide();
+			  $("#success-dialog").hide();
 		  });
 	  });
 	  function validateField(id) {
@@ -135,7 +136,6 @@
 			  return;
 		  }
 		  checkDuplicateUser();
-		  sendData();
 	  }
 	  function checkDuplicateUser() {
 		  $.ajax({
@@ -145,8 +145,9 @@
 				  "userid" : $.trim($("#userid").val())
 			  },
 			  success: function (success) {
-				  alert("success : " + success);
-				  if(!success) {
+				  if(success) {
+					  sendData();
+				  } else {
 					  $("#help-block-duplicate-userid").show();
 				  }
 			  },
@@ -189,11 +190,11 @@
   <body class="text-center">
     <div class="container" style="max-width:800px;">
       <h2 class="display-2">Registration</h2>
-	    <div id="success-dialog" class="dialog" style="display:none;" class="alert alert-success">
+	    <div id="success-dialog" class="alert alert-success dialog" style="display:none;">
   			<strong>Success!</strong>
   		    Redirecting you to login page.
 		</div>
-	    <div id="error-dialog" class="dialog" style="display:none;" class="alert alert-danger">
+	    <div id="error-dialog" class="alert alert-danger dialog" style="display:none;">
   			<strong>Error!</strong>
   			Please try again.
 		</div>
@@ -292,61 +293,31 @@
 	          </div>
 	        </div>
 	        <div class="row">
-              <div class="col-md-2 label-input">
-                <span class="label-container"><label for="height" class="col-md-4 col-form-label">Diet</label></span>
+              <div class="col-md-6 label-input">
+                <span class="label-container"><label for="lifestyle" class="col-md-4 col-form-label">Lifestyle</label></span>
+                <div class="col-md-8">
+                	<select class="form-control" name=lifestyle" id="lifestyle">
+                	  <option value="keto">Keto</option>
+                	  <option value="paleo">Paleo</option>
+                	  <option value="ovo">Ovo</option>
+                	  <option value="lactose-intolerant">Lactose Intolerant</option>
+                	  <option value="pescatarian">Pescatarian</option>
+                	  <option value="Pollotarian">Pollotarian</option>
+                	  <option value="Jain">Jain</option>
+                	  <option value="None" selected="selected">None</option>
+                	</select>
+                </div>
               </div>
-              <div class="col-md-10 checkbox-container btn-group btn"  data-toggle="buttons">
-              <div class="btn">
-                <span class="col-md-4 btn">
-                    <label class="btn btn-primary form-check-label">
-                	<input type="checkbox" value="keto" name="dietID" class="form-check-input">Keto
-                	</label>
-                </span>
-                <span class="col-md-4 btn">
-                	<label class="btn btn-primary form-check-label">
-                	<input type="checkbox" value="paleo" name="dietID">Paleo
-                	</label>
-                </span>
-                <span class="col-md-4 btn">
-                	<label class="btn btn-primary form-check-label">
-                	<input type="checkbox" value="ovo" name="dietID">Ovo
-                	</label>
-                </span>
-                <span class="col-md-4 btn">
-                	<label class="btn btn-primary form-check-label">
-                	<input type="checkbox" value="lactose-intolerance" name="dietID">Lactose Intolerance
-                	</label>
-                </span>
-                <span class="col-md-4 btn">
-                	<label class="btn btn-primary form-check-label">
-                	<input type="checkbox" value="vegan" name="dietID">Vegan
-                	</label>
-                </span>
-                <span class="col-md-4 btn">
-                	<label class="btn btn-primary form-check-label">
-                	<input type="checkbox" value="vegetarian" name="dietID">Vegetarian
-                	</label>
-                </span>
-                <span class="col-md-4 btn">
-                	<label class="btn btn-primary form-check-label">
-                	<input type="checkbox" value="non-vegetarian" name="dietID">Non Vegetarian
-                	</label>
-                </span>
-                <span class="col-md-4 btn">
-                	<label class="btn btn-primary form-check-label">
-                	<input type="checkbox" value="pescatarian" name="dietID">Pescatarian
-                	</label>
-                </span>
-                <span class="col-md-4 btn">
-                	<label class="btn btn-primary form-check-label">
-                	<input type="checkbox" value="pollotarian" name="dietID">Pollotarian
-                	</label>
-                </span>
-                <span class="col-md-4 btn">
-                	<label class="btn btn-primary form-check-label">
-                	<input type="checkbox" value="jain" name="dietID">Jain
-                	</label>
-                </span>
+              <div class="col-md-6 label-input">
+                <span class="label-container"><label for="diet" class="col-md-4 col-form-label">Diet</label></span>
+                <div class="col-md-8">
+                	<select class="form-control" name="diet" id="diet">
+                	  <option value="vegan">Vegan</option>
+                	  <option value="vegetarian">Vegetarian</option>
+                	  <option value="non-vegetarian">Non Vegetarian</option>
+                	  <option value="None" selected="selected">None</option>
+                	</select>
+                </div>
               </div>
 	        </div>
           </div>
