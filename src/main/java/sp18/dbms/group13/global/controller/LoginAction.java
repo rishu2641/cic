@@ -64,7 +64,8 @@ public class LoginAction {
 	
 	@RequestMapping(value = "/DuplicateUser", method = RequestMethod.POST)
 	public @ResponseBody Boolean DuplicateUser(LoginForm loginForm, HttpServletRequest request) {
-		if(loginForm.getUserid().length()>5) {
+		List<UserDetails> luT = loginService.checkLogin(loginForm);
+		if(luT.size()>0) {
 			return true;
 		}
 		return false;
