@@ -199,10 +199,8 @@ $(document).ready(function() {
 <tr><td>
   <div class="searchClass">
   <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search" style="width:400px;">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    <input type="text" placeholder="Search.." name="search" style="width:400px;">
+    <button type="button"><i class="fa fa-search"></i></button>
   </div>  
 </div>
 </td></tr>
@@ -219,7 +217,7 @@ $(document).ready(function() {
 <tr><td align='center'>
 <div style="height:20px;width:200px">
 	<form action="">
-	<button type="submit" value="" class="btallrec">Search Recipes</button>
+	<button type="button" value="" class="btallrec btn btn-primary btn-lg">Search Recipes</button>
 	</form>
 </div>
 </td></tr>
@@ -227,10 +225,10 @@ $(document).ready(function() {
 </div>
 
 <div class="col-6 col-s-9">
-  <h1 align='center'>Welcome!!</h1>
-  <div align='center'>Can I Cook??</div>
-	<div align='center'>Of course you can!! Just add the ingredients in your fridge and search for some amazing recipes that are simple to cook and amazing in taste!</div>
-	<div align='center'>Want curated suggestions just for you? Sign Up with us today!</div>
+  <h1 align='center' class="display-4">Welcome!!</h1>
+  <div align='center' class="intro">Can I Cook?</div>
+	<div align='center' class="intro">Of course you can!! Just add the ingredients in your fridge and search for some amazing recipes that are simple to cook and amazing in taste!</div>
+	<div align='center' class="intro">Want curated suggestions just for you? Sign Up with us today!</div>
 			<div class="container col-10 col-s-12" align='center'> 	
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
