@@ -111,12 +111,29 @@ html {
 .searchClass .search-container button:hover {
   background: #ccc;
 }
+.filter-text {
+    width: 43%;
+    display: inline-block;
+}
+.filter-text-label {
+	width: 100%;
+}
 </style>
 
 <div class="row">
 
 <div class="col-4 col-s-4 menu">
 <table>
+<tr><td>
+  <div class="searchClass">
+  <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search Ingredients.." name="search" style="width:400px;">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>  
+</div>
+</td></tr>
 <tr><td>
 	<div class="btcollapse">
 	<button class="btcollapse" type="button" data-toggle="collapse" data-target="#dietCheckBox">Diet</button>
@@ -144,16 +161,7 @@ html {
 	</div>
 	</div>
 </td></tr>
-<tr><td>
-  <div class="searchClass">
-  <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search Ingredients.." name="search" style="width:400px;">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>  
-</div>
-</td></tr>
+
 <tr><td>
 <div>
 <p><!--List of ingredients populated here--></p>
@@ -212,52 +220,30 @@ html {
 </td></tr>
 <tr><td>
 <div class="btcollapse">
-	<button class="btcollapse" type="button" data-toggle="collapse" data-target="#nutritionFilter">Nutritional Value</button>
+	<div>
+	  <button class="btcollapse" type="button" data-toggle="collapse" data-target="#nutritionFilter">Nutritional Value</button>
+	</div>
 	<div id="nutritionFilter" class="collapse btcollapse">
 		<div class="btcollapse">
 			<form>
-			<label>Cholesterol</label>
-			<div>
-				<label class="radio-inline">
-				<input type="text"> to <input type="text">
-				<label class="radio-inline">mg</label>
-				</label>
-			</div>
-			<label>Sodium</label>
-			<div>
-				<label class="radio-inline">
-				<input type="text"> to <input type="text">
-				<label class="radio-inline">mg</label>
-				</label>
-			</div>
-			<label>Protein</label>
-			<div>
-				<label class="radio-inline">
-				<input type="text"> to <input type="text">
-				<label class="radio-inline">g</label>
-				</label>
-			</div>
-			<label>Carbohydrate</label>
-			<div>
-				<label class="radio-inline">
-				<input type="text"> to <input type="text">
-				<label class="radio-inline">g</label>
-				</label>
-			</div>
-			<label>Fat</label>
-			<div>
-				<label class="radio-inline">
-				<input type="text"> to <input type="text">
-				<label class="radio-inline">g</label>
-				</label>
-			</div>
-			<label>Calories</label>
-			<div>
-				<label class="radio-inline">
-				<input type="text"> to <input type="text">
-				<label class="radio-inline">cal</label>
-				</label>
-			</div>
+			<label class="filter-text-label">Calories</label>
+				<input type="number" class="form-control filter-text" id="from-calories"> to
+				<input type="number" class="form-control filter-text" id="to-calories"> cal
+			<label class="filter-text-label">Cholesterol</label>
+				<input type="number" class="form-control filter-text" id="from-cholesterol"> to
+				<input type="number" class="form-control filter-text" id="to-cholesterol"> mg
+			<label class="filter-text-label">Sodium</label>
+				<input type="number" class="form-control filter-text" id="from-sodium"> to
+				<input type="number" class="form-control filter-text" id="to-sodium"> mg
+			<label class="filter-text-label">Protein</label>
+				<input type="number" class="form-control filter-text" id="from-protein"> to
+				<input type="number" class="form-control filter-text" id="to-protein"> mg
+			<label class="filter-text-label">Carbohydrate</label>
+				<input type="number" class="form-control filter-text" id="from-carbohydrate"> to
+				<input type="number" class="form-control filter-text" id="to-carbohydrate"> g
+			<label class="filter-text-label">Fat</label>
+				<input type="number" class="form-control filter-text" id="from-fat"> to
+				<input type="number" class="form-control filter-text" id="to-fat"> g
 			</form>
 		</div>
 	</div>
