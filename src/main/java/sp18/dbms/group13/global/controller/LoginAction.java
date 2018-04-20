@@ -48,11 +48,6 @@ public class LoginAction {
 
 	}
 
-	@RequestMapping(value = "/Login", method = RequestMethod.GET)
-	public String Login(LoginForm loginForm, HttpServletRequest request) {
-		return "login";
-
-	}
 
 	@RequestMapping(value = "/RegisterUser", method = RequestMethod.POST)
 	public @ResponseBody Boolean LoginPage(LoginForm loginForm, HttpServletRequest request) {
@@ -84,7 +79,7 @@ public class LoginAction {
 	@RequestMapping(value = "/Login", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView Login(LoginForm loginForm, HttpServletRequest request, HttpServletResponse response) {
 
-		ModelAndView modelandview = new ModelAndView("homepage");
+		ModelAndView modelandview = new ModelAndView("loginpage");
 		UserInfo usrInfo = (UserInfo) request.getSession().getAttribute("UserInfo");
 			if (usrInfo == null) {
 				String passwordHash = loginForm.getStrPassword();

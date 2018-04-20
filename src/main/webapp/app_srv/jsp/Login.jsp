@@ -4,6 +4,20 @@ $(document).ready(function() {
 	$("#login").addClass("active");
 });
 </script>
+
+  <script>
+  function login(){
+	  var Message=$('#pass').val();
+	$('#strPassword').val(Message);
+	$('#userid').val($('#user').val());
+	//alert(hash);
+	document.getElementById("login-form").action="/PRIT/Login";
+	//alert("before submit");
+	document.getElementById("login-form").submit();
+  }
+  
+  </script>
+
   <style>
   
 	body {
@@ -75,13 +89,15 @@ $(document).ready(function() {
   
   
   </style>
+  
 
   <div class="login-card">
     <h1>Log-in</h1><br>
-  <form>
-    <input type="text" name="user" placeholder="Username">
-    <input type="password" name="pass" placeholder="Password">
-    <input type="submit" name="login" class="login login-submit" value="login">
+  <form action="Login" id="login-form" method="post">
+  	
+    <input id="user" type="text" name="user" placeholder="Username">
+    <input id="pass" type="password" name="pass" placeholder="Password">
+    <input type="button" name="login" class="login login-submit" value="login" onclick="login()">
   </form>
 
   <div class="login-help">
@@ -89,6 +105,3 @@ $(document).ready(function() {
   </div>
 </div>
 
-<!-- <div id="error"><img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
-
-  <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
