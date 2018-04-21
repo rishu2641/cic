@@ -64,8 +64,16 @@ public class LoginDao {
 
 	public List<Recipe> getRecipeDetails(Recipe recipe) {
 		
-		String query = " select r.* from ingredients i, recipe r, ingredient_recipe_mapping irm where lower(name) like '%"+recipe.getSearchString().toLowerCase()+"%'" + 
-				"and i.id = irm.ingredientid and r.id = irm.recipeid;";
+		String query = "  select * from recipe where id in (select r.id from ingredients i, recipe r, ingredient_recipe_mapping irm where lower(i.name) like '%"+recipe.getSearchString().toLowerCase()+"%' " + 
+				"and i.id = irm.ingredientid and r.id = irm.recipeid )";
+		List<Recipe> users  = jdbcTemplate.query(query,
+				new BeanPropertyRowMapper(Recipe.class));
+		
+		return users;
+	}
+
+	public List<Recipe> getChefDetails(Recipe recipe) {
+		String query = "  select * from recipe where id in (select r.id from recipe r where lower(r.name) like '%"+recipe.getSearchString().toLowerCase()+"%' )" ;
 		List<Recipe> users  = jdbcTemplate.query(query,
 				new BeanPropertyRowMapper(Recipe.class));
 		

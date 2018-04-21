@@ -18,11 +18,7 @@ $(document).ready(function() {
 	  var Message=$('#pass').val();
 	$('#strPassword').val(Message);
 	$('#userid').val($('#user').val());
-	alert(Message);
-	alert($('#user').val());
-	//alert(hash);
 	document.getElementById("login-form").action="/CIC/Login";
-	//alert("before submit");
 	document.getElementById("login-form").submit();
   }
   

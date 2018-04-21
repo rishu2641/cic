@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -76,6 +77,12 @@ public class LoginAction {
   public String About() {
     return "about";
   }
+	
+	@RequestMapping(value = "/Logout", method = RequestMethod.GET)
+	  public String Logout(HttpServletRequest request) {
+		request.getSession().setAttribute("UserInfo", null);
+	    return "homepage";
+	  }
 
 	@RequestMapping(value = "/Login", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView Login(@ModelAttribute("loginform")LoginForm loginForm, HttpServletRequest request, HttpServletResponse response) {
@@ -128,5 +135,24 @@ public class LoginAction {
 
 	}
 
+	@RequestMapping(value = "/FetchRecipeDetails", method = RequestMethod.GET)
+	public String fetchRecipeDetails(@RequestParam(value="ingredients", required=true) String searchString, Recipe recipe, HttpServletRequest request) {
+		recipe.setSearchString(searchString);
+		List<Recipe> result = loginService.getRecipeDetails(recipe);
+		request.setAttribute("recipeList", result);
+		request.setAttribute("searchString", searchString);
+		return "allrecipes";
+
+	}
+	
+	@RequestMapping(value = "/FetchChefDetails", method = RequestMethod.GET)
+	public String fetchChefDetails(@RequestParam(value="chefname", required=true) String searchString, Recipe recipe, HttpServletRequest request) {
+		recipe.setSearchString(searchString);
+		List<Recipe> result = loginService.getChefDetails(recipe);
+		request.setAttribute("recipeList", result);
+		request.setAttribute("searchString", searchString);
+		return "allrecipes";
+
+	}
     
 }
