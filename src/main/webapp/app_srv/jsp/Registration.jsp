@@ -181,6 +181,8 @@
 								id="help-block-len-password"
 								class="help-block help-block-strPassword">Password can
 								have a minimum of 8 and a maximum of 16 characters.</span>
+								<!-- Sorry, your password must contain a capital letter, two numbers, a symbol, an inspiring message, a spell, a gang sign, a hieroglyph and the blood of a virgin -->
+								<!-- Sorry, your password is not good enough. Just like you. -->
 						</div>
 					</div>
 				</div>
