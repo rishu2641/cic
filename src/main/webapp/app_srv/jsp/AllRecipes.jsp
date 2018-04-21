@@ -128,8 +128,9 @@ html {
     padding-top: 10px;
 }
 .filter-text {
-    width: 85px;
+    width: 57px;
     display: inline-block;
+    padding-left: 3px;
 }
 .filter-text-label {
 	width: 90px;
@@ -145,12 +146,18 @@ html {
 }
 .label-container-1 {
     float: left;
+    padding-top: 3px;
+    padding-bottom: 5px;
 }
 .filter-container1 {
     width: 250px !important;
 }
 .filter-container2 {
 	width: 365px !important
+}
+.label-container-custom {
+	width: 237px;
+	margin-left: -53px;"
 }
 </style>
 
@@ -197,7 +204,7 @@ html {
 	  <i class="fa fa-angle-down"></i>
 	</button>
 	<div id="prepTimeFilter" class="collapse">
-		<div style="width: 134px;margin-left: 102px;">
+		<div style="width: 134px;margin-left: 58px;">
 			<div class = "label-container-1">
 				<label class="radio-inline"><input name="optradio" type="radio" value="30" id="prepTime30">less than 30 mins</label>
 			</div>
@@ -207,10 +214,10 @@ html {
 			<div class = "label-container-1">
 				<label class="radio-inline"><input name="optradio" type="radio" value="120" id="prepTime120">less than 120 mins</label>
 			</div>
-			<div class = "label-container-1" style="width: 363px;margin-left: -102px;">
+			<div class = "label-container-1 label-container-custom">
 				<label class="radio-inline"><input name="optradio" type="radio" value="120" id="prepTime120">custom</label>
-				<input type="number" class="form-control filter-text" id="from-prepTime"> to
-				<input type="number" class="form-control filter-text" id="to-prepTime"> mins
+				<input type="text" class="form-control filter-text" id="from-prepTime"> to
+				<input type="text" class="form-control filter-text" id="to-prepTime"> mins
 			</div>
 		</div>
 	</div>
@@ -222,7 +229,7 @@ html {
 	  <i class="fa fa-angle-down"></i>
 	</button>
 	<div id="cookTimeFilter" class="collapse">
-		<div style="width: 134px;margin-left: 102px;">
+		<div style="width: 134px;margin-left: 58px;">
 			<div class = "label-container-1">
 				<label class="radio-inline"><input name="optradio" type="radio" value="30" id="cookTime30">less than 30 mins</label>
 			</div>
@@ -232,10 +239,10 @@ html {
 			<div class = "label-container-1">
 				<label class="radio-inline"><input name="optradio" type="radio" value="120" id="cookTime120">less than 120 mins</label>
 			</div>
-			<div class = "label-container-1" style="width: 363px;margin-left: -102px;">
-				<label class="radio-inline"><input name="optradio" type="radio" value="120" id="cookTime120">custom</label>
-				<input type="number" class="form-control filter-text" id="from-cookTime"> to
-				<input type="number" class="form-control filter-text" id="to-cookTime"> mins
+			<div class = "label-container-1 label-container-custom">
+				<label class="radio-inline"><input name="optradio" type="radio" id="prepTimeCustom">custom</label>
+				<input type="text" class="form-control filter-text" id="from-cookTime"> to
+				<input type="text" class="form-control filter-text" id="to-cookTime"> mins
 			</div>
 		</div>
 	</div>
@@ -252,33 +259,33 @@ html {
 		<div>
 			<div class="text-container">
 			<label class="filter-text-label">Calories</label>
-				<input type="number" class="form-control filter-text" id="from-calories"> to
-				<input type="number" class="form-control filter-text" id="to-calories"> cal
+				<input type="text" class="form-control filter-text" id="from-calories"> to
+				<input type="text" class="form-control filter-text" id="to-calories"> cal
 			</div>
 			<div class="text-container">
 			<label class="filter-text-label">Cholesterol</label>
-				<input type="number" class="form-control filter-text" id="from-cholesterol"> to
-				<input type="number" class="form-control filter-text" id="to-cholesterol"> mg
+				<input type="text" class="form-control filter-text" id="from-cholesterol"> to
+				<input type="text" class="form-control filter-text" id="to-cholesterol"> mg
 			</div>
 			<div class="text-container">
 			<label class="filter-text-label">Sodium</label>
-				<input type="number" class="form-control filter-text" id="from-sodium"> to
-				<input type="number" class="form-control filter-text" id="to-sodium"> mg
+				<input type="text" class="form-control filter-text" id="from-sodium"> to
+				<input type="text" class="form-control filter-text" id="to-sodium"> mg
 			</div>
 			<div class="text-container">
 			<label class="filter-text-label">Protein</label>
-				<input type="number" class="form-control filter-text" id="from-protein"> to
-				<input type="number" class="form-control filter-text" id="to-protein"> mg
+				<input type="text" class="form-control filter-text" id="from-protein"> to
+				<input type="text" class="form-control filter-text" id="to-protein"> mg
 			</div>
 			<div class="text-container">
 			<label class="filter-text-label">Carbohydrate</label>
-				<input type="number" class="form-control filter-text" id="from-carbohydrate"> to
-				<input type="number" class="form-control filter-text" id="to-carbohydrate"> g
+				<input type="text" class="form-control filter-text" id="from-carbohydrate"> to
+				<input type="text" class="form-control filter-text" id="to-carbohydrate"> g
 			</div>
 			<div class="text-container">
 			<label class="filter-text-label">Fat</label>
-				<input type="number" class="form-control filter-text" id="from-fat"> to
-				<input type="number" class="form-control filter-text" id="to-fat"> g
+				<input type="text" class="form-control filter-text" id="from-fat"> to
+				<input type="text" class="form-control filter-text" id="to-fat"> g
 			</div>
 		</div>
 	</div>
