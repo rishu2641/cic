@@ -133,7 +133,7 @@ html {
     padding-left: 3px;
 }
 .filter-text-label {
-	width: 90px;
+	width: 100%;
     float: left;
     text-align: left;
     padding-top: 6px;
@@ -158,6 +158,11 @@ html {
 .label-container-custom {
 	width: 237px;
 	margin-left: -53px;"
+}
+.filter-text2 {
+    width: 72px;
+    display: inline-block;
+    padding-left: 3px;
 }
 </style>
 
@@ -259,33 +264,33 @@ html {
 		<div>
 			<div class="text-container">
 			<label class="filter-text-label">Calories</label>
-				<input type="text" class="form-control filter-text" id="from-calories"> to
-				<input type="text" class="form-control filter-text" id="to-calories"> cal
+				<input type="text" class="form-control filter-text2" id="from-calories"> to
+				<input type="text" class="form-control filter-text2" id="to-calories"> cal
 			</div>
 			<div class="text-container">
 			<label class="filter-text-label">Cholesterol</label>
-				<input type="text" class="form-control filter-text" id="from-cholesterol"> to
-				<input type="text" class="form-control filter-text" id="to-cholesterol"> mg
+				<input type="text" class="form-control filter-text2" id="from-cholesterol"> to
+				<input type="text" class="form-control filter-text2" id="to-cholesterol"> mg
 			</div>
 			<div class="text-container">
 			<label class="filter-text-label">Sodium</label>
-				<input type="text" class="form-control filter-text" id="from-sodium"> to
-				<input type="text" class="form-control filter-text" id="to-sodium"> mg
+				<input type="text" class="form-control filter-text2" id="from-sodium"> to
+				<input type="text" class="form-control filter-text2" id="to-sodium"> mg
 			</div>
 			<div class="text-container">
 			<label class="filter-text-label">Protein</label>
-				<input type="text" class="form-control filter-text" id="from-protein"> to
-				<input type="text" class="form-control filter-text" id="to-protein"> mg
+				<input type="text" class="form-control filter-text2" id="from-protein"> to
+				<input type="text" class="form-control filter-text2" id="to-protein"> mg
 			</div>
 			<div class="text-container">
 			<label class="filter-text-label">Carbohydrate</label>
-				<input type="text" class="form-control filter-text" id="from-carbohydrate"> to
-				<input type="text" class="form-control filter-text" id="to-carbohydrate"> g
+				<input type="text" class="form-control filter-text2" id="from-carbohydrate"> to
+				<input type="text" class="form-control filter-text2" id="to-carbohydrate"> g
 			</div>
-			<div class="text-container">
+			<div class="text-container" style="padding-bottom:10px;">
 			<label class="filter-text-label">Fat</label>
-				<input type="text" class="form-control filter-text" id="from-fat"> to
-				<input type="text" class="form-control filter-text" id="to-fat"> g
+				<input type="text" class="form-control filter-text2" id="from-fat"> to
+				<input type="text" class="form-control filter-text2" id="to-fat"> g
 			</div>
 		</div>
 	</div>
