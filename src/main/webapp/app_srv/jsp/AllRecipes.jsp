@@ -105,7 +105,7 @@ html {
   font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 80%;
+  width: 280px;
   background: #f1f1f1;
   margin-left: 12px;
 }
@@ -164,14 +164,56 @@ html {
     display: inline-block;
     padding-left: 3px;
 }
+#ingrContainer {
+    background: #dddddd;
+    margin-top: 58px;
+    width: 326px;
+    margin-left: 12px;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.ingredient {
+    border: 1px solid blue;
+    display: inline;
+    padding: 10px;
+    flex-grow: 1;
+}
+.remove-ingr-icon {
+    font-size: 20px;
+    padding-left: 10px;
+}
 </style>
-
+<script>
+  $(document).ready(function () {
+	  $("#search").keyup(function(event) {
+		    if (event.keyCode === 13) {
+		        $("#search-icon").click();
+		        $("#search").val("");
+		    }
+		});
+  });
+  var listOfIngr = [];
+  function addIngr() {
+	  var ingr = $("#search").val().trim();
+	  listOfIngr.push(ingr);
+	  $("#ingrContainer").append('<div class="ingredient">' + ingr + '<span onclick="removeIngr(this);"><i class="fa fa-times-circle remove-ingr-icon"></i></span></div>' );
+  }
+  function removeIngr(elem) {
+	  $(elem).parent().remove();
+  }
+</script>
 <div class="row" id="the-big-one">
 
 <div id="search-bar">
   <div id="search-container" class="col-md-3  filter-container2">
+      <div>
       <input type="text" placeholder="Search Ingredients.." name="search" id="search">
       <button type="button" id="search-icon" onclick="addIngr();"><i class="fa fa-plus"></i></button>
+      </div>
+      <div id="ingrContainer">
+      </div>
       <div>
 	    <button type="button" value="" class="btallrec">Search Recipes</button>
       </div>
@@ -211,18 +253,18 @@ html {
 	<div id="prepTimeFilter" class="collapse">
 		<div style="width: 134px;margin-left: 58px;">
 			<div class = "label-container-1">
-				<label class="radio-inline"><input name="optradio" type="radio" value="30" id="prepTime30">less than 30 mins</label>
+				<label class="radio-inline"><input type="radio" value="30" id="prepTime30" name="prepTime">less than 30 mins</label>
 			</div>
 			<div class = "label-container-1">
-				<label class="radio-inline"><input name="optradio" type="radio" value="60" id="prepTime60">less than 60 mins</label>
+				<label class="radio-inline"><input type="radio" value="60" id="prepTime60" name="prepTime">less than 60 mins</label>
 			</div>
 			<div class = "label-container-1">
-				<label class="radio-inline"><input name="optradio" type="radio" value="120" id="prepTime120">less than 120 mins</label>
+				<label class="radio-inline"><input type="radio" value="120" id="prepTime120" name="prepTime">less than 120 mins</label>
 			</div>
 			<div class = "label-container-1 label-container-custom">
-				<label class="radio-inline"><input name="optradio" type="radio" value="120" id="prepTime120">custom</label>
-				<input type="text" class="form-control filter-text" id="from-prepTime"> to
-				<input type="text" class="form-control filter-text" id="to-prepTime"> mins
+				<label class="radio-inline"><input type="radio" value="prepTimeCustom" id="prepTimeCustom" name="prepTime">custom</label>
+				<input type="text" class="form-control filter-text" id="from-prepTime" disabled> to
+				<input type="text" class="form-control filter-text" id="to-prepTime" disabled> mins
 			</div>
 		</div>
 	</div>
@@ -236,18 +278,18 @@ html {
 	<div id="cookTimeFilter" class="collapse">
 		<div style="width: 134px;margin-left: 58px;">
 			<div class = "label-container-1">
-				<label class="radio-inline"><input name="optradio" type="radio" value="30" id="cookTime30">less than 30 mins</label>
+				<label class="radio-inline"><input type="radio" value="30" id="cookTime30" name="cookTime">less than 30 mins</label>
 			</div>
 			<div class = "label-container-1">
-				<label class="radio-inline"><input name="optradio" type="radio" value="60" id="cookTime60">less than 60 mins</label>
+				<label class="radio-inline"><input type="radio" value="60" id="cookTime60" name="cookTime">less than 60 mins</label>
 			</div>
 			<div class = "label-container-1">
-				<label class="radio-inline"><input name="optradio" type="radio" value="120" id="cookTime120">less than 120 mins</label>
+				<label class="radio-inline"><input type="radio" value="120" id="cookTime120" name="cookTime">less than 120 mins</label>
 			</div>
 			<div class = "label-container-1 label-container-custom">
-				<label class="radio-inline"><input name="optradio" type="radio" id="prepTimeCustom">custom</label>
-				<input type="text" class="form-control filter-text" id="from-cookTime"> to
-				<input type="text" class="form-control filter-text" id="to-cookTime"> mins
+				<label class="radio-inline"><input type="radio" id="cookTimeCustom" value="cookTimeCustom" name="cookTime">custom</label>
+				<input type="text" class="form-control filter-text" id="from-cookTime" disabled> to
+				<input type="text" class="form-control filter-text" id="to-cookTime" disabled> mins
 			</div>
 		</div>
 	</div>
