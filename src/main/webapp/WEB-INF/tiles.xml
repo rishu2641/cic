@@ -37,5 +37,10 @@
 			value="/app_srv/jsp/About.jsp" />
 	</definition>
 	
+	<definition name="userProfile" extends="base.definition">
+		<put-attribute name="body"
+			value="/app_srv/jsp/UserProfile.jsp" />
+	</definition>
+	
 </tiles-definitions>
  

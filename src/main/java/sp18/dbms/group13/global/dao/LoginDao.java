@@ -79,6 +79,50 @@ public class LoginDao {
 		
 		return users;
 	}
+
+	public boolean updateProfileAndRegistration(LoginForm loginForm) {
+
+		String query = " select * from user_profile where userid = '"+loginForm.getUserid()+"' and isvalid = 1";
+		List<UserProfile> users  = jdbcTemplate.query(query,
+				new BeanPropertyRowMapper(UserProfile.class));
+		
+		int result = 0;
+		if(users.size()>0) {
+			String query1 = " update user_profile set isvalid = 0 where userid = '"+loginForm.getUserid()+"'";
+			result = jdbcTemplate.update(query1);
+		}
+		
+		
+		boolean update = false;
+		String query2 = " update user_details set ";
+		if(!loginForm.getFirstName().trim().equals("")) {
+			query2 += " fname = '"+loginForm.getFirstName()+"'";
+			update = true;
+		}
+		if(!loginForm.getFirstName().trim().equals("")) {
+			query2 += " fname = '"+loginForm.getFirstName()+"'";
+			update = true;
+		}
+		int result2 = 0;
+		if(update) {
+			result2 = jdbcTemplate.update(query2);
+		}
+
+        int count = jdbcTemplate.queryForObject("select count(*) from user_profile", Integer.class)+1; 
+
+		String query3 = " insert into user_profile (id, userid, dietid, lifestyle, weight, height, isvalid) values (?,?,?,?,?,?,?)";
+		int result3 = jdbcTemplate.update(query3, count,loginForm.getUserid(),(loginForm.getDietID()!=null && !loginForm.getDietID().trim().equals(""))?loginForm.getDietID():users.get(0).getDietid(),
+				(loginForm.getStrLifeStyle()!=null && !loginForm.getStrLifeStyle().trim().equals(""))?loginForm.getStrLifeStyle():users.get(0).getLifestyle(),
+						!(loginForm.getWeight()==0)?loginForm.getWeight():users.get(0).getWeight(),
+								!(loginForm.getHeight()==0)?loginForm.getHeight():users.get(0).getHeight(),1);
+
+
+		if(result>0 && result2>0 && result3>0) {
+			return true;
+		}
+		
+		return false;
+	}
 	
 	
 	

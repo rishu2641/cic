@@ -15,11 +15,13 @@ $(document).ready(function() {
 
   <script>
   function loginme(){
+	  callme()
 	  var Message=$('#pass').val();
 	$('#strPassword').val(Message);
 	$('#userid').val($('#user').val());
 	document.getElementById("login-form").action="/CIC/Login";
 	document.getElementById("login-form").submit();
+	$.unblockUI();
   }
   
   </script>

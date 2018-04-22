@@ -22,6 +22,8 @@
         Can I Cook
     </title>
     <script src="/CIC/resources/app_srv/js/jquery.min.js"></script>
+        <script src="/CIC/resources/app_srv/js/jquery.blockUI.js"></script>
+    
     <link rel="stylesheet" href="/CIC/resources/app_srv/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/CIC/resources/app_srv/css/bootstrap-theme.min.css" />
     <script src="/CIC/resources/app_srv/js/bootstrap.min.js"></script>
@@ -33,12 +35,42 @@
       <a id="home" href="/CIC/HomePage">Home</a>
       <a id="allrecipes" href="/CIC/AllRecipes">All Recipes</a>
       <a id="about" href="/CIC/About">About</a>
+      <a id="register" href="/CIC/Logout" style="float:right;">Sign Out</a>
       <a id="login" href="/CIC/Login" style="float:right;">Sign In</a>
       <a id="register" href="/CIC/Register" style="float:right;">Register</a>
     </div>
+    
+    <script>
+    function callme(){
+    	$.blockUI.defaults.css = { 
+                padding: 0,
+                margin: 0,
+                width: '30%',
+                top: '40%',
+                left: '35%',
+                textAlign: 'center',
+                cursor: 'wait'
+            };
+    	$.blockUI({ message: '<img src="/CIC/resources/app_srv/images/loader.gif" />' });
+    }
+    </script>
+    
   	<div id="body">
+  	<script>
+  	$.blockUI.defaults.css = { 
+            padding: 0,
+            margin: 0,
+            width: '30%',
+            top: '40%',
+            left: '35%',
+            textAlign: 'center',
+            cursor: 'wait'
+        };
+    $(document).ajaxStart($.blockUI({ message: '<img src="/CIC/resources/app_srv/images/loader.gif" />' })).ajaxStop($.unblockUI());
+    </script>
   	  <tiles:insertAttribute name="body" />
   	</div>
+  	</script>
   </body>
     
  

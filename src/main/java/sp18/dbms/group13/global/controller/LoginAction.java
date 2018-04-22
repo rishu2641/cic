@@ -100,7 +100,8 @@ public class LoginAction {
 							userInfo.setUserid(loginForm.getUserid());
 							request.getSession().setAttribute("UserInfo", userInfo);
 							List<UserProfile> lf = loginService.getUserDetails(loginForm);
-							modelandview.addObject("userDetails", lf.get(0));
+							modelandview.addObject("userProfile", lf.get(0));
+							modelandview.addObject("userDetails", luT.get(0));
 							modelandview.setViewName("dashboard");
 
 						}
@@ -120,7 +121,10 @@ public class LoginAction {
 			} else {
 				loginForm.setUserid(usrInfo.getUserid());
 				List<UserProfile> lf = loginService.getUserDetails(loginForm);
-				modelandview.addObject("userDetails", lf.get(0));
+				List<UserDetails> luT = loginService.checkLogin(loginForm);
+				
+				modelandview.addObject("userProfile", lf.get(0));
+				modelandview.addObject("userDetails", luT.get(0));
 				modelandview.setViewName("dashboard");
 			}
 		return modelandview;
@@ -154,5 +158,40 @@ public class LoginAction {
 		return "allrecipes";
 
 	}
+	
+	@RequestMapping(value = "/UserProfile", method = RequestMethod.GET)
+	public String userProfile(HttpServletRequest request) {
+		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("UserInfo");
+		String userId = "";
+		if(userInfo!=null) {
+			userId = userInfo.getUserid();
+			LoginForm loginForm = new LoginForm();
+			loginForm.setUserid(userId);
+			List<UserProfile> lf = loginService.getUserDetails(loginForm);
+			List<UserDetails> luT = loginService.checkLogin(loginForm);
+			
+			request.setAttribute("userProfile", lf.get(0));
+			request.setAttribute("userDetails", luT.get(0));
+		}
+		return "userProfile";
+
+	}
+	
+	@RequestMapping(value = "/UpdateProfile", method = RequestMethod.POST)
+	public @ResponseBody boolean updateProfile(LoginForm loginForm, HttpServletRequest request) {
+		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("UserInfo");
+		String userId = "";
+		if(userInfo!=null) {
+			userId = userInfo.getUserid();
+		}
+		loginForm.setUserid(userId);
+		boolean result = loginService.updateProfileAndRegistration(loginForm);
+		return result;
+
+	}
+	
+	
+	
+	
     
 }
