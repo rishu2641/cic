@@ -86,9 +86,11 @@ span.label-container {
 }
 
 .topnav a:hover {
-	background-color: #6C9AC3;
+	background-color: #568BB0;
 }
-
+.radio label, .checkbox label, label {
+	font-weight: 100;
+}
 .topnav a.active {
 	background-color: #00529B;
 }
