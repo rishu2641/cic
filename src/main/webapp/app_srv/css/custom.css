@@ -1,8 +1,51 @@
 @charset "ISO-8859-1";
+@font-face {
+    font-family: 'gentona';
+    src: url('../fonts/rene_bieder_-_gentona_bold-webfont.eot');
+    src: url('../fonts/rene_bieder_-_gentona_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rene_bieder_-_gentona_bold-webfont.woff') format('woff'),
+         url('../fonts/rene_bieder_-_gentona_bold-webfont.ttf') format('truetype'),
+         url('../fonts/rene_bieder_-_gentona_bold-webfont.svg#gentona_bookbold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'gentona';
+    src: url('../fonts/rene_bieder_-_gentona_medium-webfont.eot');
+    src: url('../fonts/rene_bieder_-_gentona_medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rene_bieder_-_gentona_medium-webfont.woff') format('woff'),
+         url('../fonts/rene_bieder_-_gentona_medium-webfont.ttf') format('truetype'),
+         url('../fonts/rene_bieder_-_gentona_medium-webfont.svg#gentonamedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'gentona';
+    src: url('../fonts/rene_bieder_-_gentona_light-webfont.eot');
+    src: url('../fonts/rene_bieder_-_gentona_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rene_bieder_-_gentona_light-webfont.woff') format('woff'),
+         url('../fonts/rene_bieder_-_gentona_light-webfont.ttf') format('truetype'),
+         url('../fonts/rene_bieder_-_gentona_light-webfont.svg#gentonamedium') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'gentona';
+    src: url('../fonts/rene_bieder_-_gentona_light_italic-webfont.eot');
+    src: url('../fonts/rene_bieder_-_gentona_light_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rene_bieder_-_gentona_light_italic-webfont.woff') format('woff'),
+         url('../fonts/rene_bieder_-_gentona_light_italic-webfont.ttf') format('truetype'),
+         url('../fonts/rene_bieder_-_gentona_light_italic-webfont.svg#gentonamedium') format('svg');
+    font-weight: 100;
+    font-style: italic;
+}
 body {
 	overflow-y: auto;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+/*    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";*/
+	font-family: "gentona", "Georgia", serif;
     overflow-x: hidden;
+    background: #faf8f1 url("../images/bg-texture.png");
 }
 span.label-container {
 	text-align: left;
@@ -22,22 +65,9 @@ span.label-container {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-
-
-@media screen and (max-width: 600px) {
-	.topnav a {
-		float: none;
-		display: block;
-		text-align: left;
-		width: 100%;
-		margin: 0;
-		padding: 14px;
-	}
-}
 .topnav {
 	overflow: hidden;
-    background-color: #1B6EB8;
-    color: white;
+    background-color: #dd661e;
 }
 
 .topnav a {
@@ -47,179 +77,159 @@ span.label-container {
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
-	font-size: 17px;
+	font-size: 14px;
+	font-stretch: 100%;
+	font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 14px;
+    text-transform: uppercase;
 }
 
 .topnav a:hover {
-	background-color: #2196F3;
-	color: white;
+	background-color: #6C9AC3;
 }
 
 .topnav a.active {
-	background-color: #2196F3;
-	color: white;
-	font-weight: bold;
+	background-color: #00529B;
 }
-
-/*
-* {
-	box-sizing: border-box;
-}
-
-img {
-	width: auto;
-	height: auto;
-	size: container;
-}
-
-.row:after {
-	content: "";
-	clear: both;
-	display: table;
-}
-
-[class*="col-"] {
-	float: left;
-	padding: 15px;
-	width: 100%;
-}
-
-@media only screen and (min-width: 600px) {
-	.col-s-1 {
-		width: 8.33%;
-	}
-	.col-s-2 {
-		width: 16.66%;
-	}
-	.col-s-3 {
-		width: 25%;
-	}
-	.col-s-4 {
-		width: 33.33%;
-	}
-	.col-s-5 {
-		width: 41.66%;
-	}
-	.col-s-6 {
-		width: 50%;
-	}
-	.col-s-7 {
-		width: 58.33%;
-	}
-	.col-s-8 {
-		width: 66.66%;
-	}
-	.col-s-9 {
-		width: 75%;
-	}
-	.col-s-10 {
-		width: 83.33%;
-	}
-	.col-s-11 {
-		width: 91.66%;
-	}
-	.col-s-12 {
-		width: 100%;
-	}
-}
-
-@media only screen and (min-width: 768px) {
-	.col-1 {
-		width: 8.33%;
-	}
-	.col-2 {
-		width: 16.66%;
-	}
-	.col-3 {
-		width: 25%;
-	}
-	.col-4 {
-		width: 33.33%;
-	}
-	.col-5 {
-		width: 41.66%;
-	}
-	.col-6 {
-		width: 50%;
-	}
-	.col-7 {
-		width: 58.33%;
-	}
-	.col-8 {
-		width: 66.66%;
-	}
-	.col-9 {
-		width: 75%;
-	}
-	.col-10 {
-		width: 83.33%;
-	}
-	.col-11 {
-		width: 91.66%;
-	}
-	.col-12 {
-		width: 100%;
-	}
-}
-
-html {
-	font-family: "Lucida Sans", sans-serif;
-}
-
-.menu {
-	padding: 8px;
-	margin-bottom: 7px;
-}
-
-
-
-.btallrec {
-	background-color: #2196F3;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-}
-
-.btallrec button:hover {
-	background-color: #0099cc;
-}
-
-
-
-.searchClass .search-container {
-	float: left;
-}
-
-.searchClass input[type=text] {
-	padding: 6px;
-	margin-left: 17px;
-	margin-top: 8px;
-	font-size: 17px;
-	border: none;
-}
-
-.searchClass .search-container button {
-	float: right;
-	padding: 6px 10px;
-	margin-top: 8px;
-	margin-right: 16px;
-	background: #ddd;
-	font-size: 17px;
-	border: none;
-	cursor: pointer;
-}
-
-.searchClass .search-container button:hover {
-	background: #ccc;
-}
-
-*/
 .intro {
 	font-size: 17px;
     letter-spacing: 1px;
 }
+
+/* AllRecipes - START */
+.menu{
+    padding: 8px;
+    margin-bottom: 7px;
+}
+.btallrec{
+	background-color: #2196F3;
+	color: white;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.btallrec button:hover{
+	background-color: #0099cc;
+}
+
+.btcollapse{
+	padding: 0px;
+	border: 1px solid #00529B;
+	
+}
+
+.btcollapse button{
+	border: none;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 18px;
+    color: #00529b;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.btcollapse button:hover {
+	text-decoration: underline;
+}
+#search-container {
+  float: left;
+  padding-right: 0px;
+}
+#search-container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+#search {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 280px;
+  background: #f1f1f1;
+  margin-left: 12px;
+}
+#search-icon {
+  float: left;
+    height: 46px;
+    width: 46px;
+    background: #00529B;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+#search-icon:hover {
+  /*background: #ccc;*/
+  background: #6C9AC3;
+}
+#search-bar {
+    padding-top: 10px;
+}
+.filter-text {
+    width: 57px;
+    display: inline-block;
+    padding-left: 3px;
+}
+.filter-text-label {
+	width: 100%;
+    float: left;
+    text-align: left;
+    padding-top: 6px;
+}
+#the-big-one {
+    width: 100%;
+}
+.text-container {
+    padding-top: 10px;
+}
+.label-container-1 {
+    float: left;
+    padding-top: 3px;
+    padding-bottom: 5px;
+}
+.filter-container1 {
+    width: 250px !important;
+}
+.filter-container2 {
+	width: 365px !important
+}
+.label-container-custom {
+	width: 237px;
+	margin-left: -53px;"
+}
+.filter-text2 {
+    width: 72px;
+    display: inline-block;
+    padding-left: 3px;
+}
+#ingrContainer {
+    background: #dddddd;
+    margin-top: 58px;
+    width: 326px;
+    margin-left: 12px;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.ingredient {
+    border: 1px solid blue;
+    display: inline;
+    padding: 10px;
+    flex-grow: 1;
+}
+.remove-ingr-icon {
+    font-size: 20px;
+    padding-left: 10px;
+}
+/* AllRecipes - END */

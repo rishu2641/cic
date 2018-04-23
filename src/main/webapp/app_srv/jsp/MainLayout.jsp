@@ -32,12 +32,14 @@
   </head>
   <body class="text-center">
     <div id="navbar" class="topnav">
+      <a id="uf" href="http://www.ufl.edu/" class="logo"><img src="https://accessibility.ufl.edu/media/templates/uf2015/img/logo-uf.svg" alt="logo-uf" style="width:-1px;height:-1px;" class=""></a>
+      
       <a id="home" href="/CIC/HomePage">Home</a>
       <a id="allrecipes" href="/CIC/AllRecipes">All Recipes</a>
       <a id="about" href="/CIC/About">About</a>
-      <a id="register" href="/CIC/Logout" style="float:right;">Sign Out</a>
-      <a id="login" href="/CIC/Login" style="float:right;">Sign In</a>
-      <a id="register" href="/CIC/Register" style="float:right;">Register</a>
+      <a id="register" href="/CIC/Logout">Sign Out</a>
+      <a id="login" href="/CIC/Login">SIGN IN</a>
+      <a id="register" href="/CIC/Register">REGISTER</a>
     </div>
     
     <script>

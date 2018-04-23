@@ -2,6 +2,7 @@
 <title>All Recipes</title>
 <script>
 $(document).ready(function() {
+	window.document.title = "AllRecipes";
 	$("#allrecipes").addClass("active");
 });
 </script>
@@ -19,171 +20,7 @@ img {
     clear: both;
     display: table;
 }
-/*[class*="col-"] {
-	float:left;
-    padding: 15px;
-    width: 100%;
-}*/
-@media only screen and (min-width: 600px) {
-    .col-s-1 {width: 8.33%;}
-    .col-s-2 {width: 16.66%;}
-    .col-s-3 {width: 25%;}
-    .col-s-4 {width: 33.33%;}
-    .col-s-5 {width: 41.66%;}
-    .col-s-6 {width: 50%;}
-    .col-s-7 {width: 58.33%;}
-    .col-s-8 {width: 66.66%;}
-    .col-s-9 {width: 75%;}
-    .col-s-10 {width: 83.33%;}
-    .col-s-11 {width: 91.66%;}
-    .col-s-12 {width: 100%;}
-}
-@media only screen and (min-width: 768px) {
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
-}
-html {
-    font-family: "Lucida Sans", sans-serif;
-}
-.menu{
-    padding: 8px;
-    margin-bottom: 7px;
-}
-.btallrec{
-	background-color: #2196F3;
-	color: white;
-    padding: 6px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 17px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
 
-.btallrec button:hover{
-	background-color: #0099cc;
-}
-
-.btcollapse{
-	padding: 0px;
-	border: 1px solid blue;
-	
-}
-
-.btcollapse button{
-	border: none;
-    /* margin-left: 17px; */
-    /* margin-top: 5px; */
-    font-size: 17px;
-    /* text-align: center; */
-    width: 100%;
-    padding: 10px;
-}
-
-#search-container {
-  float: left;
-  padding-right: 0px;
-}
-#search-container::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-#search {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 280px;
-  background: #f1f1f1;
-  margin-left: 12px;
-}
-#search-icon {
-  float: left;
-    height: 46px;
-    width: 46px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-}
-#search-icon:hover {
-  /*background: #ccc;*/
-  background: #0b7dda;
-}
-#search-bar {
-    padding-top: 10px;
-}
-.filter-text {
-    width: 57px;
-    display: inline-block;
-    padding-left: 3px;
-}
-.filter-text-label {
-	width: 100%;
-    float: left;
-    text-align: left;
-    padding-top: 6px;
-}
-#the-big-one {
-    width: 100%;
-}
-.text-container {
-    padding-top: 10px;
-}
-.label-container-1 {
-    float: left;
-    padding-top: 3px;
-    padding-bottom: 5px;
-}
-.filter-container1 {
-    width: 250px !important;
-}
-.filter-container2 {
-	width: 365px !important
-}
-.label-container-custom {
-	width: 237px;
-	margin-left: -53px;"
-}
-.filter-text2 {
-    width: 72px;
-    display: inline-block;
-    padding-left: 3px;
-}
-#ingrContainer {
-    background: #dddddd;
-    margin-top: 58px;
-    width: 326px;
-    margin-left: 12px;
-    padding: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-.ingredient {
-    border: 1px solid blue;
-    display: inline;
-    padding: 10px;
-    flex-grow: 1;
-}
-.remove-ingr-icon {
-    font-size: 20px;
-    padding-left: 10px;
-}
 </style>
 <script>
   $(document).ready(function () {
@@ -194,14 +31,24 @@ html {
 		    }
 		});
   });
-  var listOfIngr = [];
+  var ingrSet = new Set();
   function addIngr() {
 	  var ingr = $("#search").val().trim();
-	  listOfIngr.push(ingr);
-	  $("#ingrContainer").append('<div class="ingredient">' + ingr + '<span onclick="removeIngr(this);"><i class="fa fa-times-circle remove-ingr-icon"></i></span></div>' );
+	  if(!ingrSet.has(ingr)) {
+		  $("#ingrContainer").show();
+		  ingrSet.add(ingr);
+		  $("#ingrContainer").append('<div class="ingredient">' + ingr + '<span onclick="removeIngr(this);"><i class="fa fa-times-circle remove-ingr-icon"></i></span></div>' );
+	  }
   }
   function removeIngr(elem) {
 	  $(elem).parent().remove();
+	  ingrSet.delete(elem.parentElement.textContent);
+	  if(ingrSet.size==0) {
+		  $("#ingrContainer").hide();
+	  }
+  }
+  function search() {
+	  
   }
 </script>
 <div class="row" id="the-big-one">
@@ -212,10 +59,10 @@ html {
       <input type="text" placeholder="Search Ingredients.." name="search" id="search">
       <button type="button" id="search-icon" onclick="addIngr();"><i class="fa fa-plus"></i></button>
       </div>
-      <div id="ingrContainer">
+      <div id="ingrContainer" style="display:none;">
       </div>
       <div>
-	    <button type="button" value="" class="btallrec">Search Recipes</button>
+	    <button type="button" value="" class="btallrec" id="search" onclick="search();">Search Recipes</button>
       </div>
   </div> 
   <div class="btcollapse col-md-3 filter-container1">

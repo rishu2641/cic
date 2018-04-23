@@ -1,5 +1,6 @@
 <script>
 	  $(document).ready(function () {
+		  window.document.title = "Register";
 		  $("#register").addClass("active");
 		  $(".help-block").hide();
 		  $("input").keyup(function() {
@@ -77,6 +78,11 @@
 				  $("#help-block-max-weight").hide();
 			  }
 		  }
+		  if(!valid) {
+			  $("#submit-btn").attr("disabled", "disabled");
+		  } else {
+			  $("#submit-btn").removeAttr("disabled");
+		  }
 		  return valid;
 	  }
 	  function submit() {
@@ -87,24 +93,24 @@
 		  if(!valid) {
 			  return;
 		  }
-		  checkDuplicateUser();
+		  checkDuplicateUser(true);
 	  }
-	  function checkDuplicateUser() {
+	  function checkDuplicateUser(submit) {
 		  $.ajax({
 			  type: "POST",
 			  url: "/CIC/DuplicateUser",
 			  data: {
 				  "userid" : $.trim($("#userid").val())
 			  },
-			  success: function (success) {
-				  if(success) {
-					  sendData();
-				  } else {
+			  success: function (failure) {
+				  if(failure) {
 					  $("#help-block-duplicate-userid").show();
+				  }
+				  if(submit){
+					  sendData();
 				  }
 			  },
 			  error: function (error) {
-				  alert("error : " + error);
 				  $("#help-block-duplicate-userid").show();
 			  }
 		  });
@@ -127,7 +133,8 @@
 			  },
 			  success: function (response) {
 				  if(response) {
-					  $("#success-dialog").show();
+					  $("#success-dialog").fadeIn().delay(2000).fadeOut();
+					  window.location.replace("/CIC/Login");
 				  } else {
 					  $("#error-dialog").show();
 				  }
@@ -138,10 +145,9 @@
 		  });
 	  }
 	</script>
-</head>
-<body class="text-center">
+<div class="text-center">
 	<div class="container" style="max-width: 800px;">
-		<h2 class="display-2">Registration</h2>
+		<h2 class="display-2" style="margin-top: 5px;">Registration</h2>
 		<div id="success-dialog" class="alert alert-success dialog"
 			style="display: none;">
 			<strong>Success!</strong> Redirecting you to login page.
@@ -306,7 +312,7 @@
 			</div>
 		</div>
 		<div class="col-4">
-			<button type="button" class="btn btn-primary btn-lg"
+			<button id="submit-btn" type="button" class="btn btn-primary btn-lg"
 				onclick="submit();">Register</button>
 		</div>
 	</div>

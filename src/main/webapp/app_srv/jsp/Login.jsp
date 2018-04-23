@@ -9,58 +9,51 @@
 <title>Login</title>
 <script>
 $(document).ready(function() {
+	window.document.title="Login";
 	$("#login").addClass("active");
+	if(window.document.referrer.indexOf("Register") != -1) {
+		  $("#success-dialog").fadeIn();
+	}
 });
-</script>
-
-  <script>
   function loginme(){
-	  callme()
+	  callme();
 	  var Message=$('#pass').val();
 	$('#strPassword').val(Message);
 	$('#userid').val($('#user').val());
 	document.getElementById("login-form").action="/CIC/Login";
 	document.getElementById("login-form").submit();
-	$.unblockUI();
+	$.delay(5000).unblockUI();
   }
   
   </script>
 
   <style>
-  
-	body {
-  background: url(https://dl.dropboxusercontent.com/u/23299152/Wallpapers/wallpaper-22705.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  font-family: 'Roboto', sans-serif;
-}
-
-.login-card h1 {
+ #login-card h1 {
   font-weight: 100;
   text-align: center;
   font-size: 2.3em;
 }
 
-.login-card {
+#login-card {
   padding: 40px;
-  width: 274px;
   background-color: #F7F7F7;
   margin: 0 auto 10px;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  clear: both;
+  margin-left: 37%;
+  margin-top: 15px;
 }
 
-.login-card input[type=submit] {
+#login-card input[type=submit] {
   width: 100%;
   display: block;
   margin-bottom: 10px;
   position: relative;
 }
 
-.login-card input[type=text], input[type=password] {
+#login-card input[type=text], input[type=password] {
   height: 44px;
   font-size: 16px;
   width: 100%;
@@ -94,23 +87,27 @@ $(document).ready(function() {
   text-align: center;
   font-size: 12px;
 }
-  
-  
   </style>
   
-
-  <div class="login-card">
+<div class="container">
+  <div id="success-dialog" class="col-md-6 col-md-offset-3" style="display:none;">
+    <div class="alert alert-success dialog" style="display: block;">
+	  <strong>Successfully Registered!</strong> Please sign in to continue.
+	</div>
+  </div>
+  <div id="login-card" class="col-md-3 col-md-offset-4">
     <h1>Sign In</h1><br>
   <form:form action="Login" modelAttribute="loginform" id="login-form" method="post">
   	<form:input type="hidden" path="strPassword" id="strPassword" name="strPassword"/>
   		<form:input type="hidden" path="userid" id="userid" name="userid"/>
     <input id="user" type="text" name="user" placeholder="Username">
     <input id="pass" type="password" name="pass" placeholder="Password">
-    <input type="button" name="login" class="login login-submit" value="login" onclick="loginme()">
+    <input class="btn-lg btn-primary" type="button" name="login" class="login login-submit" value="Sign In" onclick="loginme()">
   </form:form>
 
   <div class="login-help">
-    <a href="#">Register</a>  <a href="#">Forgot Password</a>
+    <a href="#">Forgot Password</a>
   </div>
+</div>
 </div>
 
