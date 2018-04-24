@@ -146,7 +146,7 @@
 	  }
 	</script>
 <div class="text-center">
-	<div class="container" style="max-width: 800px;">
+	<div>
 		<div id="success-dialog" class="alert alert-success dialog"
 			style="display: none;">
 			<strong>Success!</strong> Redirecting you to login page.
@@ -155,74 +155,92 @@
 			style="display: none;">
 			<strong>Error!</strong> Please try again.
 		</div>
-		<div class="panel panel-primary">
-			<div class="panel-heading">Primary Details</div>
-			<div class="panel-body">
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-7 label-input">
-						<span class="label-container"><label for="userid"
-							class="col-md-5 col-form-label">User Name</label></span>
-						<div class="col-md-7">
-							<input type="text" class="form-control" id="userid"
+		<div id="registration-container">
+			<div id="primary-container">
+				<div class="registration-heading">
+					Primary Details
+				</div>
+				<div class="input-container">
+					<label for="userid" class="col-md-5 col-form-label">User Name</label>
+					<input type="text" class="form-control" id="userid"
 								placeholder="Username" required> <span
 								id="help-block-duplicate-userid"
 								class="help-block help-block-userid">Username already
 								exists. Get creative!</span> <span id="help-block-len-userid"
 								class="help-block help-block-userid">Username is
 								mandatory and can only have a maximum of 16 characters.</span>
-						</div>
-					</div>
-					<div class="col-md-2"></div>
 				</div>
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-7 label-input">
-						<span class="label-container"><label for="strPassword"
-							class="col-md-5 col-form-label">Password</label></span>
-						<div class="col-md-7">
-							<input type="password" class="form-control" id="strPassword"
+				<div class="input-container">
+					<label for="strPassword" class="col-md-5 col-form-label">Password</label>
+					<input type="password" class="form-control" id="strPassword"
 								placeholder="Password" required> <span
 								id="help-block-len-password"
 								class="help-block help-block-strPassword">Password can
 								have a minimum of 8 and a maximum of 16 characters.</span>
 								<!-- Sorry, your password must contain a capital letter, two numbers, a symbol, an inspiring message, a spell, a gang sign, a hieroglyph and the blood of a virgin -->
 								<!-- Sorry, your password is not good enough. Just like you. -->
-						</div>
-					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-7 label-input">
-						<span class="label-container"><label for="confirmpassword"
-							class="col-md-5 col-form-label">Confirm Password</label></span>
-						<div class="col-md-7">
-							<input type="password" class="form-control" id="confirmpassword"
+				<div class="input-container">
+					<label for="confirmpassword"
+							class="col-md-5 col-form-label">Confirm Password</label>
+					<input type="password" class="form-control" id="confirmpassword"
 								placeholder="Confirm Password" required> <span
 								id="help-block-password-mismatch"
 								class="help-block help-block-confirmpassword">Password
 								mismatch</span>
+				</div>
+			</div>
+			<div id="secondary-container">
+				<div class="registration-heading">
+					Secondary Details
+				</div>
+				<div id="sub-secondary-container1">
+					<div class="input-container">
+						<label for="firstName" class="col-md-4 col-form-label">First Name</label>
+						<input type="text" class="form-control" id="firstName"
+								placeholder="First Name" required> <span
+								id="help-block-len-firstname"
+								class="help-block help-block-firstName">First name is
+								mandatory and can only have a maximum of 20 characters.</span>
+					</div>
+					<div class="input-container">
+						<label class="col-md-4 col-form-label">Gender</label>
+						<div>
+						<label class="col-md-6" for="male"> Male <input class=""
+								type="radio" name="strGender" id="male" value="male">
+							</label> <label class="col-md-6" for="female"> Female <input
+								class="" type="radio" name="strGender" id="female"
+								value="female">
+							</label>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-2"></div>
+				<div id="sub-secondary-container2">
+					<div class="input-container">
+						<label for="lastName"
+							class="col-md-4 col-form-label">Last Name</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">Primary Details</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-7 label-input">
+					</div>
+				</div>
+				<div class="row">
+				</div>
+				<div class="row">
+				</div>
 			</div>
 		</div>
 		<div class="panel panel-primary">
 			<div class="panel-heading">Secondary Details</div>
 			<div class="panel-body">
 				<div class="row">
-					<div class="col-md-6 label-input">
-						<span class="label-container"><label for="firstName"
-							class="col-md-4 col-form-label">First Name</label></span>
-						<div class="col-md-8">
-							<input type="text" class="form-control" id="firstName"
-								placeholder="First Name" required> <span
-								id="help-block-len-firstname"
-								class="help-block help-block-firstName">First name is
-								mandatory and can only have a maximum of 20 characters.</span>
-						</div>
-					</div>
+					
 					<div class="col-md-6 label-input">
 						<span class="label-container"><label for="lastName"
 							class="col-md-4 col-form-label">Last Name</label></span>

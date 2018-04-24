@@ -1,12 +1,14 @@
 @charset "ISO-8859-1";
 /*
 Primary color: dark blue: #00529b
+primary blue2: #003260
+secondary orange2: #9D4316
 secondary orange: #dd661e
-secondary red: #e62739
+secondary red: #9D4316
 background:light grey-cream: #faf8f1
 bright red: #D7182A
 blue: #568BB0
-light blue:#00529B
+light blue:#003260
 btn blue: #084b81
 btn hover: #4c87b5
 other colors:
@@ -117,7 +119,7 @@ span.label-container {
 
 .topnav {
 	overflow: hidden;
-	background-color: #e62739;
+	background-color: #9D4316;
 	display: flex;
 	justify-content: space-between;
 }
@@ -150,7 +152,7 @@ label {
 }
 
 .topnav a.active {
-	background-color: #00529B;
+	background-color: #003260;
 }
 
 .intro {
@@ -166,7 +168,7 @@ label {
 	padding-right: 8px;
 	padding-bottom: 0px;
 	color: blue;
-	background: #00529b;
+	background: #003260;
 }
 
 .topnav-icon {
@@ -176,14 +178,19 @@ label {
 }
 
 .panel-primary>.panel-heading {
-	background: #00529b url('../images/bg-texture-dark.png');
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-weight: 500;
+    background: #003260 url(../images/bg-texture-dark.png);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    color: #fff;
 }
 
 .panel {
-	margin-top: 20px;
+    margin-top: 20px;
+    border: 1px solid blue;
+    border-radius: 5px;
 }
 
 .btn-primary, .btn-primary:active, .btn-primary.active {
@@ -222,7 +229,7 @@ label {
 
 .btcollapse {
     padding: 0px;
-    border: 1px solid #00529B;
+    border: 1px solid #003260;
     flex: 1;
     width: 0;
 }
@@ -235,7 +242,7 @@ label {
 	padding-left: 5px;
 	padding-right: 5px;
 	font-size: 18px;
-	color: #00529b;
+	color: #003260;
 	font-weight: 500;
 	letter-spacing: 2px;
 	cursor: pointer;
@@ -261,7 +268,7 @@ label {
 #search {
 	padding: 10px;
 	font-size: 17px;
-	border: 1px solid #00529B;
+	border: 1px solid #003260;
 	float: left;
     flex: 1;
 	background: #f1f1f1;
@@ -292,7 +299,7 @@ label {
 	float: left;
 	height: 47px;
 	width: 46px;
-	background: #00529B;
+	background: #003260;
 	color: white;
 	font-size: 17px;
 	border: 1px solid grey;
@@ -416,7 +423,7 @@ img {
 	font: 700 34px/38px "gentona", "Georgia", serif;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color:#00529b;
+    color:#003260;
     margin-top:20px;
 }
 #site-title {
@@ -442,7 +449,7 @@ img {
     flex-direction: column;
 }
 .view-recipe-link {
-	color: #e62739;
+	color: #9D4316;
 	font: 500 16px/16px "gentona", "Georgia", serif;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -450,7 +457,7 @@ img {
     float: right;
 }
 .view-recipe-link:hover {
-	color: #00529b;
+	color: #003260;
 }
 .card-text {
 	text-transform: none;
@@ -482,7 +489,7 @@ img {
 }
 .recipe-item-title {
     float: left;
-    color: #e62739;
+    color: #9D4316;
     font-family: 'gentona', Arial, sans-serif;
     font-size: 23px;
     font-weight: 500;
@@ -492,4 +499,49 @@ img {
     text-align: left;
     line-height: normal;
     font-size: 10px;
+}
+#registration-container {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.registration-heading {
+	background: #003260 url(../images/bg-texture-dark.png);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+.input-container input {
+    max-width: 300px;
+}
+#primary-container {
+	display:flex;
+	justify-content:center;
+	flex-direction:column;
+	margin-top: 20px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    width: 50%;
+}
+#secondary-container {
+	display:flex;
+	justify-content:center;
+	flex-direction:row;
+	margin-top: 20px;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+#sub-secondary-container1, #sub-secondary-container2 {
+	display:flex;
+	justify-content:center;
+	flex-direction:row;
+}
+.input-container {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
