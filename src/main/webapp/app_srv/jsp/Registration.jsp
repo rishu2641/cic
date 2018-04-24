@@ -147,7 +147,6 @@
 	</script>
 <div class="text-center">
 	<div class="container" style="max-width: 800px;">
-		<h2 class="display-2" style="margin-top: 5px;">Registration</h2>
 		<div id="success-dialog" class="alert alert-success dialog"
 			style="display: none;">
 			<strong>Success!</strong> Redirecting you to login page.

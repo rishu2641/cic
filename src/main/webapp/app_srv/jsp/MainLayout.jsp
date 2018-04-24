@@ -37,7 +37,7 @@
       <a id="home" href="/CIC/HomePage"><i class="fa fa-home"></i>Home</a>
       <a id="allrecipes" href="/CIC/AllRecipes">All Recipes</a>
       <a id="about" href="/CIC/About">About</a>
-      <a id="register" href="/CIC/Logout">Sign Out</a>
+      <a id="sign-out" href="/CIC/Logout">Sign Out</a>
       <a id="login" href="/CIC/Login">Sign In</a>
       <a id="register" href="/CIC/Register">Register</a>
       <a id="how-to" href="#">How to use CIC</a>

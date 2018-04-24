@@ -1,52 +1,83 @@
 @charset "ISO-8859-1";
-@font-face {
-    font-family: 'gentona';
-    src: url('../fonts/rene_bieder_-_gentona_bold-webfont.eot');
-    src: url('../fonts/rene_bieder_-_gentona_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/rene_bieder_-_gentona_bold-webfont.woff') format('woff'),
-         url('../fonts/rene_bieder_-_gentona_bold-webfont.ttf') format('truetype'),
-         url('../fonts/rene_bieder_-_gentona_bold-webfont.svg#gentona_bookbold') format('svg');
-    font-weight: 700;
-    font-style: normal;
 
+@font-face {
+	font-family: 'gentona';
+	src: url('../fonts/rene_bieder_-_gentona_bold-webfont.eot');
+	src: url('../fonts/rene_bieder_-_gentona_bold-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('../fonts/rene_bieder_-_gentona_bold-webfont.woff') format('woff'),
+		url('../fonts/rene_bieder_-_gentona_bold-webfont.ttf')
+		format('truetype'),
+		url('../fonts/rene_bieder_-_gentona_bold-webfont.svg#gentona_bookbold')
+		format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'gentona';
+	src: url('../fonts/rene_bieder_-_gentona_medium-webfont.eot');
+	src: url('../fonts/rene_bieder_-_gentona_medium-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('../fonts/rene_bieder_-_gentona_medium-webfont.woff')
+		format('woff'),
+		url('../fonts/rene_bieder_-_gentona_medium-webfont.ttf')
+		format('truetype'),
+		url('../fonts/rene_bieder_-_gentona_medium-webfont.svg#gentonamedium')
+		format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'gentona';
+	src: url('../fonts/rene_bieder_-_gentona_light-webfont.eot');
+	src: url('../fonts/rene_bieder_-_gentona_light-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('../fonts/rene_bieder_-_gentona_light-webfont.woff')
+		format('woff'),
+		url('../fonts/rene_bieder_-_gentona_light-webfont.ttf')
+		format('truetype'),
+		url('../fonts/rene_bieder_-_gentona_light-webfont.svg#gentonamedium')
+		format('svg');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'gentona';
+	src: url('../fonts/rene_bieder_-_gentona_light_italic-webfont.eot');
+	src:
+		url('../fonts/rene_bieder_-_gentona_light_italic-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('../fonts/rene_bieder_-_gentona_light_italic-webfont.woff')
+		format('woff'),
+		url('../fonts/rene_bieder_-_gentona_light_italic-webfont.ttf')
+		format('truetype'),
+		url('../fonts/rene_bieder_-_gentona_light_italic-webfont.svg#gentonamedium')
+		format('svg');
+	font-weight: 100;
+	font-style: italic;
 }
 @font-face {
-    font-family: 'gentona';
-    src: url('../fonts/rene_bieder_-_gentona_medium-webfont.eot');
-    src: url('../fonts/rene_bieder_-_gentona_medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/rene_bieder_-_gentona_medium-webfont.woff') format('woff'),
-         url('../fonts/rene_bieder_-_gentona_medium-webfont.ttf') format('truetype'),
-         url('../fonts/rene_bieder_-_gentona_medium-webfont.svg#gentonamedium') format('svg');
-    font-weight: 500;
+    font-family: 'gentonalight';
+    src: url('fonts/rene_bieder_-_gentona_light-webfont.eot');
+    src: url('fonts/rene_bieder_-_gentona_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_gentona_light-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_gentona_light-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_gentona_light-webfont.svg#gentonalight') format('svg');
+    font-weight: normal;
     font-style: normal;
-}
-@font-face {
-    font-family: 'gentona';
-    src: url('../fonts/rene_bieder_-_gentona_light-webfont.eot');
-    src: url('../fonts/rene_bieder_-_gentona_light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/rene_bieder_-_gentona_light-webfont.woff') format('woff'),
-         url('../fonts/rene_bieder_-_gentona_light-webfont.ttf') format('truetype'),
-         url('../fonts/rene_bieder_-_gentona_light-webfont.svg#gentonamedium') format('svg');
-    font-weight: 100;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'gentona';
-    src: url('../fonts/rene_bieder_-_gentona_light_italic-webfont.eot');
-    src: url('../fonts/rene_bieder_-_gentona_light_italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/rene_bieder_-_gentona_light_italic-webfont.woff') format('woff'),
-         url('../fonts/rene_bieder_-_gentona_light_italic-webfont.ttf') format('truetype'),
-         url('../fonts/rene_bieder_-_gentona_light_italic-webfont.svg#gentonamedium') format('svg');
-    font-weight: 100;
-    font-style: italic;
 }
 body {
 	overflow-y: auto;
-/*    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";*/
+	/*    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";*/
 	font-family: "gentona", "Georgia", serif;
-    overflow-x: hidden;
-    background: #faf8f1 url("../images/bg-texture.png");
+	overflow-x: hidden;
+	background: #faf8f1 url("../images/bg-texture.png");
+	font-weight: 100;
 }
+
 span.label-container {
 	text-align: left;
 	line-height: 29px;
@@ -58,231 +89,289 @@ span.label-container {
 
 .help-block {
 	font-size: 11px;
-	color: #CC3300;
+	color: #D7182A;
 }
 
 .dialog {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
 .topnav {
 	overflow: hidden;
-    background-color: #dd661e;
-        display: flex;
-    justify-content: space-between;
+	background-color: #dd661e;
+	display: flex;
+	justify-content: space-between;
 }
 
 .topnav a {
-	    display: block;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-    font-stretch: 100%;
-    font-weight: 700;
-    letter-spacing: 2px;
-    line-height: 14px;
-    padding-top: 14px;
-    padding-right: 29px;
-    padding-left: 28px;
-    text-transform: uppercase;
+	display: block;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	font-size: 14px;
+	font-stretch: 100%;
+	font-weight: 700;
+	letter-spacing: 2px;
+	line-height: 14px;
+	padding-top: 14px;
+	padding-right: 27px;
+	padding-left: 28px;
+	text-transform: uppercase;
 }
 
 .topnav a:hover {
 	background-color: #568BB0;
 }
-.radio label, .checkbox label, label {
+
+.radio label, .checkbox label {
 	font-weight: 100;
 }
+label {
+	font-family: "gentonalight", "Georgia", serif !important;
+}
+
 .topnav a.active {
 	background-color: #00529B;
 }
+
 .intro {
 	font-size: 17px;
-    letter-spacing: 1px;
-}
-#uf {
-	width: 50px;
-    height: 43px;
-    padding-top: 10px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-bottom: 0px;
-    color: blue;
-    background: #00529b;
-}
-.topnav-icon {
-	font-size: 20px !important;
-    margin-top: -5px !important;
-}
-/* AllRecipes - START */
-.menu{
-    padding: 8px;
-    margin-bottom: 7px;
-}
-.btallrec{
-	background-color: #2196F3;
-	color: white;
-    padding: 6px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 17px;
-    margin: 4px 2px;
-    cursor: pointer;
+	letter-spacing: 1px;
 }
 
-.btallrec button:hover{
+#uf {
+	width: 53px;
+	height: 43px;
+	padding-top: 10px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 0px;
+	color: blue;
+	background: #00529b;
+}
+
+.topnav-icon {
+	font-size: 20px !important;
+	margin-top: -5px !important;
+	padding-top: 16px !important;
+}
+
+.panel-primary>.panel-heading {
+	background: #00529b url('../images/bg-texture-dark.png');
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 500;
+}
+
+.panel {
+	margin-top: 20px;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary.active {
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	font: 700 16px/24px "gentona", "Georgia", serif;
+	letter-spacing: 2px;
+	background: #084b81;
+}
+
+.btn-primary:hover {
+	background: #4c87b5;
+}
+/* AllRecipes - START */
+.menu {
+	padding: 8px;
+	margin-bottom: 7px;
+}
+
+.btallrec {
+	background-color: #2196F3;
+	color: white;
+	padding: 6px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 17px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.btallrec button:hover {
 	background-color: #0099cc;
 }
 
-.btcollapse{
+.btcollapse {
 	padding: 0px;
 	border: 1px solid #00529B;
-	
 }
 
-.btcollapse button{
+.btcollapse button {
 	border: none;
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 18px;
-    color: #00529b;
-    font-weight: 500;
-    letter-spacing: 2px;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 18px;
+	color: #00529b;
+	font-weight: 500;
+	letter-spacing: 2px;
 }
+
 .btcollapse button:hover {
 	text-decoration: underline;
 }
+
 #search-container {
-  float: left;
-  padding-right: 0px;
+	float: left;
+	padding-right: 0px;
 }
+
 #search-container::after {
-  content: "";
-  clear: both;
-  display: table;
+	content: "";
+	clear: both;
+	display: table;
 }
+
 #search {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid #00529B;
-  float: left;
-  width: 280px;
-  background: #f1f1f1;
-  margin-left: 12px;
+	padding: 10px;
+	font-size: 17px;
+	border: 1px solid #00529B;
+	float: left;
+	width: 280px;
+	background: #f1f1f1;
+	margin-left: 12px;
 }
+
 #search-btn {
 	background: #084b81;
-    color: #fff;
-    display: block;
-    font: 700 16px/24px "gentona", "Georgia", serif;
-    letter-spacing: 2px;
-    padding: 18px;
-    text-align: center;
-    text-transform: uppercase;
+	color: #fff;
+	display: block;
+	font: 700 16px/24px "gentona", "Georgia", serif;
+	letter-spacing: 2px;
+	padding: 18px;
+	text-align: center;
+	text-transform: uppercase;
 	margin-left: 12px;
-    width: 327px;
+	width: 327px;
 }
+
 #search-btn:hover {
 	background: #4c87b5;
 }
+
 #search-icon {
-  float: left;
-    height: 46px;
-    width: 46px;
-    background: #00529B;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
+	float: left;
+	height: 46px;
+	width: 46px;
+	background: #00529B;
+	color: white;
+	font-size: 17px;
+	border: 1px solid grey;
+	border-left: none;
+	cursor: pointer;
 }
+
 #search-icon:hover {
-  /*background: #ccc;*/
-  background: #6C9AC3;
+	/*background: #ccc;*/
+	background: #6C9AC3;
 }
+
 #search-bar {
-    padding-top: 10px;
+	padding-top: 10px;
 }
+
 .filter-text {
-    width: 57px;
-    display: inline-block;
-    padding-left: 3px;
+	width: 57px;
+	display: inline-block;
+	padding-left: 3px;
 }
+
 .filter-text-label {
 	width: 100%;
-    float: left;
-    text-align: left;
-    padding-top: 6px;
+	float: left;
+	text-align: left;
+	padding-top: 6px;
 }
+
 #the-big-one {
-    width: 100%;
+	width: 100%;
 }
+
 .text-container {
-    padding-top: 10px;
+	padding-top: 10px;
 }
+
 .label-container-1 {
-    float: left;
-    padding-top: 3px;
-    padding-bottom: 5px;
+	float: left;
+	padding-top: 3px;
+	padding-bottom: 5px;
 }
+
 .filter-container1 {
-    width: 250px !important;
+	width: 250px !important;
 }
+
 .filter-container2 {
 	width: 365px !important
 }
+
 .label-container-custom {
 	width: 237px;
-	margin-left: -53px;"
+	margin-left: -53px;
+	"
 }
+
 .filter-text2 {
-    width: 72px;
-    display: inline-block;
-    padding-left: 3px;
+	width: 72px;
+	display: inline-block;
+	padding-left: 3px;
 }
+
 #ingrContainer {
-    background: #fff;
-    margin-top: 58px;
-    width: 326px;
-    margin-left: 12px;
-    padding: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+	background: #fff;
+	margin-top: 58px;
+	width: 326px;
+	margin-left: 12px;
+	padding: 15px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
 }
+
 .ingredient {
-    border: 2px solid #f37021;
-    display: inline;
-    padding: 10px;
-    flex-grow: 1;
-    margin:5px;
+	border: 2px solid #f37021;
+	display: inline;
+	padding: 10px;
+	flex-grow: 1;
+	margin: 5px;
 }
+
 .remove-ingr-icon {
-    font-size: 20px !important;
-    padding-left: 10px;
+	font-size: 20px !important;
+	padding-left: 10px;
 }
+
 .removeIngrContainer {
 	border: 1px solid #f37021;
-    color: #fff;
-    background: #f37021;
-    font-size: 20px;
-    margin-left: 13px;
-    padding-left: 0px;
-    padding-right: 8px;
-    float: right;
-    padding-top: 5px;
-    margin-top: -5px;
-    margin-bottom: -5px;
-    padding-bottom: 5px;
-    cursor: pointer;
+	color: #fff;
+	background: #f37021;
+	font-size: 20px;
+	margin-left: 13px;
+	padding-left: 0px;
+	padding-right: 8px;
+	float: right;
+	padding-top: 5px;
+	margin-top: -5px;
+	margin-bottom: -5px;
+	padding-bottom: 5px;
+	cursor: pointer;
 }
+
 .removeIngrContainer:hover {
-    color: #f37021;
-    background: #fff;
+	color: #f37021;
+	background: #fff;
 }
 /* AllRecipes - END */
