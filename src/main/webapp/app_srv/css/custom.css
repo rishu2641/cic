@@ -1,9 +1,9 @@
 @charset "ISO-8859-1";
 /*
 Primary color: dark blue: #00529b
+secondary orange: #dd661e
 background:light grey-cream: #faf8f1
 bright red: #D7182A
-orange: #dd661e
 blue: #568BB0
 light blue:#00529B
 btn blue: #084b81
@@ -14,6 +14,8 @@ other colors:
 #f1f1f1
 #6C9AC3
 #f37021
+
+#e62739
 */
 @font-face {
 	font-family: 'gentona';
@@ -114,7 +116,7 @@ span.label-container {
 
 .topnav {
 	overflow: hidden;
-	background-color: #dd661e;
+	background-color: #e62739;
 	display: flex;
 	justify-content: space-between;
 }
@@ -286,7 +288,7 @@ label {
 
 #search-icon {
 	float: left;
-	height: 46px;
+	height: 47px;
 	width: 46px;
 	background: #00529B;
 	color: white;
@@ -438,7 +440,7 @@ img {
     flex-direction: column;
 }
 .view-recipe-link {
-	color: #f58200;
+	color: #e62739;
 	font: 500 16px/16px "gentona", "Georgia", serif;
     letter-spacing: 2px;
     text-transform: uppercase;

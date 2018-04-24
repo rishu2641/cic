@@ -71,7 +71,7 @@ $(document).ready(function() {
 </script>
 <div class="row" id="the-big-one">
   <div id="search-container" class="col-md-3  filter-container2">
-    <div  style="display: flex;flex-direction: row;">
+    <div  style="display: flex;flex-direction: row;margin-bottom: 17px; margin-left: 5px;">
       <input type="text" placeholder="Search Ingredients.." name="search" id="search">
       <button type="button" id="search-icon" onclick="addIngr();"><i class="fa fa-plus"></i></button>
     </div>
