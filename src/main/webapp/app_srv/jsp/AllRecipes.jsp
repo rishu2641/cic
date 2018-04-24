@@ -52,7 +52,7 @@ img {
   var ingrSet = new Set();
   function addIngr() {
 	  var ingr = $("#search").val().trim();
-	  if(!ingrSet.has(ingr)) {
+	  if(!ingrSet.has(ingr) && ingr != "") {
 		  $("#ingrContainer").show();
 		  ingrSet.add(ingr);
 		  $("#ingrContainer").append('<div class="ingredient">' + ingr + '<span class="removeIngrContainer" onclick="removeIngr(this);"><i class="fa fa-times remove-ingr-icon"></i></span></div>' );

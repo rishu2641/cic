@@ -34,13 +34,17 @@
     <div id="navbar" class="topnav">
       <a id="uf" href="http://www.ufl.edu/" class="logo"><img src="https://accessibility.ufl.edu/media/templates/uf2015/img/logo-uf.svg" alt="logo-uf" style="width:-1px;height:-1px;" class=""></a>
       
-      <a id="home" href="/CIC/HomePage">Home</a>
+      <a id="home" href="/CIC/HomePage"><i class="fa fa-home"></i>Home</a>
       <a id="allrecipes" href="/CIC/AllRecipes">All Recipes</a>
       <a id="about" href="/CIC/About">About</a>
       <a id="register" href="/CIC/Logout">Sign Out</a>
       <a id="login" href="/CIC/Login">Sign In</a>
       <a id="register" href="/CIC/Register">Register</a>
+      <a id="how-to" href="#">How to use CIC</a>
       <a id="contact" href="#">Contact</a>
+      <a id="facebook" class="topnav-icon" href="https://facebook.com/canicook/"><i class="fa fa-facebook-f"></i></a>
+      <a id="twitter" class="topnav-icon"  href="https://twitter.com/canicook/"><i class="fa fa-twitter"></i></a>
+      <a id="instagram" class="topnav-icon"  href="https://instagram.com/canicook/"><i class="fa fa-instagram"></i></a>
     </div>
     
     <script>
