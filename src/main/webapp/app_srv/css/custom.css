@@ -1,5 +1,20 @@
 @charset "ISO-8859-1";
-
+/*
+Primary color: dark blue: #00529b
+background:light grey-cream: #faf8f1
+bright red: #D7182A
+orange: #dd661e
+blue: #568BB0
+light blue:#00529B
+btn blue: #084b81
+btn hover: #4c87b5
+other colors:
+#2196F3
+#0099cc
+#f1f1f1
+#6C9AC3
+#f37021
+*/
 @font-face {
 	font-family: 'gentona';
 	src: url('../fonts/rene_bieder_-_gentona_bold-webfont.eot');
@@ -412,4 +427,51 @@ img {
     padding-right: 0px;
     display: flex;
     flex-direction: row;
+}
+#allrecipes-container {
+	padding-right: 10px;
+    padding-left: 5px;
+}
+#allrecipes-body {
+	padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.view-recipe-link {
+	color: #f58200;
+	font: 500 16px/16px "gentona", "Georgia", serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    float: right;
+}
+.view-recipe-link:hover {
+	color: #00529b;
+}
+.card-text {
+	text-transform: none;
+	font: 500 24px/36px "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 1px;
+}
+.recipe-item-container {
+	display:flex;
+	flex-direction:row;
+}
+.recipe-item-thumbnail img {
+	width: 100px;
+	height: 100px;
+}
+.recipe-item-content {
+	flex:1;
+	display:flex;
+	flex-direction:column;
+    text-align: left;
+}
+.recipe-item-title {
+	float: left;
+    padding-left: 10px;
+}
+.recipe-item-author {
+	text-align:left;
+	padding-left: 20px;
 }
