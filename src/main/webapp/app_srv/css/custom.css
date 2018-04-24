@@ -203,8 +203,10 @@ label {
 }
 
 .btcollapse {
-	padding: 0px;
-	border: 1px solid #00529B;
+    padding: 0px;
+    border: 1px solid #00529B;
+    flex: 1;
+    width: 0;
 }
 
 .btcollapse button {
@@ -226,12 +228,14 @@ label {
 
 #search-container {
 	float: left;
-	padding-right: 0px;
+    padding-right: 0px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+    padding-left: 10px;
 }
 #search-container.home {
     margin-top: 84px;
-    display: flex;
-    flex-direction: column;
     padding-left: 30px;
     padding-right: 20px;
 }
@@ -240,13 +244,10 @@ label {
 	font-size: 17px;
 	border: 1px solid #00529B;
 	float: left;
-	width: 280px;
+    flex: 1;
 	background: #f1f1f1;
-	margin-left: 12px;
 }
 #search.home {
-	width: auto;
-    flex: 1;
     margin-left: 1px;
 }
 #search-btn {
@@ -258,12 +259,10 @@ label {
 	padding: 18px;
 	text-align: center;
 	text-transform: uppercase;
-	margin-left: 12px;
-	width: 327px;
 }
 #search-btn.home {
-	width: 100% !important;
-    margin-left: -1px !important;
+    margin-left: -1px;
+	width: 100%;
 }
 
 #search-btn:hover {
@@ -308,6 +307,11 @@ label {
 
 #the-big-one {
 	width: 100%;
+	padding-top: 20px;
+	padding-right: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    margin-left: 0px;
 }
 
 .text-container {
@@ -318,14 +322,6 @@ label {
 	float: left;
 	padding-top: 3px;
 	padding-bottom: 5px;
-}
-
-.filter-container1 {
-	width: 250px !important;
-}
-
-.filter-container2 {
-	width: 365px !important
 }
 
 .label-container-custom {
@@ -411,4 +407,9 @@ img {
 }
 .site-desc {
 	
+}
+#allrecipes-filter-container {
+    padding-right: 0px;
+    display: flex;
+    flex-direction: row;
 }

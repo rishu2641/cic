@@ -25,7 +25,6 @@
         <script src="/CIC/resources/app_srv/js/jquery.blockUI.js"></script>
     
     <link rel="stylesheet" href="/CIC/resources/app_srv/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/CIC/resources/app_srv/css/bootstrap-theme.min.css" />
     <script src="/CIC/resources/app_srv/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/CIC/resources/app_srv/css/custom.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
