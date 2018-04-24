@@ -228,13 +228,13 @@ label {
 	float: left;
 	padding-right: 0px;
 }
-
-#search-container::after {
-	content: "";
-	clear: both;
-	display: table;
+#search-container.home {
+    margin-top: 84px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 20px;
 }
-
 #search {
 	padding: 10px;
 	font-size: 17px;
@@ -244,7 +244,11 @@ label {
 	background: #f1f1f1;
 	margin-left: 12px;
 }
-
+#search.home {
+	width: auto;
+    flex: 1;
+    margin-left: 1px;
+}
 #search-btn {
 	background: #084b81;
 	color: #fff;
@@ -256,6 +260,10 @@ label {
 	text-transform: uppercase;
 	margin-left: 12px;
 	width: 327px;
+}
+#search-btn.home {
+	width: 100% !important;
+    margin-left: -1px !important;
 }
 
 #search-btn:hover {
@@ -273,9 +281,11 @@ label {
 	border-left: none;
 	cursor: pointer;
 }
-
+#search-icon.home {
+	height: 66px !important;
+    width: 72px !important;
+}
 #search-icon:hover {
-	/*background: #ccc;*/
 	background: #6C9AC3;
 }
 
@@ -331,8 +341,6 @@ label {
 }
 
 #ingrContainer {
-	background: #fff;
-	margin-top: 58px;
 	width: 326px;
 	margin-left: 12px;
 	padding: 15px;
@@ -375,3 +383,32 @@ label {
 	background: #fff;
 }
 /* AllRecipes - END */
+
+* {
+    box-sizing: border-box;
+}
+img {
+    width: auto;
+    height: auto;
+	size: container;
+}
+.row:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+#site-welcome {
+	font: 700 34px/38px "gentona", "Georgia", serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color:#00529b;
+    margin-top:20px;
+}
+#site-title {
+	color: #FA4616;
+	font-family: 'Roboto', sans-serif;
+	text-transform: uppercase;
+}
+.site-desc {
+	
+}

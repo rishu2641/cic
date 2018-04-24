@@ -23,24 +23,6 @@ $(document).ready(function() {
         }
     });
 });
-</script>
-<style>
-* {
-    box-sizing: border-box;
-}
-img {
-    width: auto;
-    height: auto;
-	size: container;
-}
-.row:after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-</style>
-<script>
   $(document).ready(function () {
 	  $("#search").keyup(function(event) {
 		    if (event.keyCode === 13) {
