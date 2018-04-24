@@ -38,8 +38,9 @@
       <a id="allrecipes" href="/CIC/AllRecipes">All Recipes</a>
       <a id="about" href="/CIC/About">About</a>
       <a id="register" href="/CIC/Logout">Sign Out</a>
-      <a id="login" href="/CIC/Login">SIGN IN</a>
-      <a id="register" href="/CIC/Register">REGISTER</a>
+      <a id="login" href="/CIC/Login">Sign In</a>
+      <a id="register" href="/CIC/Register">Register</a>
+      <a id="contact" href="#">Contact</a>
     </div>
     
     <script>

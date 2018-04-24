@@ -153,11 +153,26 @@ span.label-container {
 #search {
   padding: 10px;
   font-size: 17px;
-  border: 1px solid grey;
+  border: 1px solid #00529B;
   float: left;
   width: 280px;
   background: #f1f1f1;
   margin-left: 12px;
+}
+#search-btn {
+	background: #084b81;
+    color: #fff;
+    display: block;
+    font: 700 16px/24px "gentona", "Georgia", serif;
+    letter-spacing: 2px;
+    padding: 18px;
+    text-align: center;
+    text-transform: uppercase;
+	margin-left: 12px;
+    width: 327px;
+}
+#search-btn:hover {
+	background: #4c87b5;
 }
 #search-icon {
   float: left;
@@ -215,7 +230,7 @@ span.label-container {
     padding-left: 3px;
 }
 #ingrContainer {
-    background: #dddddd;
+    background: #fff;
     margin-top: 58px;
     width: 326px;
     margin-left: 12px;
@@ -225,13 +240,33 @@ span.label-container {
     align-items: center;
 }
 .ingredient {
-    border: 1px solid blue;
+    border: 2px solid #f37021;
     display: inline;
     padding: 10px;
     flex-grow: 1;
+    margin:5px;
 }
 .remove-ingr-icon {
-    font-size: 20px;
+    font-size: 20px !important;
     padding-left: 10px;
+}
+.removeIngrContainer {
+	border: 1px solid #f37021;
+    color: #fff;
+    background: #f37021;
+    font-size: 20px;
+    margin-left: 13px;
+    padding-left: 0px;
+    padding-right: 8px;
+    float: right;
+    padding-top: 5px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+.removeIngrContainer:hover {
+    color: #f37021;
+    background: #fff;
 }
 /* AllRecipes - END */

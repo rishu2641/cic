@@ -4,6 +4,24 @@
 $(document).ready(function() {
 	window.document.title = "AllRecipes";
 	$("#allrecipes").addClass("active");
+	$('input[type=radio][name=prepTime]').change(function() {
+        if (this.value == 'prepTimeCustom') {
+        	$("#from-prepTime").removeAttr("disabled");
+        	$("#to-prepTime").removeAttr("disabled");
+        } else {
+        	$("#from-prepTime").attr("disabled", "disabled");
+        	$("#to-prepTime").attr("disabled", "disabled");
+        }
+    });
+	$('input[type=radio][name=cookTime]').change(function() {
+        if (this.value == 'cookTimeCustom') {
+        	$("#from-cookTime").removeAttr("disabled");
+        	$("#to-cookTime").removeAttr("disabled");
+        } else {
+        	$("#from-cookTime").attr("disabled", "disabled");
+        	$("#to-cookTime").attr("disabled", "disabled");
+        }
+    });
 });
 </script>
 <style>
@@ -37,7 +55,7 @@ img {
 	  if(!ingrSet.has(ingr)) {
 		  $("#ingrContainer").show();
 		  ingrSet.add(ingr);
-		  $("#ingrContainer").append('<div class="ingredient">' + ingr + '<span onclick="removeIngr(this);"><i class="fa fa-times-circle remove-ingr-icon"></i></span></div>' );
+		  $("#ingrContainer").append('<div class="ingredient">' + ingr + '<span class="removeIngrContainer" onclick="removeIngr(this);"><i class="fa fa-times remove-ingr-icon"></i></span></div>' );
 	  }
   }
   function removeIngr(elem) {
@@ -62,7 +80,7 @@ img {
       <div id="ingrContainer" style="display:none;">
       </div>
       <div>
-	    <button type="button" value="" class="btallrec" id="search" onclick="search();">Search Recipes</button>
+	    <button type="button" value="" class="btallrec" id="search-btn" onclick="search();">Search Recipes</button>
       </div>
   </div> 
   <div class="btcollapse col-md-3 filter-container1">
