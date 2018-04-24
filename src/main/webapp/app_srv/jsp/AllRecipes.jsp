@@ -226,14 +226,13 @@ $(document).ready(function() {
 	  	  <img src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
 	  	</div>
 	  	<div class="recipe-item-content">
-	  	  <div class="recipe-item-title"> Balls. Big ones.
+	  	  <div class="recipe-item-title"> Balls. Small ones.
 	  	  </div>
 	  	  <div class="recipe-item-author">
 	  	    by <a href="#authorpage">author</a>
 	  	  </div>
 	  	  <div class="recipe-item-desc">
-	  	    Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls.
-	  	    Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. 
+	  	    Balls. Balls. Balls.
 	  	    <a class="view-recipe-link" href="#">View recipe</a>
 	  	  </div>
 	  	</div>

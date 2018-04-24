@@ -2,6 +2,7 @@
 /*
 Primary color: dark blue: #00529b
 secondary orange: #dd661e
+secondary red: #e62739
 background:light grey-cream: #faf8f1
 bright red: #D7182A
 blue: #568BB0
@@ -15,7 +16,7 @@ other colors:
 #6C9AC3
 #f37021
 
-#e62739
+
 */
 @font-face {
 	font-family: 'gentona';
@@ -237,6 +238,7 @@ label {
 	color: #00529b;
 	font-weight: 500;
 	letter-spacing: 2px;
+	cursor: pointer;
 }
 
 .btcollapse button:hover {
@@ -474,12 +476,20 @@ img {
 	flex-direction:column;
     text-align: left;
     padding-left: 10px;
+	font-family: 'gentona', Arial, sans-serif;
+	font-size:18px;
+	font-weight: 100;
 }
 .recipe-item-title {
-	float: left;
+    float: left;
+    color: #e62739;
+    font-family: 'gentona', Arial, sans-serif;
+    font-size: 23px;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 .recipe-item-author {
     text-align: left;
     line-height: normal;
-    font-size: 9px;
+    font-size: 10px;
 }
