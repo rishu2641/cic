@@ -204,10 +204,11 @@ $(document).ready(function() {
 	<div id="allrecipes-body">
 	  <div class="recipe-item-container">
 	  	<div class="recipe-item-thumbnail">
-	  	  <img class="card-img-top" src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
+	  	  <img src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
 	  	</div>
 	  	<div class="recipe-item-content">
-	  	  <div class="recipe-item-title"> Balls. Big ones.
+	  	  <div class="recipe-item-title">
+	  	    Balls. Big ones.
 	  	  </div>
 	  	  <div class="recipe-item-author">
 	  	    by <a href="#authorpage">author</a>
@@ -215,14 +216,14 @@ $(document).ready(function() {
 	  	  <div class="recipe-item-desc">
 	  	    Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls.
 	  	    Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. 
-	  	    <a class="view-recipe-link" href="#">View recipe</a>
+	  	    <a class="view-recipe-link" href="#recipelink">View recipe</a>
 	  	  </div>
 	  	</div>
 	  </div>
 	  
 	  <div class="recipe-item-container">
 	  	<div class="recipe-item-thumbnail">
-	  	  <img class="card-img-top" src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
+	  	  <img src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
 	  	</div>
 	  	<div class="recipe-item-content">
 	  	  <div class="recipe-item-title"> Balls. Big ones.

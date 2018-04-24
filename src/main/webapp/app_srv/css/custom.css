@@ -456,6 +456,11 @@ img {
 .recipe-item-container {
 	display:flex;
 	flex-direction:row;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+.recipe-item-container:hover {
+	
 }
 .recipe-item-thumbnail img {
 	width: 100px;
@@ -466,12 +471,13 @@ img {
 	display:flex;
 	flex-direction:column;
     text-align: left;
+    padding-left: 10px;
 }
 .recipe-item-title {
 	float: left;
-    padding-left: 10px;
 }
 .recipe-item-author {
-	text-align:left;
-	padding-left: 20px;
+    text-align: left;
+    line-height: normal;
+    font-size: 9px;
 }
