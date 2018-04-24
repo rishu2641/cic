@@ -105,19 +105,19 @@ span.label-container {
 }
 
 .topnav a {
-	display: block;
-	color: white;
-	text-align: center;
-	text-decoration: none;
-	font-size: 14px;
-	font-stretch: 100%;
-	font-weight: 700;
-	letter-spacing: 2px;
-	line-height: 14px;
-	padding-top: 14px;
-	padding-right: 27px;
-	padding-left: 28px;
-	text-transform: uppercase;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-stretch: 100%;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 14px;
+    padding-top: 14px;
+    padding-right: 35px;
+    padding-left: 40px;
+    text-transform: uppercase;
 }
 
 .topnav a:hover {
@@ -141,7 +141,7 @@ label {
 }
 
 #uf {
-	width: 53px;
+	width: 54px;
 	height: 43px;
 	padding-top: 10px;
 	padding-left: 8px;
@@ -380,7 +380,7 @@ label {
 
 .removeIngrContainer:hover {
 	color: #f37021;
-	background: #fff;
+	background: #faf8f1 url(../images/bg-texture.png);
 }
 /* AllRecipes - END */
 
