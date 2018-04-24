@@ -518,7 +518,7 @@ img {
 .input-container input {
     max-width: 300px;
 }
-#primary-container {
+#primary-container, #secondary-container {
 	display:flex;
 	justify-content:center;
 	flex-direction:column;

@@ -219,6 +219,16 @@
 					<div class="input-container">
 						<label for="lastName"
 							class="col-md-4 col-form-label">Last Name</label>
+						<input type="text" class="form-control" id="lastName"
+								placeholder="Last Name"> <span
+								id="help-block-len-lastname"
+								class="help-block help-block-lastName">Last name can only
+								have a maximum of 20 characters.</span>
+					</div>
+					<div class="input-container">
+						<label for="dateOfBirth"
+							class="col-md-4 col-form-label">Date of Birth</label>
+						<input type="date" class="form-control" id="dateOfBirth">
 					</div>
 				</div>
 			</div>
