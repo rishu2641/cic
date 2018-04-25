@@ -517,31 +517,70 @@ img {
 }
 .input-container input {
     max-width: 300px;
+    font-weight: 100;
 }
 #primary-container, #secondary-container {
 	display:flex;
 	justify-content:center;
-	flex-direction:column;
-	margin-top: 20px;
+	margin-top: 13px;
     border: 1px solid blue;
     border-radius: 5px;
     width: 50%;
-}
-#secondary-container {
-	display:flex;
-	justify-content:center;
-	flex-direction:row;
-	margin-top: 20px;
-    border: 1px solid blue;
-    border-radius: 5px;
+	flex-direction:column;
 }
 #sub-secondary-container1, #sub-secondary-container2 {
 	display:flex;
 	justify-content:center;
-	flex-direction:row;
+	flex-direction:column;
 }
 .input-container {
     display: flex;
     padding-top: 10px;
     padding-bottom: 10px;
+    min-width: 50%;
+    padding-left: 10px;
+    padding-right: 15px;
+}
+.input-container label {
+    min-width: 88px;
+    text-align: left;
+    font-weight: 600;
+}
+#sub-secondary-container3 {
+	display: flex;
+}
+#sub-secondary-container3 input {
+    width: 200px;
+}
+#submit-btn {
+	margin-top: 10px;
+}
+#gender-container label {
+	cursor: pointer;
+	width: 30px;
+	font-weight:100;
+}
+#gender-container input {
+	cursor:pointer;
+}
+.btn.btn-secondary {
+	border: 3px solid #f37021;
+	cursor: pointer;
+	border-radius:0px;
+	background: #fff;
+	color:black;
+}
+.btn.btn-secondary.active {
+	text-decoration: none !important;
+	border: 3px solid #f37021;
+    background: #f37021 !important;
+	color: #fff !important;
+	border-color: #f37021 !important;
+}
+.btn.btn-secondary:hover, .btn.btn-secondary.focus {
+	text-decoration: none !important;
+    background: #FA7236 !important;
+	border: 3px solid #f37021 !important;
+	border-color: #f37021 !important;
+	color: #fff !important;
 }
