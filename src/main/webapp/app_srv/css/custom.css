@@ -135,8 +135,8 @@ span.label-container {
     letter-spacing: 2px;
     line-height: 14px;
     padding-top: 14px;
-    padding-right: 35px;
-    padding-left: 40px;
+    padding-right: 34px;
+    padding-left: 39px;
     text-transform: uppercase;
 }
 
@@ -389,7 +389,18 @@ div#ingrContainer.home {
 	flex-grow: 1;
 	margin: 5px;
 }
+#dietCheckBox label {
+	text-align: left;
+    width: 100%;
+    max-width: 1000%;
+    max-height: 100px;
+}
 
+#dietCheckBox {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+}
 .remove-ingr-icon {
 	font-size: 20px !important;
 	padding-left: 10px;

@@ -42,8 +42,47 @@ $(document).ready(function() {
 			$("#" + divId).slideUp("slow");
 		});
 	});
-});
-  $(document).ready(function () {
+	var animObj = {};
+	$.each($("#dietCheckBox label"), function (index, value) {
+		var diet = value.id.split("-label")[0];
+		var animData = {
+			wrapper: value,
+			animType: 'svg',
+			loop: false,
+			prerender: false,
+			autoplay: false,
+			path: "/CIC/resources/app_srv/js/egg_flip.json"
+		};
+		animObj["anim-"+diet] = bodymovin.loadAnimation(animData);
+		$(value).find("svg").ready(function() {
+			$(value).find("svg").css({
+				"width": "25%",
+				"height": "auto",
+				"cursor": "pointer",
+				"float": "right"
+			});
+		});
+		animObj["anim-"+diet].setSpeed(15);
+	});
+	
+	$("#dietCheckBox label").click(function() {
+		var diet = this.id.split("-label")[0];
+		var anim=animObj["anim-"+diet];
+		var tweenElem = $(this).find(".eggGroup").get(0);
+		if(anim.currentFrame > 0) {
+			anim.playSegments([anim.currentFrame, 0], true);
+			TweenMax.to(tweenElem, 1, {
+				x:0,
+			    ease:Elastic.easeOut.config(0.9,0.38)
+			})   
+		} else {
+			TweenMax.to(tweenElem, 1.4, {
+				x:73,
+			    ease:Elastic.easeOut.config(0.9,0.38)
+			 })
+			 anim.playSegments([anim.currentFrame, 300], true)
+		}
+	});
 	  $("#search").keyup(function(event) {
 		    if (event.keyCode === 13) {
 		        $("#search-icon").click();
@@ -296,23 +335,15 @@ $(document).ready(function() {
 		  <i class="fa fa-angle-down"></i>
 		</button>
 		<div id="dietCheckBox" style="display:none;">
-			<div>
-				<div class="checkbox">
-					<label class="checkbox-inline"><input type="checkbox" value="keto" name="diet">Keto</label>
-					<label class="checkbox-inline"><input type="checkbox" value="paleo" name="diet">Paleo</label>
-					<label class="checkbox-inline"><input type="checkbox" value="lactose intolerant" name="diet">Lactose Intolerant</label>
-				</div>
-				<div class="checkbox">
-					<label class="checkbox-inline"><input type="checkbox" value="vegan" name="diet">Vegan</label>
-					<label class="checkbox-inline"><input type="checkbox" value="vegetarian" name="diet">Vegetarian</label>
-					<label class="checkbox-inline"><input type="checkbox" value="non vegetarian" name="diet">Non Vegetarian</label>
-				</div>
-				<div class="checkbox">
-					<label class="checkbox-inline"><input type="checkbox" value="pescetarian" name="diet">Pescetarian</label>
-					<label class="checkbox-inline"><input type="checkbox" value="pollotarian" name="diet">Pollotarian</label>
-					<label class="checkbox-inline"><input type="checkbox" value="jain" name="diet">Jain</label>
-				</div>
-			</div>
+			<label id="keto-label"><input type="checkbox" value="keto" name="diet">Keto</label>
+			<label id="paleo-label"><input type="checkbox" value="paleo" name="diet">Paleo</label>
+			<label id="lactose-intolerant-label"><input type="checkbox" value="lactose intolerant" name="diet">Lactose Intolerant</label>
+			<label id="vegan-label"><input type="checkbox" value="vegan" name="diet">Vegan</label>
+			<label id="vegetarian-label"><input type="checkbox" value="vegetarian" name="diet">Vegetarian</label>
+			<label id="non-vegetarian-label"><input type="checkbox" value="non vegetarian" name="diet">Non Vegetarian</label>
+			<label id="pescetarian-label"><input type="checkbox" value="pescetarian" name="diet">Pescetarian</label>
+			<label id="pollotarian-label"><input type="checkbox" value="pollotarian" name="diet">Pollotarian</label>
+			<label id="jain-label"><input type="checkbox" value="jain" name="diet">Jain</label>
 		</div>
 	  </div>
 	  

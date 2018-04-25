@@ -5,7 +5,6 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
-<script src="https://www.google.com/recaptcha/api.js"></script>
     
 <!DOCTYPE html>
 
@@ -28,6 +27,10 @@
     <script src="/CIC/resources/app_srv/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/CIC/resources/app_srv/css/custom.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/CIC/resources/app_srv/js/bodymovin.min.js" type="text/javascript"></script>
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+	
   </head>
   <body class="text-center">
     <div id="navbar" class="topnav">
