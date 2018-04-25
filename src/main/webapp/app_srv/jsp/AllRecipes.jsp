@@ -83,7 +83,7 @@ $(document).ready(function() {
 	  
 	  var prepTime = $("input[name='prepTime']:checked").val();
 	  var prepTimeMin = 0;
-	  var prepTimeMax = prepTime || "";
+	  var prepTimeMax = prepTime;
 	  if(prepTime == "prepTimeCustom") {
 		  prepTimeMin = parseInt($("#from-prepTime").val().trim());
 		  prepTimeMax = parseInt($("#to-prepTime").val().trim());
@@ -95,6 +95,11 @@ $(document).ready(function() {
 			  alert("Minimum prep time cannot be more than maximum prep time.");
 			  return;
 		  }
+	  } else if (prepTime) {
+		  prepTimeMin = "0";
+	  } else {
+		  prepTimeMin = "";
+		  prepTimeMax = "";
 	  }
 	  console.log("prepTimeMin = " + prepTimeMin);
 	  console.log("prepTimeMax = " + prepTimeMax);
@@ -113,6 +118,11 @@ $(document).ready(function() {
 			  alert("Minimum cooking time cannot be more than maximum cooking time.");
 			  return;
 		  }
+	  } else if (cookTime) {
+		  cookTimeMin = "0";
+	  } else {
+		  cookTimeMin = "";
+		  cookTimeMax = "";
 	  }
 	  console.log("cookTimeMin = " + cookTimeMin);
 	  console.log("cookTimeMax = " + cookTimeMax);
@@ -131,6 +141,11 @@ $(document).ready(function() {
 			  alert("Minimum total time cannot be more than maximum total time.");
 			  return;
 		  }
+	  } else if (totalTime) {
+		  totalTimeMin = "0";
+	  } else {
+		  totalTimeMin = "";
+		  totalTimeMax = "";
 	  }
 	  console.log("totalTimeMin = " + totalTimeMin);
 	  console.log("totalTimeMax = " + totalTimeMax);
@@ -209,31 +224,33 @@ $(document).ready(function() {
 	  console.log("fatMin = " + fatMin);
 	  console.log("fatMax = " + fatMax);
 	  
+	  var data = {
+		  "ingr" : ingr || "",
+		  "diet": diet || "",
+		  "prepTimeMin": ""+prepTimeMin || "",
+		  "prepTimeMax": ""+prepTimeMax || "",
+		  "cookTimeMin": ""+cookTimeMin || "",
+		  "cookTimeMax": ""+cookTimeMax || "",
+		  "totalTimeMin": ""+totalTimeMin || "",
+		  "totalTimeMax": ""+totalTimeMax || "",
+		  "caloriesMin": ""+caloriesMin || "",
+		  "caloriesMax": ""+caloriesMax || "",
+		  "cholesterolMin": ""+cholesterolMin || "",
+		  "cholesterolMax": ""+cholesterolMax || "",
+		  "sodiumMin": ""+sodiumMin || "",
+		  "sodiumMax": ""+sodiumMax || "",
+		  "proteinMin": ""+proteinMin || "",
+		  "proteinMax": ""+proteinMax || "",
+		  "carbohydrateMin": ""+carbohydrateMin || "",
+		  "carbohydrateMax": ""+carbohydrateMax || "",
+		  "fatMin": ""+fatMin || "",
+		  "fatMax": ""+fatMax || ""
+	  };
+	  console.log(data);
 	  $.ajax({
 		  type: "POST",
 		  url: "/CIC/FetchRecipeDetails",
-		  data: {
-			  "ingr" : ingr || "",
-			  "diet": diet || "",
-			  "prepTimeMin": ""+prepTimeMin || "",
-			  "prepTimeMax": ""+prepTimeMax || "",
-			  "cookTimeMin": ""+cookTimeMin || "",
-			  "cookTimeMax": ""+cookTimeMax || "",
-			  "totalTimeMin": ""+totalTimeMin || "",
-			  "totalTimeMax": ""+totalTimeMax || "",
-			  "caloriesMin": ""+caloriesMin || "",
-			  "caloriesMax": ""+caloriesMax || "",
-			  "cholesterolMin": ""+cholesterolMin || "",
-			  "cholesterolMax": ""+cholesterolMax || "",
-			  "sodiumMin": ""+sodiumMin || "",
-			  "sodiumMax": ""+sodiumMax || "",
-			  "proteinMin": ""+proteinMin || "",
-			  "proteinMax": ""+proteinMax || "",
-			  "carbohydrateMin": ""+carbohydrateMin || "",
-			  "carbohydrateMax": ""+carbohydrateMax || "",
-			  "fatMin": ""+fatMin || "",
-			  "fatMax": ""+fatMax || ""
-		  },
+		  data: data,
 		  success: function (success) {
 			  console.log(success);
 		  },
