@@ -16,7 +16,7 @@ other colors:
 #0099cc
 #f1f1f1
 #6C9AC3
-#f37021
+#9D4316
 
 
 */
@@ -231,7 +231,7 @@ label {
     padding: 0px;
     border: 1px solid #003260;
     display: inline-block;
-    width: 24%;
+    width: 20%;
     float: left;
 }
 
@@ -325,10 +325,10 @@ label {
 }
 
 .filter-text-label {
-	width: 100%;
-	float: left;
-	text-align: left;
-	padding-top: 6px;
+	min-width: 75px;
+    padding-top: 6px;
+    text-align: left;
+    padding-left: 1px;
 }
 
 #the-big-one {
@@ -342,6 +342,8 @@ label {
 
 .text-container {
 	padding-top: 10px;
+    display: flex;
+    margin-left: -13px;
 }
 
 .label-container-1 {
@@ -351,7 +353,10 @@ label {
     width: 100%;
     font-size: 15px;
 }
-
+.label-container-2 {
+	width: 132px;
+    margin-left: 33px;
+}
 .label-container-custom {
 	width: 237px;
 	margin-left: -53px;
@@ -361,22 +366,24 @@ label {
     font-size: 15px;
 }
 .filter-text2 {
-	width: 72px;
-	display: inline-block;
-	padding-left: 3px;
+    width: 41px;
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 #ingrContainer {
-	width: 326px;
-	margin-left: 12px;
-	padding: 15px;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-right: 7px;
 }
-
+div#ingrContainer.home {
+	margin-left: -4px;
+    margin-right: -12px;
+}
 .ingredient {
-	border: 2px solid #f37021;
+	border: 2px solid #9D4316;
 	display: inline;
 	padding: 10px;
 	flex-grow: 1;
@@ -389,9 +396,9 @@ label {
 }
 
 .removeIngrContainer {
-	border: 1px solid #f37021;
+	border: 1px solid #9D4316;
 	color: #fff;
-	background: #f37021;
+	background: #9D4316;
 	font-size: 20px;
 	margin-left: 13px;
 	padding-left: 0px;
@@ -405,7 +412,7 @@ label {
 }
 
 .removeIngrContainer:hover {
-	color: #f37021;
+	color: #9D4316;
 	background: #faf8f1 url(../images/bg-texture.png);
 }
 /* AllRecipes - END */
@@ -568,7 +575,7 @@ img {
 	cursor:pointer;
 }
 .btn.btn-secondary {
-	border: 3px solid #f37021;
+	border: 3px solid #9D4316;
 	cursor: pointer;
 	border-radius:0px;
 	background: #fff;
@@ -576,15 +583,15 @@ img {
 }
 .btn.btn-secondary.active {
 	text-decoration: none !important;
-	border: 3px solid #f37021;
-    background: #f37021 !important;
+	border: 3px solid #9D4316;
+    background: #9D4316 !important;
 	color: #fff !important;
-	border-color: #f37021 !important;
+	border-color: #9D4316 !important;
 }
 .btn.btn-secondary:hover, .btn.btn-secondary.focus {
 	text-decoration: none !important;
     background: #FA7236 !important;
-	border: 3px solid #f37021 !important;
-	border-color: #f37021 !important;
+	border: 3px solid #9D4316 !important;
+	border-color: #9D4316 !important;
 	color: #fff !important;
 }
