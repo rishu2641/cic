@@ -54,6 +54,18 @@ $(document).ready(function() {
 			path: "/CIC/resources/app_srv/js/egg_flip.json"
 		};
 		animObj["anim-"+diet] = bodymovin.loadAnimation(animData);
+		window["animInterval-"+diet] = window.setInterval(function() {
+			var elem = $(value).find("svg");
+			if(elem.length) {
+				clearInterval(window["animInterval-"+diet]);
+				$(value).find("svg").css({
+					"width": "25%",
+					"height": "auto",
+					"cursor": "pointer",
+					"float": "right"
+				});
+			}
+		}, 200);
 		$(value).find("svg").ready(function() {
 			$(value).find("svg").css({
 				"width": "25%",
