@@ -500,10 +500,8 @@ img {
 }
 #allrecipes-body {
 	padding-top: 20px;
-    display: flex;
-    flex-direction: column;
 }
-.view-recipe-link {
+.view_recipe_link {
 	color: #9D4316;
 	font: 500 16px/16px "gentona", "Georgia", serif;
     letter-spacing: 2px;
@@ -511,7 +509,7 @@ img {
     text-decoration: none;
     float: right;
 }
-.view-recipe-link:hover {
+.view_recipe_link:hover {
 	color: #003260;
 }
 .card-text {
@@ -519,20 +517,20 @@ img {
 	font: 500 24px/36px "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 1px;
 }
-.recipe-item-container {
+.recipe_item_container {
 	display:flex;
 	flex-direction:row;
 	margin-bottom: 20px;
 	cursor: pointer;
 }
-.recipe-item-container:hover {
+.recipe_item_container:hover {
 	
 }
-.recipe-item-thumbnail img {
+.recipe_item_thumbnail img {
 	width: 100px;
 	height: 100px;
 }
-.recipe-item-content {
+.recipe_item_content {
 	flex:1;
 	display:flex;
 	flex-direction:column;
@@ -542,7 +540,7 @@ img {
 	font-size:18px;
 	font-weight: 100;
 }
-.recipe-item-title {
+.recipe_item_title {
     float: left;
     color: #9D4316;
     font-family: 'gentona', Arial, sans-serif;
@@ -550,7 +548,7 @@ img {
     font-weight: 500;
     letter-spacing: 1px;
 }
-.recipe-item-author {
+.recipe_item_author {
     text-align: left;
     line-height: normal;
     font-size: 10px;
@@ -638,4 +636,30 @@ img {
 	border: 3px solid #9D4316 !important;
 	border-color: #9D4316 !important;
 	color: #fff !important;
+}
+tbody#allrecipes-body tr {
+    background: none !important;
+}
+div#dataTable_length {
+	padding-top: 12px;
+    padding-left: 14px;
+}
+div#dataTable_filter {
+    padding-right: 12px;
+    margin-top: 6px;
+}
+#dataTable_length select {
+	cursor: pointer;
+    color: #fff;
+    background-color: #084b81;
+    border-color: #084b81;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.paginate_button.current {
+	background-color: #084b81;
 }

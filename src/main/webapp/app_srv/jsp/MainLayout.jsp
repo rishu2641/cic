@@ -30,6 +30,8 @@
     <script src="/CIC/resources/app_srv/js/bodymovin.min.js" type="text/javascript"></script>
 	<script src="https://www.google.com/recaptcha/api.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	
   </head>
   <body class="text-center">

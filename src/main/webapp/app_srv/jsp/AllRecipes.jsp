@@ -101,6 +101,8 @@ $(document).ready(function() {
 		        $("#search").val("");
 		    }
 		});
+	  parseResponse();
+	  $("#dataTable").DataTable();
   });
   var ingrSet = new Set();
   function addIngr() {
@@ -310,23 +312,215 @@ $(document).ready(function() {
 		  }
 	  });
   }
-  function parseResponse(arr) {
-	  arr = [{
-		  "searchString":null,
-		  "id":"18982",
-		  "description":null,
-		  "chefname":"Tarla Dalal",
-		  "preptime":"20 mins",
-		  "cooktime":"0 mins ",
-		  "instructions":null,
-		  "cuisine":null,
-		  "rating":"5",
-		  "num_of_reviews":"1",
-		  "servings":"4 servings",
-		  "recipe_link":"https://www.tarladalal.com/Hawaiian-Fruit-and-Coconut-Salad-2194r",
-		  "keywords":null,
-		  "image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905"}
+  function parseResponse() {
+	  var arr = [{
+			"id":"18982",
+			"description":"This is a delicacy.",
+			"chefname":"Tarla Dalal",
+			"rating":"5",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg",
+			"recipe_name": "Spotted Dick"
+		}, {
+			"id":"1",
+			"description":"You know you want it.",
+			"chefname":"Funny boi",
+			"rating":"3",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "Unspotted Dick"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}, {
+			"id":"2",
+			"description":"You wish.",
+			"chefname":"9gag",
+			"rating":"2",
+			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
+			"recipe_name": "DickButt"
+		}
 	  ];
+	  for(var i=0;i<arr.length;i++) {
+			var obj = arr[i];
+			var recipe_item_thumbnail = '<div class="recipe_item_thumbnail"><img src="' + obj.image_link + '" alt="' + obj.recipe_name + '"></div>';
+			var recipe_item_title = '<div class="recipe_item_title">' + obj.recipe_name + '</div>';
+			var recipe_item_author = '<div class="recipe_item_author"> by <a href="#" onclick="fetchAuthor(\"' + obj.chefname + '\")">' + obj.chefname + '</a></div>';
+			var recipe_item_desc = '<div class="recipe_item_desc">' + obj.description + '<a class="view_recipe_link" href="/recipe/' + obj.id + '">View Recipe</a></div>';
+			var recipe_item_content='<div class="recipe_item_content">' + recipe_item_title + recipe_item_author + recipe_item_desc +'</div>';
+			var recipe_item_container = '<div class="recipe_item_container page-item">' + recipe_item_thumbnail + recipe_item_content +'</div>';
+			$("#allrecipes-body").append('<tr><td>' + recipe_item_container + '</tr></td');
+	  }
   }
 </script>
 <div class="row" id="the-big-one">
@@ -477,42 +671,61 @@ $(document).ready(function() {
 	</div>
   </div>
 	</div>
-	<div id="allrecipes-body">
-	  <div class="recipe-item-container">
-	  	<div class="recipe-item-thumbnail">
-	  	  <img src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
-	  	</div>
-	  	<div class="recipe-item-content">
-	  	  <div class="recipe-item-title">
-	  	    Balls. Big ones.
-	  	  </div>
-	  	  <div class="recipe-item-author">
-	  	    by <a href="#authorpage">author</a>
-	  	  </div>
-	  	  <div class="recipe-item-desc">
-	  	    Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls.
-	  	    Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. 
-	  	    <a class="view-recipe-link" href="#recipelink">View recipe</a>
-	  	  </div>
-	  	</div>
-	  </div>
+	<table id="dataTable">
+	<thead style="display:none">
+		<tr>
+			<th>
+			</th>
+		</tr>
+	</thead>
+	<tbody id="allrecipes-body">
+		<tr>
+			<td>
+				<div class="recipe_item_container">
+				  	<div class="recipe_item_thumbnail">
+				  	  <img src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
+				  	</div>
+				  	<div class="recipe_item_content">
+				  	  <div class="recipe_item_title">
+				  	    Balls. Big ones.
+				  	  </div>
+				  	  <div class="recipe_item_author">
+				  	    by <a href="#authorpage">author</a>
+				  	  </div>
+				  	  <div class="recipe_item_desc">
+				  	    Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls.
+				  	    Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. 
+				  	    <a class="view_recipe_link" href="#recipelink">View recipe</a>
+				  	  </div>
+				  	</div>
+				  </div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="recipe_item_container">
+				  	<div class="recipe_item_thumbnail">
+				  	  <img src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
+				  	</div>
+				  	<div class="recipe_item_content">
+				  	  <div class="recipe_item_title"> Balls. Small ones.
+				  	  </div>
+				  	  <div class="recipe_item_author">
+				  	    by <a href="#authorpage">author</a>
+				  	  </div>
+				  	  <div class="recipe_item_desc">
+				  	    Balls. Balls. Balls.
+				  	    <a class="view_recipe_link" href="#">View recipe</a>
+				  	  </div>
+				  	</div>
+				  </div>
+			</td>
+		</tr>
+	</tbody>
 	  
-	  <div class="recipe-item-container">
-	  	<div class="recipe-item-thumbnail">
-	  	  <img src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
-	  	</div>
-	  	<div class="recipe-item-content">
-	  	  <div class="recipe-item-title"> Balls. Small ones.
-	  	  </div>
-	  	  <div class="recipe-item-author">
-	  	    by <a href="#authorpage">author</a>
-	  	  </div>
-	  	  <div class="recipe-item-desc">
-	  	    Balls. Balls. Balls.
-	  	    <a class="view-recipe-link" href="#">View recipe</a>
-	  	  </div>
-	  	</div>
-	  </div>
+	  
+	  
 	</div>
+	</table>
   </div>
 </div>
