@@ -22,6 +22,16 @@ $(document).ready(function() {
         	$("#to-cookTime").attr("disabled", "disabled");
         }
     });
+	$.each($(".filter-container1 button"), function(index, value) {
+		$(value).click(function() {
+			var divId = this.id.split("-btn")[0];
+			$("#" + divId).slideToggle("slow");
+		});
+		$(value).focusout(function() {
+			var divId = this.id.split("-btn")[0];
+			$("#" + divId).slideUp("slow");
+		});
+	});
 });
   $(document).ready(function () {
 	  $("#search").keyup(function(event) {
@@ -81,12 +91,12 @@ $(document).ready(function() {
   </div> 
   <div id="allrecipes-container" class="col-md-9">
   	<div id="allrecipes-filter-container">
-	  <div class="btcollapse filter-container1">
-		<button type="button" data-toggle="collapse" data-target="#dietCheckBox">
-		  Diet
+	  <div class="filter-container1">
+		<button type="button" id="dietCheckBox-btn">
+		  Filter by Diet
 		  <i class="fa fa-angle-down"></i>
 		</button>
-		<div id="dietCheckBox" class="collapse">
+		<div id="dietCheckBox" style="display:none;">
 			<div>
 				<div class="checkbox">
 					<label class="checkbox-inline"><input type="checkbox" value="keto">Keto</label>
@@ -108,12 +118,12 @@ $(document).ready(function() {
 		</div>
 	  </div>
 	  
-	  <div class="btcollapse filter-container1">
-		<button type="button" data-toggle="collapse" data-target="#prepTimeFilter">
+	  <div class="filter-container1">
+		<button type="button" id="prepTimeFilter-btn">
 		  Filter by Prep Time
 		  <i class="fa fa-angle-down"></i>
 		</button>
-		<div id="prepTimeFilter" class="collapse">
+		<div id="prepTimeFilter" style="display:none;">
 			<div style="width: 134px;margin-left: 58px;">
 				<div class = "label-container-1">
 					<label class="radio-inline"><input type="radio" value="30" id="prepTime30" name="prepTime">less than 30 mins</label>
@@ -133,12 +143,12 @@ $(document).ready(function() {
 		</div>
 	  </div>
 	  
-	  <div class="btcollapse filter-container1">
-		<button type="button" data-toggle="collapse" data-target="#cookTimeFilter">
+	  <div class="filter-container1">
+		<button type="button" id="cookTimeFilter-btn">
 		  Filter by Cooking Time
 		  <i class="fa fa-angle-down"></i>
 		</button>
-		<div id="cookTimeFilter" class="collapse">
+		<div id="cookTimeFilter" style="display:none;">
 			<div style="width: 134px;margin-left: 58px;">
 				<div class = "label-container-1">
 					<label class="radio-inline"><input type="radio" value="30" id="cookTime30" name="cookTime">less than 30 mins</label>
@@ -158,14 +168,14 @@ $(document).ready(function() {
 		</div>
 	  </div>
 	  
-	  <div class="btcollapse filter-container1">
+	  <div class="filter-container1">
 	<div>
-	  <button type="button" data-toggle="collapse" data-target="#nutritionFilter">
-	    Nutritional Value
+	  <button type="button" id="nutritionFilter-btn">
+	    Filter by Nutritional Value
 	    <i class="fa fa-angle-down"></i>
 	  </button>
 	</div>
-	<div id="nutritionFilter" class="collapse col-md-12">
+	<div id="nutritionFilter" class="col-md-12" style="display:none;">
 		<div>
 			<div class="text-container">
 			<label class="filter-text-label">Calories</label>

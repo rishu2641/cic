@@ -227,14 +227,15 @@ label {
 	background-color: #0099cc;
 }
 
-.btcollapse {
+.filter-container1 {
     padding: 0px;
     border: 1px solid #003260;
-    flex: 1;
-    width: 0;
+    display: inline-block;
+    width: 24%;
+    float: left;
 }
 
-.btcollapse button {
+.filter-container1 button {
 	border: none;
 	width: 100%;
 	padding-top: 10px;
@@ -244,11 +245,10 @@ label {
 	font-size: 18px;
 	color: #003260;
 	font-weight: 500;
-	letter-spacing: 2px;
 	cursor: pointer;
 }
 
-.btcollapse button:hover {
+.filter-container1 button:hover {
 	text-decoration: underline;
 }
 
@@ -357,7 +357,9 @@ label {
 	margin-left: -53px;
 	"
 }
-
+.filter-container1 label {
+    font-size: 15px;
+}
 .filter-text2 {
 	width: 72px;
 	display: inline-block;
@@ -438,12 +440,12 @@ img {
 }
 #allrecipes-filter-container {
     padding-right: 0px;
-    display: flex;
-    flex-direction: row;
 }
 #allrecipes-container {
 	padding-right: 10px;
     padding-left: 5px;
+    display: flex;
+    flex-direction: column;
 }
 #allrecipes-body {
 	padding-top: 20px;
