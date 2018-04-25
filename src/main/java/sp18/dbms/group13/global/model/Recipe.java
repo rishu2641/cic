@@ -29,6 +29,191 @@ public class Recipe {
 	String keywords;
 	
 	String image_link;
+	
+	
+	String ingr;
+	String diet;
+	String prepTimeMin;
+	String prepTimeMax;
+	String cookTimeMin;
+	String cookTimeMax;
+	String totalTimeMin;
+	String totalTimeMax;
+	String caloriesMin;
+	String caloriesMax;
+	String cholesterolMin;
+	String cholesterolMax;
+	String sodiumMin;
+	String sodiumMax;
+	String proteinMin;
+	String proteinMax;
+	String carbohydrateMin;
+	String carbohydrateMax;
+	String fatMin;
+	String fatMax;
+	
+	
+	
+
+	public String getIngr() {
+		return ingr;
+	}
+
+	public void setIngr(String ingr) {
+		this.ingr = ingr;
+	}
+
+	public String getDiet() {
+		return diet;
+	}
+
+	public void setDiet(String diet) {
+		this.diet = diet;
+	}
+
+	public String getPrepTimeMin() {
+		return prepTimeMin;
+	}
+
+	public void setPrepTimeMin(String prepTimeMin) {
+		this.prepTimeMin = prepTimeMin;
+	}
+
+	public String getPrepTimeMax() {
+		return prepTimeMax;
+	}
+
+	public void setPrepTimeMax(String prepTimeMax) {
+		this.prepTimeMax = prepTimeMax;
+	}
+
+	public String getCookTimeMin() {
+		return cookTimeMin;
+	}
+
+	public void setCookTimeMin(String cookTimeMin) {
+		this.cookTimeMin = cookTimeMin;
+	}
+
+	public String getCookTimeMax() {
+		return cookTimeMax;
+	}
+
+	public void setCookTimeMax(String cookTimeMax) {
+		this.cookTimeMax = cookTimeMax;
+	}
+
+	public String getTotalTimeMin() {
+		return totalTimeMin;
+	}
+
+	public void setTotalTimeMin(String totalTimeMin) {
+		this.totalTimeMin = totalTimeMin;
+	}
+
+	public String getTotalTimeMax() {
+		return totalTimeMax;
+	}
+
+	public void setTotalTimeMax(String totalTimeMax) {
+		this.totalTimeMax = totalTimeMax;
+	}
+
+	public String getCaloriesMin() {
+		return caloriesMin;
+	}
+
+	public void setCaloriesMin(String caloriesMin) {
+		this.caloriesMin = caloriesMin;
+	}
+
+	public String getCaloriesMax() {
+		return caloriesMax;
+	}
+
+	public void setCaloriesMax(String caloriesMax) {
+		this.caloriesMax = caloriesMax;
+	}
+
+	public String getCholesterolMin() {
+		return cholesterolMin;
+	}
+
+	public void setCholesterolMin(String cholesterolMin) {
+		this.cholesterolMin = cholesterolMin;
+	}
+
+	public String getCholesterolMax() {
+		return cholesterolMax;
+	}
+
+	public void setCholesterolMax(String cholesterolMax) {
+		this.cholesterolMax = cholesterolMax;
+	}
+
+	public String getSodiumMin() {
+		return sodiumMin;
+	}
+
+	public void setSodiumMin(String sodiumMin) {
+		this.sodiumMin = sodiumMin;
+	}
+
+	public String getSodiumMax() {
+		return sodiumMax;
+	}
+
+	public void setSodiumMax(String sodiumMax) {
+		this.sodiumMax = sodiumMax;
+	}
+
+	public String getProteinMin() {
+		return proteinMin;
+	}
+
+	public void setProteinMin(String proteinMin) {
+		this.proteinMin = proteinMin;
+	}
+
+	public String getProteinMax() {
+		return proteinMax;
+	}
+
+	public void setProteinMax(String proteinMax) {
+		this.proteinMax = proteinMax;
+	}
+
+	public String getCarbohydrateMin() {
+		return carbohydrateMin;
+	}
+
+	public void setCarbohydrateMin(String carbohydrateMin) {
+		this.carbohydrateMin = carbohydrateMin;
+	}
+
+	public String getCarbohydrateMax() {
+		return carbohydrateMax;
+	}
+
+	public void setCarbohydrateMax(String carbohydrateMax) {
+		this.carbohydrateMax = carbohydrateMax;
+	}
+
+	public String getFatMin() {
+		return fatMin;
+	}
+
+	public void setFatMin(String fatMin) {
+		this.fatMin = fatMin;
+	}
+
+	public String getFatMax() {
+		return fatMax;
+	}
+
+	public void setFatMax(String fatMax) {
+		this.fatMax = fatMax;
+	}
 
 	public String getSearchString() {
 		return searchString;
