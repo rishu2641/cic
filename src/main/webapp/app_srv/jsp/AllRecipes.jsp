@@ -83,7 +83,7 @@ $(document).ready(function() {
   	<div id="allrecipes-filter-container">
 	  <div class="btcollapse filter-container1">
 		<button type="button" data-toggle="collapse" data-target="#dietCheckBox">
-		  Filter by Diet
+		  Diet
 		  <i class="fa fa-angle-down"></i>
 		</button>
 		<div id="dietCheckBox" class="collapse">

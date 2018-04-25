@@ -346,8 +346,10 @@ label {
 
 .label-container-1 {
 	float: left;
-	padding-top: 3px;
-	padding-bottom: 5px;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    width: 100%;
+    font-size: 15px;
 }
 
 .label-container-custom {
