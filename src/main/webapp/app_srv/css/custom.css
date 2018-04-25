@@ -21,6 +21,17 @@ other colors:
 
 */
 @font-face {
+    font-family: 'quadon';
+    src: url('../fonts/rene_bieder_-_quadon_medium-webfont.eot');
+    src: url('../fonts/rene_bieder_-_quadon_medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rene_bieder_-_quadon_medium-webfont.woff') format('woff'),
+         url('../fonts/rene_bieder_-_quadon_medium-webfont.ttf') format('truetype'),
+         url('../fonts/rene_bieder_-_quadon_medium-webfont.svg#quadonmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
 	font-family: 'gentona';
 	src: url('../fonts/rene_bieder_-_gentona_bold-webfont.eot');
 	src: url('../fonts/rene_bieder_-_gentona_bold-webfont.eot?#iefix')
@@ -201,9 +212,43 @@ label {
 	letter-spacing: 2px;
 	background: #084b81;
 }
-
+#dietCheckBox .btn-primary, #dietCheckBox .btn-primary:active, #dietCheckBox .btn-primary.active {
+	background: #A8DCD9;
+    font-weight: 300;
+    text-align: center;
+    font-famiy: "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #084b81;
+	letter-spacing: 0px;
+	font-size: 14px;
+	line-height: 35px;
+}
 .btn-primary:hover {
 	background: #4c87b5;
+}
+#dietCheckBox .btn-primary:hover {
+	background: #A8DCD9;
+}
+#dietCheckBox input {
+	display: none;
+}
+#dietCheckBox .btn-primary:not(:disabled):not(.disabled).active, #dietCheckBox .btn-primary:not(:disabled):not(.disabled):active {
+	background: none !important;
+	border-color: #084b81;
+	color: #084b81;
+}
+#dietCheckBox label {
+	text-align: left;
+    width: 100%;
+    max-width: 1000%;
+    max-height: 100px;
+    padding: 0;
+    margin: 0;
+}
+
+#dietCheckBox {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
 }
 /* AllRecipes - START */
 .menu {
@@ -388,18 +433,6 @@ div#ingrContainer.home {
 	padding: 10px;
 	flex-grow: 1;
 	margin: 5px;
-}
-#dietCheckBox label {
-	text-align: left;
-    width: 100%;
-    max-width: 1000%;
-    max-height: 100px;
-}
-
-#dietCheckBox {
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-evenly; */
 }
 .remove-ingr-icon {
 	font-size: 20px !important;

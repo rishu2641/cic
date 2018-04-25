@@ -334,16 +334,16 @@ $(document).ready(function() {
 		   Diet
 		  <i class="fa fa-angle-down"></i>
 		</button>
-		<div id="dietCheckBox" style="display:none;">
-			<label id="keto-label"><input type="checkbox" value="keto" name="diet">Keto</label>
-			<label id="paleo-label"><input type="checkbox" value="paleo" name="diet">Paleo</label>
-			<label id="lactose-intolerant-label"><input type="checkbox" value="lactose intolerant" name="diet">Lactose Intolerant</label>
-			<label id="vegan-label"><input type="checkbox" value="vegan" name="diet">Vegan</label>
-			<label id="vegetarian-label"><input type="checkbox" value="vegetarian" name="diet">Vegetarian</label>
-			<label id="non-vegetarian-label"><input type="checkbox" value="non vegetarian" name="diet">Non Vegetarian</label>
-			<label id="pescetarian-label"><input type="checkbox" value="pescetarian" name="diet">Pescetarian</label>
-			<label id="pollotarian-label"><input type="checkbox" value="pollotarian" name="diet">Pollotarian</label>
-			<label id="jain-label"><input type="checkbox" value="jain" name="diet">Jain</label>
+		<div id="dietCheckBox" style="display:none;" class="btn-group" data-toggle="buttons">
+			<label id="keto-label" class="btn btn-primary active"><input type="checkbox" value="keto" name="diet" autocomplete="off">Keto</label>
+			<label id="paleo-label" class="btn btn-primary active"><input type="checkbox" value="paleo" name="diet" autocomplete="off">Paleo</label>
+			<label id="lactose-intolerant-label" class="btn btn-primary active"><input type="checkbox" value="lactose intolerant" name="diet" autocomplete="off">Lactose Intolerant</label>
+			<label id="vegan-label" class="btn btn-primary active"><input type="checkbox" value="vegan" name="diet" autocomplete="off">Vegan</label>
+			<label id="vegetarian-label" class="btn btn-primary active"><input type="checkbox" value="vegetarian" name="diet" autocomplete="off">Vegetarian</label>
+			<label id="non-vegetarian-label" class="btn btn-primary active"><input type="checkbox" value="non vegetarian" name="diet" autocomplete="off">Non Vegetarian</label>
+			<label id="pescetarian-label" class="btn btn-primary active"><input type="checkbox" value="pescetarian" name="diet" autocomplete="off">Pescetarian</label>
+			<label id="pollotarian-label" class="btn btn-primary active"><input type="checkbox" value="pollotarian" name="diet" autocomplete="off">Pollotarian</label>
+			<label id="jain-label" class="btn btn-primary active"><input type="checkbox" value="jain" name="diet" autocomplete="off">Jain</label>
 		</div>
 	  </div>
 	  
