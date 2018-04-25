@@ -119,8 +119,8 @@ $(document).ready(function() {
 	  }
   }
   function search() {
-	  var dietArr = $("input[name='diet']:checked").map(function() {
-		    return this.value;
+	  var dietArr = $("#dietCheckBox label.active").map(function() {
+		    return $(this).find("input").get(0).value;
 		}).get();
       var diet = dietArr.join(",");
 	  console.log("diet = " + diet);
@@ -347,15 +347,15 @@ $(document).ready(function() {
 		  <i class="fa fa-angle-down"></i>
 		</button>
 		<div id="dietCheckBox" style="display:none;" class="btn-group" data-toggle="buttons">
-			<label id="keto-label" class="btn btn-primary active"><input type="checkbox" value="keto" name="diet" autocomplete="off">Keto</label>
-			<label id="paleo-label" class="btn btn-primary active"><input type="checkbox" value="paleo" name="diet" autocomplete="off">Paleo</label>
-			<label id="lactose-intolerant-label" class="btn btn-primary active"><input type="checkbox" value="lactose intolerant" name="diet" autocomplete="off">Lactose Intolerant</label>
-			<label id="vegan-label" class="btn btn-primary active"><input type="checkbox" value="vegan" name="diet" autocomplete="off">Vegan</label>
-			<label id="vegetarian-label" class="btn btn-primary active"><input type="checkbox" value="vegetarian" name="diet" autocomplete="off">Vegetarian</label>
-			<label id="non-vegetarian-label" class="btn btn-primary active"><input type="checkbox" value="non vegetarian" name="diet" autocomplete="off">Non Vegetarian</label>
-			<label id="pescetarian-label" class="btn btn-primary active"><input type="checkbox" value="pescetarian" name="diet" autocomplete="off">Pescetarian</label>
-			<label id="pollotarian-label" class="btn btn-primary active"><input type="checkbox" value="pollotarian" name="diet" autocomplete="off">Pollotarian</label>
-			<label id="jain-label" class="btn btn-primary active"><input type="checkbox" value="jain" name="diet" autocomplete="off">Jain</label>
+			<label id="keto-label" class="btn btn-primary"><input type="checkbox" value="keto" name="diet" autocomplete="off">Keto</label>
+			<label id="paleo-label" class="btn btn-primary"><input type="checkbox" value="paleo" name="diet" autocomplete="off">Paleo</label>
+			<label id="lactose-intolerant-label" class="btn btn-primary"><input type="checkbox" value="lactose intolerant" name="diet" autocomplete="off">Lactose Intolerant</label>
+			<label id="vegan-label" class="btn btn-primary"><input type="checkbox" value="vegan" name="diet" autocomplete="off">Vegan</label>
+			<label id="vegetarian-label" class="btn btn-primary"><input type="checkbox" value="vegetarian" name="diet" autocomplete="off">Vegetarian</label>
+			<label id="non-vegetarian-label" class="btn btn-primary"><input type="checkbox" value="non vegetarian" name="diet" autocomplete="off">Non Vegetarian</label>
+			<label id="pescetarian-label" class="btn btn-primary"><input type="checkbox" value="pescetarian" name="diet" autocomplete="off">Pescetarian</label>
+			<label id="pollotarian-label" class="btn btn-primary"><input type="checkbox" value="pollotarian" name="diet" autocomplete="off">Pollotarian</label>
+			<label id="jain-label" class="btn btn-primary"><input type="checkbox" value="jain" name="diet" autocomplete="off">Jain</label>
 		</div>
 	  </div>
 	  
