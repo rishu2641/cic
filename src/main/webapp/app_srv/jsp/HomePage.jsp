@@ -73,26 +73,26 @@ function calculateTuples(){
 
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
-						<div class="item active">
-							<img src="/CIC/resources/app_srv/images/default-recipe-big.png" alt="default">
+						<div class="carousel-item active">
+							<img src="/CIC/resources/app_srv/images/Blood_Orange_Chiffon_Cake_with_Mango_Curd_(Unsplash).jpg" alt="default">
 						</div>
 
-						<div class="item">
+						<div class="carousel-item">
 							<img src="/CIC/resources/app_srv/images/meat-1536352_1920.jpg" alt="MeatDish">
 						</div>
     
-						<div class="item">
+						<div class="carousel-item">
 							<img src="/CIC/resources/app_srv/images/2014_Bruschetta_The_Larder_Chiang_Mai.jpg" alt="Bruschetta">
 						</div>
 					</div>
 
 					<!-- Left and right controls -->
-					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-						<span class="glyphicon glyphicon-chevron-left"></span>
+					<a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
 						<span class="sr-only">Previous</span>
 					</a>
-					<a class="right carousel-control" href="#myCarousel" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-right"></span>
+					<a class="carousel-control-next" href="#myCarousel" data-slide="next">
+						<span class="carousel-control-next-icon"></span>
 						<span class="sr-only">Next</span>
 					</a>
 				</div>

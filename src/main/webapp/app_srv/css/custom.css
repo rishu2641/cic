@@ -701,3 +701,7 @@ div#dataTable_filter {
     cursor: normal !important;
     border: 3px solid transparent !important;
 }
+.carousel-item img {
+    max-width: 600px;
+    max-height: 500px;
+}
