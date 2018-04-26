@@ -100,6 +100,12 @@ function addNewList() {
 $(document).ready(function() {
 	window.document.title = RECIPE_NAME;
 	addEventListeners();
+	$("#body").css({
+		"display": "flex",
+    	"flex-direction": "column",
+    	"justify-content": "center",
+    	"align-items": "center"
+	});
 });
 function addCustomList() {
 	/*
@@ -174,7 +180,12 @@ function addCustomList() {
 	<div id="recipe_image">
 		<img id="recipe_image" src="https://recipeland.com/images/r/685/a2829798dbc8ef087aff_1024.jpg"></img>
 	</div>
-	<div id="recipe_tags">Lovely, large, big, wide, expansive, rack, bull, 404.</div>
+	<div class="sub_container">
+		<div id="recipe_tags_title" class="recipe_sub_title">
+			Tags
+		</div>
+		<div id="recipe_tags">Lovely, large, big, wide, expansive, rack, bull, 404.</div>
+	</div>
 	<div class="sub_container">
 		<div id="recipe_ingr_title" class="recipe_sub_title">
 			Ingredients
