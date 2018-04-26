@@ -972,9 +972,29 @@ div#primary-container .input-container {
 #recipe_desc_title {
     display: inline-block;
 }
-#body {
-	display: flex;
+.about-title {
+    font-family: "gentona", "Georgia", serif !important;
+    font-size: 37px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700 !important;
+    color: #003260 !important;
+}
+#about-container {
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 75%;
+}
+#about-person-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.about-person-title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #9D4316;
+}
+.about-sub-container {
+    margin: 20px;
 }
