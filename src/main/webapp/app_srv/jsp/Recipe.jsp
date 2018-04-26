@@ -124,6 +124,11 @@ function addCustomList() {
 			Description:
 		</div>
 		<div id="recipe_rating">
+			<i class="fa fa-star filled"></i>
+			<i class="fa fa-star filled"></i>
+			<i class="fa fa-star filled"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
 		</div>
 		<div id="recipe_desc">
 			'Tis grandma's recipe. For the whole family to enjoy.
@@ -156,9 +161,9 @@ function addCustomList() {
 				Method:
 			</div>
 			<div id="recipe_method_icon_container">
-				<div id="prepTime"><i class="fa fa-clock"></i>20 mins</div>
-				<div id="cookTime"><i class="fa fa-clock"></i>30 mins</div>
-				<div id="totalTime"><i class="fa fa-clock"></i>50 mins</div>
+				<div id="prepTime"><i class="fa fa-clock"></i><b>Prep</b> 20 mins</div>
+				<div id="cookTime"><i class="fa fa-clock"></i><b>Cook</b> 30 mins</div>
+				<div id="totalTime"><i class="fa fa-clock"></i><b>Total</b> 50 mins</div>
 			</div>
 		</div>
 		<div id="recipe_method">

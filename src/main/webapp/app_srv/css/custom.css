@@ -913,3 +913,42 @@ input#new-custom-input {
 #recipe_desc {
 	text-align: left;
 }
+#recipe_rating{
+	    float: right;
+    background: #E28F41;
+    font-size: 25px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+div#recipe_rating i.filled {
+    color: #003260;
+}
+
+div#recipe_rating i {
+    color: #fff;
+}
+img#recipe_image {
+    max-width: 725px;
+}
+#recipe_ingr{
+	padding-left: 40px;
+    padding-right: 40px;
+}
+#recipe_ingr .ingredient {
+    width: 48%;
+        float: left;
+}
+#recipe_method_icon_container{
+	    float: right;
+    display: inline-flex;
+}
+div#recipe_method_icon_container div {
+    padding-left: 2px;
+    padding-right: 3px;
+}
+#recipe_method {
+	    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-left: 55px;
+}
