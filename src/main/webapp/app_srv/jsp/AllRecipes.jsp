@@ -1,6 +1,22 @@
 
 <title>All Recipes</title>
 <script>
+var LOG_LEVEL = "INFO";
+function logDebug(string) {
+	if(LOG_LEVEL != "DEBUG") {
+		console.log(string);
+	}
+}
+function logInfo(string) {
+	if(LOG_LEVEL == "ERROR" || LOG_LEVEL == "INFO") {
+		console.log(string);
+	}
+}
+function logError(string) {
+	if(LOG_LEVEL == "ERROR") {
+		console.log(string);
+	}
+}
 $(document).ready(function() {
 	window.document.title = "AllRecipes";
 	$("#allrecipes").addClass("active");
@@ -118,21 +134,24 @@ $(document).ready(function() {
 		  $("#ingrContainer").hide();
 	  }
   }
+  var dataTable;
   function search() {
-	  $('#dataTable').dataTable().fnClearTable();
+	  if(dataTable) {
+		  dataTable.clear();
+	  }
 	  
 	  var dietArr = $("#dietCheckBox label.active").map(function() {
 		    return $(this).find("input").get(0).value;
 		}).get();
       var diet = dietArr.join(",");
-	  console.log("diet = " + diet);
+	  logDebug("diet = " + diet);
 	  
 	  var ingr="";
 	  ingrSet.forEach(function (value1, value2, set) {
 		  ingr+=value1+",";
 	  });
 	  ingr = ingr.substring(0, ingr.length - 1);
-	  console.log("ingr = " + ingr);
+	  logDebug("ingr = " + ingr);
 	  
 	  var prepTime = $("input[name='prepTime']:checked").val();
 	  var prepTimeMin = 0;
@@ -154,8 +173,8 @@ $(document).ready(function() {
 		  prepTimeMin = "";
 		  prepTimeMax = "";
 	  }
-	  console.log("prepTimeMin = " + prepTimeMin);
-	  console.log("prepTimeMax = " + prepTimeMax);
+	  logDebug("prepTimeMin = " + prepTimeMin);
+	  logDebug("prepTimeMax = " + prepTimeMax);
 	  
 	  var cookTime = $("input[name='cookTime']:checked").val();
 	  var cookTimeMin = 0;
@@ -177,8 +196,8 @@ $(document).ready(function() {
 		  cookTimeMin = "";
 		  cookTimeMax = "";
 	  }
-	  console.log("cookTimeMin = " + cookTimeMin);
-	  console.log("cookTimeMax = " + cookTimeMax);
+	  logDebug("cookTimeMin = " + cookTimeMin);
+	  logDebug("cookTimeMax = " + cookTimeMax);
 	  
 	  var totalTime = $("input[name='totalTime']:checked").val();
 	  var totalTimeMin = 0;
@@ -200,8 +219,8 @@ $(document).ready(function() {
 		  totalTimeMin = "";
 		  totalTimeMax = "";
 	  }
-	  console.log("totalTimeMin = " + totalTimeMin);
-	  console.log("totalTimeMax = " + totalTimeMax);
+	  logDebug("totalTimeMin = " + totalTimeMin);
+	  logDebug("totalTimeMax = " + totalTimeMax);
 	  
 	  var caloriesMin = $("#from-calories").val();
 	  var caloriesMax = $("#to-calories").val();
@@ -209,8 +228,8 @@ $(document).ready(function() {
 		  alert("Please enter numeric values for the minimum and maximum calories.");
 		  return;
 	  }
-	  console.log("caloriesMin = " + caloriesMin);
-	  console.log("caloriesMax = " + caloriesMax);
+	  logDebug("caloriesMin = " + caloriesMin);
+	  logDebug("caloriesMax = " + caloriesMax);
 	  
 	  var cholesterolMin = $("#from-cholesterol").val();
 	  var cholesterolMax = $("#to-cholesterol").val();
@@ -222,8 +241,8 @@ $(document).ready(function() {
 		  alert("Minimum cholesterol cannot be more than maximum cholesterol.");
 		  return;
 	  }
-	  console.log("cholesterolMin = " + cholesterolMin);
-	  console.log("cholesterolMax = " + cholesterolMax);
+	  logDebug("cholesterolMin = " + cholesterolMin);
+	  logDebug("cholesterolMax = " + cholesterolMax);
 	  
 	  var sodiumMin = $("#from-sodium").val();
 	  var sodiumMax = $("#to-sodium").val();
@@ -235,8 +254,8 @@ $(document).ready(function() {
 		  alert("Minimum sodium cannot be more than maximum sodium.");
 		  return;
 	  }
-	  console.log("sodiumMin = " + sodiumMin);
-	  console.log("sodiumMax = " + sodiumMax);
+	  logDebug("sodiumMin = " + sodiumMin);
+	  logDebug("sodiumMax = " + sodiumMax);
 	  
 	  var proteinMin = $("#from-protein").val();
 	  var proteinMax = $("#to-protein").val();
@@ -248,8 +267,8 @@ $(document).ready(function() {
 		  alert("Minimum protein cannot be more than maximum protein.");
 		  return;
 	  }
-	  console.log("proteinMin = " + proteinMin);
-	  console.log("proteinMax = " + proteinMax);
+	  logDebug("proteinMin = " + proteinMin);
+	  logDebug("proteinMax = " + proteinMax);
 	  
 	  var carbohydrateMin = $("#from-carbohydrate").val();
 	  var carbohydrateMax = $("#to-carbohydrate").val();
@@ -261,8 +280,8 @@ $(document).ready(function() {
 		  alert("Minimum carbohydrate cannot be more than maximum carbohydrate.");
 		  return;
 	  }
-	  console.log("carbohydrateMin = " + carbohydrateMin);
-	  console.log("carbohydrateMax = " + carbohydrateMax);
+	  logDebug("carbohydrateMin = " + carbohydrateMin);
+	  logDebug("carbohydrateMax = " + carbohydrateMax);
 	  
 	  var fatMin = $("#from-fat").val();
 	  var fatMax = $("#to-fat").val();
@@ -274,8 +293,8 @@ $(document).ready(function() {
 		  alert("Minimum fat cannot be more than maximum fat.");
 		  return;
 	  }
-	  console.log("fatMin = " + fatMin);
-	  console.log("fatMax = " + fatMax);
+	  logDebug("fatMin = " + fatMin);
+	  logDebug("fatMax = " + fatMax);
 	  
 	  var data = {
 		  "ingr" : ingr || "",
@@ -299,7 +318,7 @@ $(document).ready(function() {
 		  "fatMin": ""+fatMin || "",
 		  "fatMax": ""+fatMax || ""
 	  };
-	  console.log(data);
+	  logInfo(data);
 	  $.ajax({
 		  type: "POST",
 		  url: "/CIC/FetchRecipeDetails",
@@ -310,7 +329,7 @@ $(document).ready(function() {
 		  success: function (success) {
 			  $.unblockUI();
 			  parseResponse(success);
-			  console.log(success);
+			  logDebug(success);
 		  },
 		  error: function (error) {
 			  $.unblockUI();
@@ -318,208 +337,10 @@ $(document).ready(function() {
 		  }
 	  });
   }
-  function parseResponse(arrnew) {
-	  var arr = [{
-			"id":"18982",
-			"description":"This is a delicacy.",
-			"chefname":"Tarla Dalal",
-			"rating":"5",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg",
-			"recipe_name": "Spotted Dick"
-		}, {
-			"id":"1",
-			"description":"You know you want it.",
-			"chefname":"Funny boi",
-			"rating":"3",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "Unspotted Dick"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}, {
-			"id":"2",
-			"description":"You wish.",
-			"chefname":"9gag",
-			"rating":"2",
-			"image_link":"https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg?size=696X905",
-			"recipe_name": "DickButt"
-		}
-	  ];
-	  for(var i=0;i<arrnew.length;i++) {
-			var obj = arrnew[i];
-			var recipe_item_thumbnail = '<div class="recipe_item_thumbnail"><img src="' + obj.image_link + '" alt="' + obj.name + '"></div>';
+  function parseResponse(arr) {
+	  for(var i=0;i<arr.length;i++) {
+			var obj = arr[i];
+			var recipe_item_thumbnail = '<div class="recipe_item_thumbnail"><img src="' + obj.image_link + '" alt="' + obj.name + '" title="' + obj.name + '"></div>';
 			var recipe_item_title = '<div class="recipe_item_title">' + obj.name + '</div>';
 			var recipe_item_author = '<div class="recipe_item_author"> by <a href="#" onclick="fetchAuthor(\"' + obj.chefname + '\")">' + obj.chefname + '</a></div>';
 			var recipe_item_desc = '<div class="recipe_item_desc">' + obj.description + '<a class="view_recipe_link" href="/recipe/' + obj.id + '">View Recipe</a></div>';
@@ -527,7 +348,11 @@ $(document).ready(function() {
 			var recipe_item_container = '<div class="recipe_item_container page-item">' + recipe_item_thumbnail + recipe_item_content +'</div>';
 			$("#allrecipes-body").append('<tr><td>' + recipe_item_container + '</tr></td');
 	  }
-	  $("#dataTable").DataTable();
+	  if(dataTable) {
+		  dataTable.draw();
+	  } else {
+		  dataTable = $("#dataTable").DataTable();
+	  }
 
   }
 </script>
@@ -687,12 +512,7 @@ $(document).ready(function() {
 		</tr>
 	</thead>
 	<tbody id="allrecipes-body">
-		
 	</tbody>
-	  
-	  
-	  
-	</div>
 	</table>
   </div>
 </div>

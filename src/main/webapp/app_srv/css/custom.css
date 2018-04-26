@@ -527,8 +527,8 @@ img {
 	
 }
 .recipe_item_thumbnail img {
-	width: 100px;
-	height: 100px;
+	max-width: 100px;
+    max-height: 100px;
 }
 .recipe_item_content {
 	flex:1;
@@ -662,4 +662,25 @@ div#dataTable_filter {
 }
 .paginate_button.current {
 	background-color: #084b81;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+	color: #fff !important;
+    border: none !important;
+    background: #9D4316 !important;
+    box-shadow: none !important;
+    font-weight: 500 !important;
+    font-family: "gentona" !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+	color: #003260 !important;
+    border: 3px solid #9D4316 !important;
+    background: none !important;
+    box-shadow: none !important;
+    font-weight: 500 !important;
+    font-family: "gentona" !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: #003260 !important;
+    font-weight: 500 !important;
+    font-family: "gentona" !important;
 }
