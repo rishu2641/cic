@@ -25,7 +25,37 @@ public class LoginForm {
 	int height;
 	
 	int isValid;
+	
+	int recipeId;
+	
+	String otherList;
+	
+	String listName;
+	
 
+	public int getRecipeId() {
+		return recipeId;
+	}
+
+	public void setRecipeId(int recipeId) {
+		this.recipeId = recipeId;
+	}
+
+	public String getOtherList() {
+		return otherList;
+	}
+
+	public void setOtherList(String otherList) {
+		this.otherList = otherList;
+	}
+
+	public String getListName() {
+		return listName;
+	}
+
+	public void setListName(String listName) {
+		this.listName = listName;
+	}
 
 	public String getUserid() {
 		return userid;

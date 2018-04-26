@@ -1,6 +1,7 @@
 package sp18.dbms.group13.global.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -338,6 +339,25 @@ public class LoginDao {
 		String query = "select sum(get_rows(table_name)) as totalrows from user_tables";
         int count = jdbcTemplate.queryForObject(query, Integer.class)+1; 
 		return count;
+	}
+
+	public boolean insertIntoHistory(LoginForm loginForm) {
+        int count = jdbcTemplate.queryForObject("select count(*) from history", Integer.class)+1; 
+        Date date = new Date();
+		String query = "insert into history (id, userid, recipeid, DT) values ("+count+",'"+loginForm.getUserid()+"',"+loginForm.getRecipeId()+",'"+date+"')";
+		int result = jdbcTemplate.update(query);
+		
+		if(result>0)
+			return true;
+		else
+			return false;
+	}
+
+	public Recipe getRecipeDetail(String id) {
+		String query = " select * from recipe r, nutritional_information  n where r.id = "+Integer.parseInt(id)+" and r.id = n.recipeid";
+		Recipe users  = (Recipe)jdbcTemplate.query(query,
+				new BeanPropertyRowMapper(UserProfile.class));
+		return users;
 	}
 	
 	

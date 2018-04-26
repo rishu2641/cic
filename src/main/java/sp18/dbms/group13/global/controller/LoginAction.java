@@ -10,13 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.google.gson.GsonBuilder;
 
 import sp18.dbms.group13.global.dao.LoginDao;
 import sp18.dbms.group13.global.model.LoginForm;
@@ -157,6 +156,14 @@ public class LoginAction {
 
 	}
 	
+	@RequestMapping(value = "/recipe/{id}", method = RequestMethod.GET)
+	public String getRecipeDetails(@PathVariable(value="id") String id, HttpServletRequest request) {
+		Recipe recipeObject = loginService.getRecipeDetail(id);
+		request.setAttribute("searchString", recipeObject);
+		return "allrecipes";
+
+	}
+	
 	@RequestMapping(value = "/FetchChefDetails", method = RequestMethod.GET)
 	public String fetchChefDetails(@RequestParam(value="chefname", required=true) String searchString, Recipe recipe, HttpServletRequest request) {
 		recipe.setSearchString(searchString);
@@ -208,6 +215,19 @@ public class LoginAction {
 		}
 		loginForm.setUserid(userId);
 		int result = loginService.calculateSchemaRows(loginForm);
+		return result;
+
+	}
+	
+	@RequestMapping(value = "/InsertIntoHistory", method = RequestMethod.POST)
+	public @ResponseBody boolean InsertIntoHistory(LoginForm loginForm, HttpServletRequest request) {
+		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("UserInfo");
+		String userId = "";
+		if(userInfo!=null) {
+			userId = userInfo.getUserid();
+		}
+		loginForm.setUserid(userId);
+		boolean result = loginService.insertIntoHistory(loginForm);
 		return result;
 
 	}

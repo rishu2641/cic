@@ -64,7 +64,61 @@ public class Recipe {
 	String fatMax="";
 	
 	
+	String cholestrol;
+	String sodium;
+	String protein;
+	String carb;
+	String fat;
+	String calories;
 	
+
+	public String getCholestrol() {
+		return cholestrol;
+	}
+
+	public void setCholestrol(String cholestrol) {
+		this.cholestrol = cholestrol;
+	}
+
+	public String getSodium() {
+		return sodium;
+	}
+
+	public void setSodium(String sodium) {
+		this.sodium = sodium;
+	}
+
+	public String getProtein() {
+		return protein;
+	}
+
+	public void setProtein(String protein) {
+		this.protein = protein;
+	}
+
+	public String getCarb() {
+		return carb;
+	}
+
+	public void setCarb(String carb) {
+		this.carb = carb;
+	}
+
+	public String getFat() {
+		return fat;
+	}
+
+	public void setFat(String fat) {
+		this.fat = fat;
+	}
+
+	public String getCalories() {
+		return calories;
+	}
+
+	public void setCalories(String calories) {
+		this.calories = calories;
+	}
 
 	public String getIngr() {
 		return ingr;
