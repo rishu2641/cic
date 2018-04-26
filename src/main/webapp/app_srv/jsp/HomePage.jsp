@@ -72,7 +72,7 @@ function calculateTuples(){
     <div id="search-container" class="col-md-4 home">
     	
 		<div id="tuple_container">
-			<button id="tuple_btn" class="btn btn-primary btn-lg btn-block" onclick="calculateTuples();">Click me for the total #tuples :</button>
+			<button id="tuple_btn" class="btn btn-primary btn-lg btn-block" onclick="calculateTuples();"><i class="fa fa-database"></i>Click for the total #tuples :</button>
 			<div id="numTuples">
 			</div>
 		</div>

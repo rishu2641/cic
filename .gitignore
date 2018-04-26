@@ -33,7 +33,6 @@ local.properties
 
 # STS (Spring Tool Suite)
 .springBeans
-.settings/org.eclipse.jdt.core.prefs
-.settings/org.eclipse.jdt.ui.prefs
+.settings/
 .classpath
 data-access.xml

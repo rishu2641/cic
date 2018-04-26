@@ -34,7 +34,7 @@
 	
 	<definition name="recipes" extends="base.definition">
 		<put-attribute name="body"
-			value="/app_srv/jsp/recipe.jsp" />
+			value="/app_srv/jsp/Recipe.jsp" />
 	</definition>
 	
 	<definition name="about" extends="base.definition">

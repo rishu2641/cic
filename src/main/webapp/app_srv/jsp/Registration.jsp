@@ -77,6 +77,11 @@
 			  } else {
 				  $("#help-block-max-weight").hide();
 			  }
+		  } else if(id == "dateOfBirth") {
+			  var val = $("#dateOfBirth").val();
+			  var age = 37;
+			  $("#help-block-dateOfBirth").text("This makes you " + age);
+			  $("#help-block-dateOfBirth").show();
 		  }
 		  if(!valid) {
 			  $("#submit-btn").attr("disabled", "disabled");
@@ -162,32 +167,32 @@
 				</div>
 				<div class="input-container">
 					<label for="userid" class="col-md-5 col-form-label">User Name</label>
-					<input type="text" class="form-control" id="userid"
+					<div class="input-label-container"><input type="text" class="form-control" id="userid"
 								placeholder="Username" required> <span
 								id="help-block-duplicate-userid"
 								class="help-block help-block-userid">Username already
 								exists. Get creative!</span> <span id="help-block-len-userid"
 								class="help-block help-block-userid">Username is
-								mandatory and can only have a maximum of 16 characters.</span>
+								mandatory and can only have a maximum of 16 characters.</span></div>
 				</div>
 				<div class="input-container">
 					<label for="strPassword" class="col-md-5 col-form-label">Password</label>
-					<input type="password" class="form-control" id="strPassword"
+					<div class="input-label-container"><input type="password" class="form-control" id="strPassword"
 								placeholder="Password" required> <span
 								id="help-block-len-password"
 								class="help-block help-block-strPassword">Password can
 								have a minimum of 8 and a maximum of 16 characters.</span>
 								<!-- Sorry, your password must contain a capital letter, two numbers, a symbol, an inspiring message, a spell, a gang sign, a hieroglyph and the blood of a virgin -->
-								<!-- Sorry, your password is not good enough. Just like you. -->
+								<!-- Sorry, your password is not good enough. Just like you. --></div>
 				</div>
 				<div class="input-container">
 					<label for="confirmpassword"
 							class="col-md-5 col-form-label">Confirm Password</label>
-					<input type="password" class="form-control" id="confirmpassword"
+					<div class="input-label-container"><input type="password" class="form-control" id="confirmpassword"
 								placeholder="Confirm Password" required> <span
 								id="help-block-password-mismatch"
 								class="help-block help-block-confirmpassword">Password
-								mismatch</span>
+								mismatch</span></div>
 				</div>
 			</div>
 			<div id="secondary-container">
@@ -198,11 +203,11 @@
 				<div id="sub-secondary-container1">
 					<div class="input-container">
 						<label for="firstName" class="col-md-5 col-form-label">First Name</label>
-						<input type="text" class="form-control" id="firstName"
+						<div class="input-label-container"><input type="text" class="form-control" id="firstName"
 								placeholder="First Name" required> <span
 								id="help-block-len-firstname"
 								class="help-block help-block-firstName">First name is
-								mandatory and can only have a maximum of 20 characters.</span>
+								mandatory and can only have a maximum of 20 characters.</span></div>
 					</div>
 					<div class="input-container" id="gender-container">
 						<label class="col-md-5 col-form-label">Gender</label>
@@ -218,10 +223,10 @@
 					<div class="input-container">
 						<label for="height"
 							class="col-md-4 col-form-label">Height</label>
-						<input type="number" class="form-control" id="height"
+						<div class="input-label-container"><input type="number" class="form-control" id="height"
 								placeholder="Height in cm" min="0" max="999"> <span
 								id="help-block-max-height" class="help-block help-block-height">Height
-								can only be a number between 0 and 999 cm.</span>
+								can only be a number between 0 and 999 cm.</span></div>
 					</div>
 					
 					<div class="input-container">
@@ -242,23 +247,24 @@
 				<div id="sub-secondary-container2">
 					<div class="input-container">
 						<label for="lastName" class="col-md-5 col-form-label">Last Name</label>
-						<input type="text" class="form-control" id="lastName"
+						<div class="input-label-container"><input type="text" class="form-control" id="lastName"
 								placeholder="Last Name"> <span
 								id="help-block-len-lastname"
 								class="help-block help-block-lastName">Last name can only
-								have a maximum of 20 characters.</span>
+								have a maximum of 20 characters.</span></div>
 					</div>
 					<div class="input-container">
 						<label for="dateOfBirth" class="col-md-5 col-form-label">Date of Birth</label>
-						<input type="date" class="form-control" id="dateOfBirth">
+						<input type="date" class="form-control" id="dateOfBirth"><span
+								id="help-block-dateOfBirth" class="help-block help-block-dateOfBirth"></span>
 					</div>
 					<div class="input-container">
 						<label for="weight"
 							class="col-md-4 col-form-label">Weight</label>
-						<input type="number" class="form-control" id="weight"
+						<div class="input-label-container"><input type="number" class="form-control" id="weight"
 								placeholder="Weight in lbs" min="0" max="999"> <span
 								id="help-block-max-weight" class="help-block help-block-weight">Weight
-								can only be a number between 0 and 999 lbs.</span>
+								can only be a number between 0 and 999 lbs.</span></div>
 					</div>
 					<div class="input-container">
 						<label for="diet"

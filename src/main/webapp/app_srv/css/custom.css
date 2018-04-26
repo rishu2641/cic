@@ -120,7 +120,11 @@ span.label-container {
 
 .help-block {
 	font-size: 11px;
-	color: #D7182A;
+    color: #D7182A;
+    padding: 0;
+    margin: 0;
+    display: block;
+    font-weight: 500;
 }
 
 .dialog {
@@ -637,14 +641,14 @@ img {
 	background: #fff;
 	color:black;
 }
-.btn.btn-secondary.active {
+.btn.btn-secondary.active, .btn.btn-secondary.focus {
 	text-decoration: none !important;
 	border: 3px solid #9D4316;
     background: #9D4316 !important;
 	color: #fff !important;
 	border-color: #9D4316 !important;
 }
-.btn.btn-secondary:hover, .btn.btn-secondary.focus {
+.btn.btn-secondary:hover {
 	text-decoration: none !important;
     background: #FA7236 !important;
 	border: 3px solid #9D4316 !important;
@@ -736,4 +740,29 @@ div#dataTable_filter {
 #tuple_container {
 	display: flex;
     flex-direction: row;
+}
+#recipe_container {
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+}
+#user_list_container button {
+	float: left;
+    height: 47px;
+    width: 46px;
+    background: #003260;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+#user_list_container button:hover {
+	background: #6C9AC3;
+}
+button#tuple_btn i {
+    padding-right: 4px;
+}
+.input-label-container {
+    height: 60px;
 }

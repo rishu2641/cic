@@ -159,7 +159,7 @@ public class LoginAction {
 	@RequestMapping(value = "/recipe/{id}", method = RequestMethod.GET)
 	public String getRecipeDetails(@PathVariable(value="id") String id, HttpServletRequest request) {
 		Recipe recipeObject = loginService.getRecipeDetail(id);
-		request.setAttribute("searchString", recipeObject);
+		request.setAttribute("recipeString", recipeObject);
 		return "recipes";
 
 	}
