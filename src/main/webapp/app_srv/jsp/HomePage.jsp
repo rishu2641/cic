@@ -25,11 +25,32 @@ function removeIngr(elem) {
 	  }
 }
 </script>
+
+<script>
+function calculateTuples(){
+	 $.ajax({
+		  type: "POST",
+		  url: "/CIC/CalculateSchemaRows",
+		  beforeSend: function() {
+			  callme();
+		  },
+		  success: function (success) {
+			  $.unblockUI();
+			  alert("MORE Than 14 times of what YOU expected, huh! :"+success);
+		  },
+		  error: function (error) {
+			  $.unblockUI();
+			  alert("Error while querying with given filters. Please check your filters/ingredients and try again.");
+		  }
+	  });
+}
+</script>
 <div class="row">
     <div id="search-container" class="col-md-4 home">
       <div style="display: flex;flex-direction: row;">
         <input type="text" placeholder="Search Ingredients.." name="search" id="search" class="home">
         <button type="button" id="search-icon" class="home" onclick="addIngr();"><i class="fa fa-plus"></i></button>
+        <button type="button" id="tupleCount" onclick="calculateTuples();">CLICK ME CLICK ME CLICK ME PLeeeeeeeeease '.'</button>
       </div>
       <div id="ingrContainer" class="home" style="display:none;"></div>
 	  <button type="button" value="" class="btallrec home" id="search-btn" onclick="search();">Search Recipes</button>

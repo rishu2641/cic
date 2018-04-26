@@ -335,7 +335,7 @@ public class LoginDao {
 	}
 
 	public int calculateSchemaRows(LoginForm loginForm) {
-		String query = "";
+		String query = "select sum(get_rows(table_name)) as totalrows from user_tables";
         int count = jdbcTemplate.queryForObject(query, Integer.class)+1; 
 		return count;
 	}
