@@ -26,7 +26,13 @@ function logError(string) {
 	}
 }
 function addEventListeners() {
-	$("#user_list_container input").change(function() {
+	$("#new-custom").click(function() {
+		$("#new-custom-input-container").animate({
+			width: '250px'
+	    });
+		$(this).attr("disabled", "disabled");
+	});
+	/*$("#user_list_container input").change(function() {
 		$.ajax({
 			  type: "POST",
 			  url: "/CIC/UserList",
@@ -45,45 +51,79 @@ function addEventListeners() {
 				  $("#added").show(); //Unable to add recipe to your list.
 			  }
 		  });
-	});
+	});*/
+}
+function addNewList() {
+	var listName = $("#new-custom-input").val();
+	$('<label id="' + listName + '-label" class="btn btn-primary"><input type="checkbox" value="' + listName + '" name="list" autocomplete="off">' + listName + '<i class="fa fa-plus"></i></label>').insertBefore("#new-custom");
+	$("#new-custom").removeAttr("disabled");
+	$("#new-custom-input-container").css("width", "0px");
+	
 }
 $(document).ready(function() {
 	window.document.title = RECIPE_NAME;
-	//addEventListeners();
+	addEventListeners();
 });
 function addCustomList() {
-	var listName = $("#add_custom_list").val();
+	/*
+	$.ajax({
+		  type: "POST",
+		  url: "/CIC/UserList",
+		  data: {
+			  "id" : RECIPE_ID,
+			  "listname": "other",
+			  "othername": listName,
+			  "flag": "1"
+		  },
+		  success: function (listName) {
+			  if(success) {
+				  $("#added").show(); //Successfully added recipe to your list.
+			  }
+			  
+		  },
+		  error: function (error) {
+			  $("#added").show(); //Unable to add recipe to your list.
+		  }
+	  });
+*/
 }
 </script>
 <div id="recipe_container">
-	<div id="recipe_heading">
-		<div id="recipe_title">Big boobs coz ppl dont like balls.</div>
+	<div id="recipe_title">Big boobs coz ppl dont like balls.</div>
+	<div class="sub_container">
+		<div class="recipe_sub_title">
+			My lists
+		</div>
 		<div id="user_list_container" class="btn-group" data-toggle="buttons">
-			<label id="custom1-label" class="btn btn-primary">
-				<input type="checkbox" value="custom1" name="list" autocomplete="off">
-				<i class="fa fa-plus"></i>
-			</label>
-			<label id="custom2-label" class="btn btn-primary">
-				<input type="checkbox" value="custom2" name="list" autocomplete="off">
-				<i class="fa fa-plus"></i>
-			</label>
 			<label id="favorite-label" class="btn btn-primary">
 				<input type="checkbox" value="favorite" name="list" autocomplete="off">
-				<i class="fa fa-heart"></i>
+				Favorite<i class="fa fa-heart"></i>
 			</label>
 			<label id="cooked-label" class="btn btn-primary">
 				<input type="checkbox" value="cooked" name="list" autocomplete="off">
-				<i class="fa fa-check"></i>
+				Cooked<i class="fa fa-check"></i>
 			</label>
+			<label id="custom1-label" class="btn btn-primary">
+				<input type="checkbox" value="custom1" name="list" autocomplete="off">
+				Custom List1<i class="fa fa-plus"></i>
+			</label>
+			<label id="custom2-label" class="btn btn-primary">
+				<input type="checkbox" value="custom2" name="list" autocomplete="off">
+				Custom List2<i class="fa fa-plus"></i>
+			</label>
+			<div id="new-custom-input-container">
+				<input type="text" id="new-custom-input" placeholder="My list name.."></input>
+				<button type="button" id="new-custom-submit" onclick="addNewList()" class="btn btn-primary">Submit</button>
+			</div>
+			<button type="button" id="new-custom" class="btn btn-primary">
+				Create and add to a new list<i class="fa fa-plus"></i></button>
 		</div>
 	</div>
-	<div id="recipe_description">
-		<div>
-			<div id="recipe_desc_title" class="recipe_sub_title">
-				Description:
-			</div>
-			<div id="recipe_rating">
-			</div>
+	<div class="sub_container">
+		<div id="recipe_desc_title" class="recipe_sub_title">
+			Description:
+		</div>
+		<div id="recipe_rating">
 		</div>
 		<div id="recipe_desc">
 			'Tis grandma's recipe. For the whole family to enjoy.
@@ -93,7 +133,7 @@ function addCustomList() {
 		<img id="recipe_image" src="https://recipeland.com/images/r/685/a2829798dbc8ef087aff_1024.jpg"></img>
 	</div>
 	<div id="recipe_tags">Lovely, large, big, wide, expansive, rack, bull, 404.</div>
-	<div id="recipe_ingredient_container">
+	<div class="sub_container">
 		<div id="recipe_ingr_title" class="recipe_sub_title">
 			Ingredients:
 		</div>
@@ -110,7 +150,7 @@ function addCustomList() {
 			<div class="ingredient">its dead friend</div>
 		</div>
 	</div>
-	<div id="recipe_method_container">
+	<div class="sub_container">
 		<div>
 			<div id="recipe_method_title" class="recipe_sub_title">
 				Method:
@@ -130,7 +170,10 @@ function addCustomList() {
 			<div class="method">coz that makes everything better. fry yourself.</div>
 		</div>
 	</div>
-	<div id="recipe_nutritional_information">
-		Carbs: 20, Fat:100, Fucks: 0.
+	<div class="sub_container">
+		<div class="recipe_sub_title">Nutritional Information</div>
+		<div id="recipe_nutritional_information">
+			Carbs: 20, Fat:100, Fucks: 0.
+		</div>
 	</div>
 </div>

@@ -749,24 +749,12 @@ div#dataTable_filter {
     flex-direction: row;
 }
 #recipe_container {
-	display: flex;
-	flex-direction: column;
-	align-items:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-#user_list_container button {
-	float: left;
-    height: 47px;
-    width: 46px;
-    background: #003260;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-}
-#user_list_container button:hover {
-	background: #6C9AC3;
-}
+
 button#tuple_btn i {
     padding-right: 4px;
 }
@@ -779,29 +767,52 @@ button#tuple_btn i {
     padding-right: 0px; 
     margin-right: 0;
 }
-#user_list_container input {
+#user_list_container input[type=checkbox] {
     display: none;
 }
 #user_list_container label:hover {
-    background: #FA7236 !important;
-	color: #fff !important;
+    background: #FA7236;
+	color: #fff;
 }
 #user_list_container label.active {
-	color: #fff !important;
-    border: 3px solid transparent !important;
-    background: #9D4316 !important;
-    box-shadow: none !important;
-    font-weight: 500 !important;
-    font-family: "gentona" !important;
+	color: #fff;
+    border: 3px solid transparent;
+    background: #9D4316;
+    box-shadow: none;
+    font-weight: 500;
+    font-family: "gentona";
 }
 #user_list_container label {
-	color: #003260 !important;
-    border: 3px solid #9D4316 !important;
-    background: none !important;
-    box-shadow: none !important;
-    font-weight: 500 !important;
+	color: #9D4316 ;
+    border: 3px solid #9D4316;
+    background: none;
+    box-shadow: none;
+    font-weight: 500;
     font-family: "gentona" !important;
     cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-transform:none;
+    letter-spacing:0;
+    border-radius: 0;
+}
+#new-custom {
+    font-size: 17px;
+    border-left: none;
+    cursor: pointer;
+    color: #9D4316 !important;
+    border: 3px solid #9D4316 !important;
+    background:none;
+    font-weight: 500 !important;
+    font-family: "gentona" !important;
+    margin-bottom: 8px;
+    text-transform:none;
+    letter-spacing:0;
+    border-radius: 0;
+}
+#user_list_container button:hover {
+	background: #FA7236 !important;
+    color: #fff !important;
 }
 #recipe_title {
     font: 700 28px"gentona", "Georgia", serif;
@@ -816,9 +827,89 @@ button#tuple_btn i {
     width: 75%;
     justify-content: space-between;
 }
+.recipe_sub_title {
+    background: #003260 url(../images/bg-texture-dark.png);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    color: #fff;
+    margin-bottom: 15px;
+}
 #user_list_container {
-	width: 185px;
-    height: 50px;
-    margin-top: 15px;
-    margin-bottom: 0;
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-right: 7px;
+    justify-content: space-evenly;
+}
+.sub_container {
+    width: 100%;
+}
+
+#recipe_container>div {
+    max-width: 75%;
+}
+#favorite-label {
+	color: #FF1493 !important;
+	border-color: #FF1493 !important;
+}
+#favorite-label:hover {
+	background-color: #FF69B4 !important;
+	border-color: #FF69B4 !important;
+	color: #fff !important;
+}
+#favorite-label.active {
+	color: #fff !important;
+	background-color: #FF1493 !important;
+	border-color: #FF1493 !important;
+}
+#cooked-label {
+	color: #28a745 !important;
+	border-color: #28a745 !important;
+}
+#cooked-label:hover {
+	background-color: #80BE63 !important;
+	border-color: #80BE63 !important;
+	color: #fff !important;
+}
+#cooked-label.active {
+	color: #fff !important;
+	background-color: #28a745 !important;
+	border-color: #28a745 !important;
+}
+div#user_list_container i {
+    padding-left: 5px;
+}
+input#new-custom-input {
+}
+#new-custom-input-container {
+	    height: 40px;
+    margin-bottom: 10px;
+    padding: 0;
+        width: 0px;
+    overflow: hidden;
+    border: none;
+}
+button#new-custom-submit {
+    background: #9D4316;
+    color: #fff;
+        font-weight: 500;
+    font-family: "gentona" !important;
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0;
+    border-left:3px solid #9D4316;
+    border: none;
+    margin-left: 0;
+    border-radius: 0;
+    margin-bottom: 4px;
+    height: 34px;
+}
+input#new-custom-input {
+	height: 100%;
+}
+#recipe_desc {
+	text-align: left;
 }
