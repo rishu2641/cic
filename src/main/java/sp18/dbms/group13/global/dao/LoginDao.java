@@ -1,5 +1,6 @@
 package sp18.dbms.group13.global.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import sp18.dbms.group13.global.model.Ingredients;
 import sp18.dbms.group13.global.model.LoginForm;
 import sp18.dbms.group13.global.model.Recipe;
 import sp18.dbms.group13.global.model.UserDetails;
@@ -69,17 +69,21 @@ public class LoginDao {
 		String[] ingredientList = recipe.getIngr().split(",");
 		String[] dietList = recipe.getDiet().split(",");
 		
+		List<Recipe> queryTester = new ArrayList<Recipe>();
 		
 		//Query for ingredient list
 		String q1 = "";
 		if(ingredientList.length>0) {
 			String ingredient = " like '%";
+			String ingstr = "";
 			for(String ing:ingredientList) {
-				ingredient+=ing+"%' or '%";
+				ingredient+=ing.toLowerCase()+"%' and lower(name) like '%";
+				ingstr+=ing;
 			}
-			ingredient = ingredient.substring(0,ingredient.length()-6);
+			ingredient = ingredient.substring(0,ingredient.length()-24);
 			
-			q1 = "select distinct(recipeid) from ingredient_recipe_mapping where ingredientid in (select distinct(id) from ingredients where name "+ingredient+" )";
+			if(ingstr.trim().length()>0)
+			q1 = "Select * from recipe where id in (select distinct(recipeid) from ingredient_recipe_mapping where ingredientid in (select distinct(id) from ingredients where name "+ingredient+" )) union all ";
 		}
 		
 		
@@ -87,19 +91,22 @@ public class LoginDao {
 		String q2 = "";
 		if(dietList.length>0) {
 			String diet = " like '%";
+			String dietstr = "";
 			for(String die:dietList) {
-				diet+=die+"%' or '%";
+				diet+=die.toLowerCase()+"%' and lower(name) like '%";
+				dietstr+=die;
 			}
-			diet = diet.substring(0,diet.length()-6);
+			diet = diet.substring(0,diet.length()-24);
 			
-			q2 = "select distinct(recipeid) from recipe_diet_mapping where dietid in ( select distinct(id) from diet where name "+diet+" )";
+			if(dietstr.trim().length()>0)
+			q2 = "Select * from recipe where id in (select distinct(recipeid) from recipe_diet_mapping where dietid in ( select distinct(id) from diet where name "+diet+" ))  union all ";
 		}
 		
 		
 		//Query for preptime
 		String q3 = "";
 		int minPrepTime = 0;
-		int maxPrepTime = 50000;
+		int maxPrepTime = 0;
 		
 		if(!recipe.getPrepTimeMin().equals(""))
 			minPrepTime = Integer.parseInt(recipe.getPrepTimeMin());
@@ -107,14 +114,18 @@ public class LoginDao {
 		if(!recipe.getPrepTimeMax().equals(""))
 			maxPrepTime = Integer.parseInt(recipe.getPrepTimeMax());
 		
-		q3 = "select distinct(recipeid) from recipe where preptime between "+minPrepTime+" and "+maxPrepTime;
-	
+		q3 = "Select * from recipe where id in (select distinct(id) from recipe where preptime between "+minPrepTime+" and "+maxPrepTime+ ")  union all ";
+		
+		if((minPrepTime+maxPrepTime == 0)) {
+			q3 = "";
+		}
+		
 		
 		
 		//Query for cooktime
 		String q4 = "";
 		int minCookTime = 0;
-		int maxCookTime = 50000;
+		int maxCookTime = 0;
 		
 		if(!recipe.getCookTimeMin().equals(""))
 			minCookTime = Integer.parseInt(recipe.getCookTimeMin());
@@ -122,13 +133,18 @@ public class LoginDao {
 		if(!recipe.getCookTimeMax().equals(""))
 			maxCookTime = Integer.parseInt(recipe.getCookTimeMax());
 		
-		q4 = "select distinct(recipeid) from recipe where cooktime between "+minCookTime+" and "+maxCookTime;
-	
+		q4 = "Select * from recipe where id in (select distinct(id) from recipe where cooktime between "+minCookTime+" and "+maxCookTime+ ")  union all ";
+		
+		if(queryTester.size()==0|| (minCookTime+maxCookTime == 0)) {
+			q4 = "";
+		}
+		
+		
 		
 		//Query for totaltime
 		String q5 = "";
 		int minTotalTime = 0;
-		int maxTotalTime = 50000;
+		int maxTotalTime = 0;
 		
 		if(!recipe.getTotalTimeMin().equals(""))
 			minTotalTime = Integer.parseInt(recipe.getTotalTimeMin());
@@ -136,13 +152,18 @@ public class LoginDao {
 		if(!recipe.getTotalTimeMax().equals(""))
 			maxTotalTime = Integer.parseInt(recipe.getTotalTimeMax());
 		
-		q5 = "select distinct(recipeid) from recipe where (to_number(cooktime)+to_number(preptime)) between "+minTotalTime+" and "+maxTotalTime;
-	
+		q5 = "Select * from recipe where id in (select distinct(id) from recipe where (to_number(cooktime)+to_number(preptime)) between "+minTotalTime+" and "+maxTotalTime+ ")  union all ";
+		
+		if((minTotalTime+maxTotalTime == 0)) {
+			q5 = "";
+		}
+		
+		
 		
 		//Query for calories
 		String q6 = "";
 		int minCalories = 0;
-		int maxCalories = 50000;
+		int maxCalories = 0;
 		
 		if(!recipe.getCaloriesMin().equals(""))
 			minCalories = Integer.parseInt(recipe.getCaloriesMin());
@@ -150,13 +171,16 @@ public class LoginDao {
 		if(!recipe.getCaloriesMax().equals(""))
 			maxCalories = Integer.parseInt(recipe.getCaloriesMax());
 		
-		q6 = "select distinct(recipeid) from nutritional_information where calories between "+minCalories+" and "+maxCalories;
+		q6 = "Select * from recipe where id in (select distinct(recipeid) from nutritional_information where calories between "+minCalories+" and "+maxCalories+ ")  union all ";
 		
+		if((minCalories+maxCalories == 0)) {
+			q6 = "";
+		}
 		
 		//Query for cholesterol
 		String q7 = "";
 		int minCholesterol = 0;
-		int maxCholesterol = 50000;
+		int maxCholesterol = 0;
 		
 		if(!recipe.getCholesterolMin().equals(""))
 			minCholesterol = Integer.parseInt(recipe.getCholesterolMin());
@@ -164,13 +188,16 @@ public class LoginDao {
 		if(!recipe.getCholesterolMax().equals(""))
 			maxCholesterol = Integer.parseInt(recipe.getCholesterolMax());
 		
-		q7 = "select distinct(recipeid) from nutritional_information where cholestrol between "+minCholesterol+" and "+maxCholesterol;
+		q7 = "Select * from recipe where id in (select distinct(recipeid) from nutritional_information where cholestrol between "+minCholesterol+" and "+maxCholesterol+ ")  union all ";
 		
+		if((minCholesterol+maxCholesterol == 0)) {
+			q7 = "";
+		}
 		
 		//Query for sodium
 		String q8 = "";
 		int minSodium = 0;
-		int maxSodium = 50000;
+		int maxSodium = 0;
 		
 		if(!recipe.getSodiumMin().equals(""))
 			minSodium = Integer.parseInt(recipe.getSodiumMin());
@@ -178,14 +205,17 @@ public class LoginDao {
 		if(!recipe.getSodiumMax().equals(""))
 			maxSodium = Integer.parseInt(recipe.getSodiumMax());
 		
-		q8 = "select distinct(recipeid) from nutritional_information where sodium between "+minSodium+" and "+maxSodium;
+		q8 = "Select * from recipe where id in (select distinct(recipeid) from nutritional_information where sodium between "+minSodium+" and "+maxSodium+ ")  union all ";
 		
+		if((minSodium+maxSodium == 0)) {
+			q8 = "";
+		}
 		
 		
 		//Query for protein
 		String q9 = "";
 		int minProtein = 0;
-		int maxProtein = 50000;
+		int maxProtein = 0;
 		
 		if(!recipe.getProteinMin().equals(""))
 			minProtein = Integer.parseInt(recipe.getProteinMin());
@@ -193,14 +223,17 @@ public class LoginDao {
 		if(!recipe.getProteinMax().equals(""))
 			maxProtein = Integer.parseInt(recipe.getProteinMax());
 		
-		q9 = "select distinct(recipeid) from nutritional_information where protein between "+minProtein+" and "+maxProtein;
+		q9 = "Select * from recipe where id in (select distinct(recipeid) from nutritional_information where protein between "+minProtein+" and "+maxProtein+ ")  union all ";
 		
+		if((minProtein+maxProtein == 0)) {
+			q9 = "";
+		}
 		
 
 		//Query for carb
 		String q10 = "";
 		int minCarb = 0;
-		int maxCarb = 50000;
+		int maxCarb = 0;
 		
 		if(!recipe.getCarbohydrateMin().equals(""))
 			minCarb= Integer.parseInt(recipe.getCarbohydrateMin());
@@ -208,14 +241,17 @@ public class LoginDao {
 		if(!recipe.getCarbohydrateMax().equals(""))
 			maxCarb = Integer.parseInt(recipe.getCarbohydrateMax());
 		
-		q10 = "select distinct(recipeid) from nutritional_information where carb between "+minCarb+" and "+maxCarb;
+		q10 = "Select * from recipe where id in (select distinct(recipeid) from nutritional_information where carb between "+minCarb+" and "+maxCarb+ ")  union all ";
 		
+		if((minCarb+maxCarb == 0)) {
+			q10 = "";
+		}
 		
 		
 		//Query for fat
 		String q11 = "";
 		int minFat = 0;
-		int maxFat = 50000;
+		int maxFat = 0;
 		
 		if(!recipe.getFatMin().equals(""))
 			minFat= Integer.parseInt(recipe.getFatMin());
@@ -223,32 +259,31 @@ public class LoginDao {
 		if(!recipe.getFatMax().equals(""))
 			maxFat = Integer.parseInt(recipe.getFatMax());
 		
-		q11 = "select distinct(recipeid) from nutritional_information where fat between "+minFat+" and "+maxFat;
-				
+		q11 = " Select * from recipe where id in ( select distinct(recipeid) from nutritional_information where fat between "+minFat+" and "+maxFat + ")  union all ";
+		
+		if((minFat+maxFat == 0)) {
+			q11 = "";
+		}		
 				
 		
-		String queryFinal = "Select * from recipe where id in ("+q1+") or id in ("+q2+") or "
-				+ " id in ("+q3+") or "
-						+ " id in ("+q4+") or "
-						+ " id in ("+q5+") or "
-						+ " id in ("+q6+") or "
-						+ " id in ("+q7+") or "
-						+ " id in ("+q8+") or "
-						+ " id in ("+q9+") or "
-						+ " id in ("+q10+") or "
-						+ " id in ("+q11+")";
+		String queryFinal = q1+q2+q3+q4+q5+q6+q7+q8+q9+q10+q11;
 		
-		
-		System.out.println(queryFinal);
+		if(queryFinal.length()>11) {
+			queryFinal = queryFinal.substring(0,queryFinal.length()-11);
+		}
+		//System.out.println(queryFinal);
 				
-		List<Recipe> users  = jdbcTemplate.query(queryFinal,
+		String queryUnique = "select * from recipe where id in ( select max(id) from ("+queryFinal+") group by name) order by rating, name";
+		
+		System.out.println(queryUnique);
+		List<Recipe> users  = jdbcTemplate.query(queryUnique,
 				new BeanPropertyRowMapper(Recipe.class));
 		
 		return users;
 	}
 
 	public List<Recipe> getChefDetails(Recipe recipe) {
-		String query = "  select * from recipe where id in (select r.id from recipe r where lower(r.name) like '%"+recipe.getSearchString().toLowerCase()+"%' )" ;
+		String query = "  select * from recipe where id in (select r.id from recipe r where lower(r.name) like '%"+recipe.getSearchString().toLowerCase()+"%' ) " ;
 		List<Recipe> users  = jdbcTemplate.query(query,
 				new BeanPropertyRowMapper(Recipe.class));
 		

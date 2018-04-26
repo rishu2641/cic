@@ -101,8 +101,6 @@ $(document).ready(function() {
 		        $("#search").val("");
 		    }
 		});
-	  parseResponse();
-	  $("#dataTable").DataTable();
   });
   var ingrSet = new Set();
   function addIngr() {
@@ -121,6 +119,8 @@ $(document).ready(function() {
 	  }
   }
   function search() {
+	  $('#dataTable').dataTable().fnClearTable();
+	  
 	  var dietArr = $("#dietCheckBox label.active").map(function() {
 		    return $(this).find("input").get(0).value;
 		}).get();
@@ -304,15 +304,21 @@ $(document).ready(function() {
 		  type: "POST",
 		  url: "/CIC/FetchRecipeDetails",
 		  data: data,
+		  beforeSend: function() {
+			  callme();
+		  },
 		  success: function (success) {
+			  $.unblockUI();
+			  parseResponse(success);
 			  console.log(success);
 		  },
 		  error: function (error) {
+			  $.unblockUI();
 			  alert("Error while querying with given filters. Please check your filters/ingredients and try again.");
 		  }
 	  });
   }
-  function parseResponse() {
+  function parseResponse(arrnew) {
 	  var arr = [{
 			"id":"18982",
 			"description":"This is a delicacy.",
@@ -511,16 +517,18 @@ $(document).ready(function() {
 			"recipe_name": "DickButt"
 		}
 	  ];
-	  for(var i=0;i<arr.length;i++) {
-			var obj = arr[i];
-			var recipe_item_thumbnail = '<div class="recipe_item_thumbnail"><img src="' + obj.image_link + '" alt="' + obj.recipe_name + '"></div>';
-			var recipe_item_title = '<div class="recipe_item_title">' + obj.recipe_name + '</div>';
+	  for(var i=0;i<arrnew.length;i++) {
+			var obj = arrnew[i];
+			var recipe_item_thumbnail = '<div class="recipe_item_thumbnail"><img src="' + obj.image_link + '" alt="' + obj.name + '"></div>';
+			var recipe_item_title = '<div class="recipe_item_title">' + obj.name + '</div>';
 			var recipe_item_author = '<div class="recipe_item_author"> by <a href="#" onclick="fetchAuthor(\"' + obj.chefname + '\")">' + obj.chefname + '</a></div>';
 			var recipe_item_desc = '<div class="recipe_item_desc">' + obj.description + '<a class="view_recipe_link" href="/recipe/' + obj.id + '">View Recipe</a></div>';
 			var recipe_item_content='<div class="recipe_item_content">' + recipe_item_title + recipe_item_author + recipe_item_desc +'</div>';
 			var recipe_item_container = '<div class="recipe_item_container page-item">' + recipe_item_thumbnail + recipe_item_content +'</div>';
 			$("#allrecipes-body").append('<tr><td>' + recipe_item_container + '</tr></td');
 	  }
+	  $("#dataTable").DataTable();
+
   }
 </script>
 <div class="row" id="the-big-one">
@@ -679,48 +687,7 @@ $(document).ready(function() {
 		</tr>
 	</thead>
 	<tbody id="allrecipes-body">
-		<tr>
-			<td>
-				<div class="recipe_item_container">
-				  	<div class="recipe_item_thumbnail">
-				  	  <img src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
-				  	</div>
-				  	<div class="recipe_item_content">
-				  	  <div class="recipe_item_title">
-				  	    Balls. Big ones.
-				  	  </div>
-				  	  <div class="recipe_item_author">
-				  	    by <a href="#authorpage">author</a>
-				  	  </div>
-				  	  <div class="recipe_item_desc">
-				  	    Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls.
-				  	    Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. Balls. 
-				  	    <a class="view_recipe_link" href="#recipelink">View recipe</a>
-				  	  </div>
-				  	</div>
-				  </div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<div class="recipe_item_container">
-				  	<div class="recipe_item_thumbnail">
-				  	  <img src="https://www.tarladalal.com/members/9306/big/big_hawaiian_coconut-11990.jpg" alt="Card image cap">
-				  	</div>
-				  	<div class="recipe_item_content">
-				  	  <div class="recipe_item_title"> Balls. Small ones.
-				  	  </div>
-				  	  <div class="recipe_item_author">
-				  	    by <a href="#authorpage">author</a>
-				  	  </div>
-				  	  <div class="recipe_item_desc">
-				  	    Balls. Balls. Balls.
-				  	    <a class="view_recipe_link" href="#">View recipe</a>
-				  	  </div>
-				  	</div>
-				  </div>
-			</td>
-		</tr>
+		
 	</tbody>
 	  
 	  

@@ -53,7 +53,7 @@ function removeIngr(elem) {
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
 						<div class="item active">
-							<img src="/CIC/resources/app_srv/images/Blood_Orange_Chiffon_Cake_with_Mango_Curd_(Unsplash).jpg" alt="Cake">
+							<img src="/CIC/resources/app_srv/images/default-recipe-big.png" alt="default">
 						</div>
 
 						<div class="item">
