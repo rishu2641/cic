@@ -363,15 +363,15 @@ public class LoginDao {
 				" 	FROM recipe r, nutritional_information n "+
 				" 	where r.ID = n.RECIPEID "+
 				" 	and r.id = "+Integer.parseInt(id)+ ") t1, "+
-				" 	(select count(*) as isFav from FAVORCOOKED F, recipe r2 where F.recipeid = r2.id and F.is_FAV= 1 "+
-				" 	and r2.id = "+Integer.parseInt(id)+ " and F.is_valid=1 "+
+				" 	(select count(*) as isFav from FAVORCOOKED F, recipe r2 where F.\"recipeid\" = r2.id and F.\"is_FAV\"= 1 "+
+				" 	and r2.id = "+Integer.parseInt(id)+ " and F.\"is_valid\"=1 "+
 				" 	and F.USERID = '"+userId+"') t2, "+
-				" 	(select count(*) as isCook from FAVORCOOKED F, recipe r2 where F.recipeid = r2.id and F.is_COOKED= 1 "+
-				" 	and r2.id = "+Integer.parseInt(id)+ " and F.is_valid=1 "+
+				" 	(select count(*) as isCook from FAVORCOOKED F, recipe r2 where F.\"recipeid\" = r2.id and F.\"is_COOKED\"= 1 "+
+				" 	and r2.id = "+Integer.parseInt(id)+ " and F.\"is_valid\"=1 "+
 				" 	and F.USERID = '"+userId+"') t3, "+
 				" 	(select count(*) as isOther, listagg(F.OTHER_NAME, ',') within group ( order by F.ID ) as names from FAVORCOOKED F, "+
-				"   recipe r2 where F.recipeid = r2.id and F.is_OTHER= 1 "+
-				" 	and r2.id = "+Integer.parseInt(id)+ " and F.'is_valid'=1 "+
+				"   recipe r2 where F.\"recipeid\" = r2.id and F.\"is_OTHER\"= 1 "+
+				" 	and r2.id = "+Integer.parseInt(id)+ " and F.\"is_valid\"=1 "+
 				" 	and F.USERID = '"+userId+"') t4 "; 
 		List<Recipe> users  = jdbcTemplate.query(query,
 				new BeanPropertyRowMapper(Recipe.class));
