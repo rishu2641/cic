@@ -138,6 +138,13 @@ public class LoginAction {
 		return result;
 
 	}
+	
+	@RequestMapping(value = "/FetchIngredientDetails", method = RequestMethod.POST)
+	public @ResponseBody List<Recipe> fetchIngredientDetails(Recipe recipe, HttpServletRequest request) {
+		List<Recipe> result = loginService.getRecipeDetails(recipe);
+		return result;
+
+	}
 
 	@RequestMapping(value = "/FetchRecipeDetails", method = RequestMethod.GET)
 	public String fetchRecipeDetails(@RequestParam(value="ingredients", required=true) String searchString, Recipe recipe, HttpServletRequest request) {
@@ -186,6 +193,20 @@ public class LoginAction {
 		}
 		loginForm.setUserid(userId);
 		boolean result = loginService.updateProfileAndRegistration(loginForm);
+		return result;
+
+	}
+	
+	
+	@RequestMapping(value = "/CalculateSchemaRows", method = RequestMethod.POST)
+	public @ResponseBody int calculateSchemaRows(LoginForm loginForm, HttpServletRequest request) {
+		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("UserInfo");
+		String userId = "";
+		if(userInfo!=null) {
+			userId = userInfo.getUserid();
+		}
+		loginForm.setUserid(userId);
+		int result = loginService.calculateSchemaRows(loginForm);
 		return result;
 
 	}

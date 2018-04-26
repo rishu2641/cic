@@ -77,10 +77,10 @@ public class LoginDao {
 			String ingredient = " like '%";
 			String ingstr = "";
 			for(String ing:ingredientList) {
-				ingredient+=ing.toLowerCase()+"%' and lower(name) like '%";
+				ingredient+=ing.toLowerCase()+"%' or lower(name) like '%";
 				ingstr+=ing;
 			}
-			ingredient = ingredient.substring(0,ingredient.length()-24);
+			ingredient = ingredient.substring(0,ingredient.length()-23);
 			
 			if(ingstr.trim().length()>0)
 			q1 = "Select * from recipe where id in (select distinct(recipeid) from ingredient_recipe_mapping where ingredientid in (select distinct(id) from ingredients where name "+ingredient+" )) union all ";
@@ -93,10 +93,10 @@ public class LoginDao {
 			String diet = " like '%";
 			String dietstr = "";
 			for(String die:dietList) {
-				diet+=die.toLowerCase()+"%' and lower(name) like '%";
+				diet+=die.toLowerCase()+"%' or lower(name) like '%";
 				dietstr+=die;
 			}
-			diet = diet.substring(0,diet.length()-24);
+			diet = diet.substring(0,diet.length()-23);
 			
 			if(dietstr.trim().length()>0)
 			q2 = "Select * from recipe where id in (select distinct(recipeid) from recipe_diet_mapping where dietid in ( select distinct(id) from diet where name "+diet+" ))  union all ";
@@ -332,6 +332,12 @@ public class LoginDao {
 		}
 		
 		return false;
+	}
+
+	public int calculateSchemaRows(LoginForm loginForm) {
+		String query = "";
+        int count = jdbcTemplate.queryForObject(query, Integer.class)+1; 
+		return count;
 	}
 	
 	
