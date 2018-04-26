@@ -32,6 +32,11 @@
 			value="/app_srv/jsp/AllRecipes.jsp" />
 	</definition>
 	
+	<definition name="recipes" extends="base.definition">
+		<put-attribute name="body"
+			value="/app_srv/jsp/recipe.jsp" />
+	</definition>
+	
 	<definition name="about" extends="base.definition">
 		<put-attribute name="body"
 			value="/app_srv/jsp/About.jsp" />

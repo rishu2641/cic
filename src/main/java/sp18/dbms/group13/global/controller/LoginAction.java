@@ -160,7 +160,7 @@ public class LoginAction {
 	public String getRecipeDetails(@PathVariable(value="id") String id, HttpServletRequest request) {
 		Recipe recipeObject = loginService.getRecipeDetail(id);
 		request.setAttribute("searchString", recipeObject);
-		return "allrecipes";
+		return "recipes";
 
 	}
 	

@@ -355,9 +355,9 @@ public class LoginDao {
 
 	public Recipe getRecipeDetail(String id) {
 		String query = " select * from recipe r, nutritional_information  n where r.id = "+Integer.parseInt(id)+" and r.id = n.recipeid";
-		Recipe users  = (Recipe)jdbcTemplate.query(query,
+		List<Recipe> users  = jdbcTemplate.query(query,
 				new BeanPropertyRowMapper(UserProfile.class));
-		return users;
+		return users.size()>0?users.get(0):null;
 	}
 	
 	
