@@ -47,5 +47,10 @@
 			value="/app_srv/jsp/UserProfile.jsp" />
 	</definition>
 	
+	<definition name="chef" extends="base.definition">
+		<put-attribute name="body"
+			value="/app_srv/jsp/Chef.jsp" />
+	</definition>
+	
 </tiles-definitions>
  

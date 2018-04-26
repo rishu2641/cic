@@ -284,7 +284,7 @@ public class LoginDao {
 	}
 
 	public List<Recipe> getChefDetails(Recipe recipe) {
-		String query = "  select * from recipe where id in (select r.id from recipe r where lower(r.name) like '%"+recipe.getSearchString().toLowerCase()+"%' ) " ;
+		String query = "  select * from recipe where id in (select r.id from recipe r where lower(r.chefname) like '%"+recipe.getSearchString().toLowerCase()+"%' ) " ;
 		List<Recipe> users  = jdbcTemplate.query(query,
 				new BeanPropertyRowMapper(Recipe.class));
 		
