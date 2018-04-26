@@ -146,11 +146,12 @@ $(document).ready(function() {
       var diet = dietArr.join(",");
 	  logDebug("diet = " + diet);
 	  
-	  var ingr="";
+	  var ingr=[];
+	  if($("#search").val().trim()!="") ingr.push($("#search").val().trim());
 	  ingrSet.forEach(function (value1, value2, set) {
-		  ingr+=value1+",";
+		  ingr.push(value1);
 	  });
-	  ingr = ingr.substring(0, ingr.length - 1);
+	  ingr = ingr.join(",");
 	  logDebug("ingr = " + ingr);
 	  
 	  var prepTime = $("input[name='prepTime']:checked").val();
@@ -342,15 +343,13 @@ $(document).ready(function() {
 			var obj = arr[i];
 			var recipe_item_thumbnail = '<div class="recipe_item_thumbnail"><img src="' + obj.image_link + '" alt="' + obj.name + '" title="' + obj.name + '"></div>';
 			var recipe_item_title = '<div class="recipe_item_title">' + obj.name + '</div>';
-			var recipe_item_author = '<div class="recipe_item_author"> by <a href="#" onclick="fetchAuthor(\"' + obj.chefname + '\")">' + obj.chefname + '</a></div>';
+			var recipe_item_author = '<div class="recipe_item_author"> by <a href="#" onclick="fetchAuthor(\"' + obj.chefname + '\")" title="View ' + obj.chefname + '\'s recipes">' + obj.chefname + '</a></div>';
 			var recipe_item_desc = '<div class="recipe_item_desc">' + obj.description + '<a class="view_recipe_link" href="/recipe/' + obj.id + '">View Recipe</a></div>';
 			var recipe_item_content='<div class="recipe_item_content">' + recipe_item_title + recipe_item_author + recipe_item_desc +'</div>';
 			var recipe_item_container = '<div class="recipe_item_container page-item">' + recipe_item_thumbnail + recipe_item_content +'</div>';
 			$("#allrecipes-body").append('<tr><td>' + recipe_item_container + '</tr></td');
 	  }
-	  if(dataTable) {
-		  dataTable.draw();
-	  } else {
+	  if(!dataTable) {
 		  dataTable = $("#dataTable").DataTable();
 	  }
 

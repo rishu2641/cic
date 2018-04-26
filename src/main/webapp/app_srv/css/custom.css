@@ -526,8 +526,15 @@ img {
 .recipe_item_container:hover {
 	
 }
+.recipe_item_thumbnail {
+	display: flex;
+    max-width: 100px;
+    max-height: 100px;
+    align-items: center;
+}
 .recipe_item_thumbnail img {
-	max-width: 100px;
+    display: flex;
+    max-width: 100px;
     max-height: 100px;
 }
 .recipe_item_content {
@@ -663,24 +670,34 @@ div#dataTable_filter {
 .paginate_button.current {
 	background-color: #084b81;
 }
-.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+#dataTable_paginate .paginate_button.current, #dataTable_paginate .paginate_button.current:hover {
 	color: #fff !important;
-    border: none !important;
+    border: 3px solid transparent !important;
     background: #9D4316 !important;
     box-shadow: none !important;
     font-weight: 500 !important;
     font-family: "gentona" !important;
 }
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+#dataTable_paginate .paginate_button:hover {
 	color: #003260 !important;
     border: 3px solid #9D4316 !important;
     background: none !important;
     box-shadow: none !important;
     font-weight: 500 !important;
     font-family: "gentona" !important;
+    cursor: pointer;
 }
-.dataTables_wrapper .dataTables_paginate .paginate_button {
+#dataTable_paginate .paginate_button {
     color: #003260 !important;
     font-weight: 500 !important;
     font-family: "gentona" !important;
+    border: 3px solid transparent !important;
+}
+#dataTable_paginate .paginate_button.disabled {
+	color: #666 !important;
+    border: 3px solid transparent !important;
+}
+#dataTable_paginate .paginate_button.disabled:hover {
+    cursor: normal !important;
+    border: 3px solid transparent !important;
 }
