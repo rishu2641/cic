@@ -158,7 +158,12 @@ public class LoginAction {
 	
 	@RequestMapping(value = "/recipe", method = RequestMethod.GET)
 	public String getRecipeDetails(@RequestParam(value="id", required=true) String id, HttpServletRequest request) {
-		Recipe recipeObject = loginService.getRecipeDetail(id);
+		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("UserInfo");
+		String userId = "";
+		if(userInfo!=null) {
+			userId = userInfo.getUserid();
+		}
+		Recipe recipeObject = loginService.getRecipeDetail(id,userId);
 		request.setAttribute("recipeString", recipeObject);
 		return "recipes";
 

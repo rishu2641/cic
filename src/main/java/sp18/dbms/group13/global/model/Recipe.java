@@ -72,6 +72,45 @@ public class Recipe {
 	String calories;
 	
 
+	String isFav;
+	String isCook;
+	String isOther;
+	String names;
+	
+	
+	
+	public String getIsFav() {
+		return isFav;
+	}
+
+	public void setIsFav(String isFav) {
+		this.isFav = isFav;
+	}
+
+	public String getIsCook() {
+		return isCook;
+	}
+
+	public void setIsCook(String isCook) {
+		this.isCook = isCook;
+	}
+
+	public String getIsOther() {
+		return isOther;
+	}
+
+	public void setIsOther(String isOther) {
+		this.isOther = isOther;
+	}
+
+	public String getNames() {
+		return names;
+	}
+
+	public void setNames(String names) {
+		this.names = names;
+	}
+
 	public String getCholestrol() {
 		return cholestrol;
 	}

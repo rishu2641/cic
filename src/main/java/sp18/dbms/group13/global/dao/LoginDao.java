@@ -353,8 +353,26 @@ public class LoginDao {
 			return false;
 	}
 
-	public Recipe getRecipeDetail(String id) {
-		String query = " select * from recipe r, nutritional_information  n where r.id = "+Integer.parseInt(id)+" and r.id = n.recipeid";
+	public Recipe getRecipeDetail(String id, String userId) {
+		String query = "select t1.*,t2.isFav, t3.isCook, t4.isOther,t4.names from "+
+				" (SELECT r.ID, r.NAME, r.DESCRIPTION, r.CHEFNAME, r.PREPTIME, r.COOKTIME, nvl(r.INSTRUCTIONS,'') as instructions, "+
+				" 	nvl(r.CUISINE,'NA') as cuisine, nvl(r.RATING,0) as rating, "
+				+ " nvl(r.NUM_OF_REVIEWS,0) as num_of_reviews, nvl(r.SERVINGS,1) as servings, "+ 
+				" 	r.RECIPE_LINK, nvl(r.KEYWORDS,'') as keywords, r.IMAGE_LINK, "
+				+ " n.RECIPEID, n.CHOLESTROL, n.SODIUM, n.PROTEIN, n.CARB, n.FAT, n.CALORIES "+
+				" 	FROM recipe r, nutritional_information n "+
+				" 	where r.ID = n.RECIPEID "+
+				" 	and r.id = "+Integer.parseInt(id)+ ") t1, "+
+				" 	(select count(*) as isFav from FAVORCOOKED F, recipe r2 where F.recipeid = r2.id and F.is_FAV= 1 "+
+				" 	and r2.id = "+Integer.parseInt(id)+ " and F.is_valid=1 "+
+				" 	and F.USERID = '"+userId+"') t2, "+
+				" 	(select count(*) as isCook from FAVORCOOKED F, recipe r2 where F.recipeid = r2.id and F.is_COOKED= 1 "+
+				" 	and r2.id = "+Integer.parseInt(id)+ " and F.is_valid=1 "+
+				" 	and F.USERID = '"+userId+"') t3, "+
+				" 	(select count(*) as isOther, listagg(F.OTHER_NAME, ',') within group ( order by F.ID ) as names from FAVORCOOKED F, "+
+				"   recipe r2 where F.recipeid = r2.id and F.is_OTHER= 1 "+
+				" 	and r2.id = "+Integer.parseInt(id)+ " and F.'is_valid'=1 "+
+				" 	and F.USERID = '"+userId+"') t4 "; 
 		List<Recipe> users  = jdbcTemplate.query(query,
 				new BeanPropertyRowMapper(Recipe.class));
 		return users.size()>0?users.get(0):null;
