@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.GsonBuilder;
+
 import sp18.dbms.group13.global.dao.LoginDao;
 import sp18.dbms.group13.global.model.LoginForm;
 import sp18.dbms.group13.global.model.Recipe;
@@ -150,9 +152,7 @@ public class LoginAction {
 	public String fetchRecipeDetails(@RequestParam(value="ingredients", required=true) String searchString, Recipe recipe, HttpServletRequest request) {
 		recipe.setSearchString(searchString);
 		recipe.setIngr(searchString);
-		List<Recipe> result = loginService.getRecipeDetails(recipe);
-		request.setAttribute("recipeList", result);
-		request.setAttribute("searchString", searchString);
+    request.setAttribute("searchString", searchString);
 		return "allrecipes";
 
 	}

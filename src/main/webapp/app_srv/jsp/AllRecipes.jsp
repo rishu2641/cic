@@ -130,17 +130,7 @@ function renderIngredients() {
 	for(var i=0;i<ingr.length;i++) {
 		addIngr(ingr[i]);
 	}
-	var arr=[];
-	<c:forEach var="rec" items="${recipeList}">
-		var obj={};
-		obj.image_link = '${rec.image_link}';
-		obj.name = '${rec.image_link}';
-		obj.chefname = '${rec.chefname}';
-		obj.description = '${rec.description}';
-		obj.id = '${rec.id}';
-		arr.push(obj);
-	</c:forEach>
-	parseResponse(arr);
+	search();
 }
 function renderGetRequest() {
 	renderIngredients();
