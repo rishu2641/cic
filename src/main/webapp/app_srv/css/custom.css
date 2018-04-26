@@ -753,6 +753,7 @@ div#dataTable_filter {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 75%;
 }
 
 button#tuple_btn i {
@@ -850,10 +851,6 @@ button#tuple_btn i {
 .sub_container {
     width: 100%;
 }
-
-#recipe_container>div {
-    max-width: 75%;
-}
 #favorite-label {
 	color: #FF1493 !important;
 	border-color: #FF1493 !important;
@@ -926,7 +923,7 @@ input#new-custom-input {
     margin-top: -5px;
 }
 div#recipe_rating span.filled {
-    color: #E28F41;
+    color:  #FA7236;
 }
 
 div#recipe_rating span {
@@ -934,7 +931,7 @@ div#recipe_rating span {
     cursor: pointer;
 }
 div#recipe_rating span.hover {
-	color:#FA7236;
+	color:#E28F41;
 }
 img#recipe_image {
     max-width: 725px;
@@ -974,4 +971,10 @@ div#primary-container .input-container {
 }
 #recipe_desc_title {
     display: inline-block;
+}
+#body {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
