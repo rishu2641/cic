@@ -32,6 +32,43 @@ function addEventListeners() {
 	    });
 		$(this).attr("disabled", "disabled");
 	});
+	$("#recipe_rating span").hover(function() {
+		var id = this.id;
+		$("#" + id).addClass("hover");
+	});
+	$("#recipe_rating").focusout(function() {
+		for(var i=1;i<=5;i++) {
+			$("#" + i).removeClass("hover");
+		}
+	});
+	$("#recipe_rating").mouseout(function() {
+		for(var i=1;i<=5;i++) {
+			$("#" + i).removeClass("hover");
+		}
+	});
+	$("#recipe_rating span").click(function() {
+		var id = this.id;
+		for(var i=1;i<=id;i++) {
+			$("#" + i).addClass("filled");
+		}
+		for(var i=parseInt(id)+1;i<=5;i++) {
+			$("#" + i).removeClass("filled");
+		}
+		/*
+		$.ajax({
+			  type: "POST",
+			  url: "/CIC/UserRating",
+			  data: {
+				  "id" : RECIPE_ID,
+				  "rating": id
+			  },
+			  success: function (success) {
+			  },
+			  error: function (error) {
+			  }
+		  });
+		*/
+	});
 	/*$("#user_list_container input").change(function() {
 		$.ajax({
 			  type: "POST",
@@ -120,15 +157,15 @@ function addCustomList() {
 		</div>
 	</div>
 	<div class="sub_container">
-		<div id="recipe_desc_title" class="recipe_sub_title">
-			Description:
-		</div>
-		<div id="recipe_rating">
-			<i class="fa fa-star filled"></i>
-			<i class="fa fa-star filled"></i>
-			<i class="fa fa-star filled"></i>
-			<i class="fa fa-star"></i>
-			<i class="fa fa-star"></i>
+		<div class="recipe_sub_title">
+			<div id="recipe_desc_title">Description</div>
+			<div id="recipe_rating">
+				<span id="1" class="fa fa-star filled"></span>
+				<span id="2" class="fa fa-star filled"></span>
+				<span id="3" class="fa fa-star filled"></span>
+				<span id="4" class="fa fa-star"></span>
+				<span id="5" class="fa fa-star"></span>
+			</div>
 		</div>
 		<div id="recipe_desc">
 			'Tis grandma's recipe. For the whole family to enjoy.
@@ -140,7 +177,7 @@ function addCustomList() {
 	<div id="recipe_tags">Lovely, large, big, wide, expansive, rack, bull, 404.</div>
 	<div class="sub_container">
 		<div id="recipe_ingr_title" class="recipe_sub_title">
-			Ingredients:
+			Ingredients
 		</div>
 		<div id="recipe_ingr">
 			<div class="ingredient">takes</div>
@@ -158,7 +195,7 @@ function addCustomList() {
 	<div class="sub_container">
 		<div>
 			<div id="recipe_method_title" class="recipe_sub_title">
-				Method:
+				Method
 			</div>
 			<div id="recipe_method_icon_container">
 				<div id="prepTime"><i class="fa fa-clock"></i><b>Prep</b> 20 mins</div>
