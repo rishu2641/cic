@@ -306,7 +306,7 @@ label {
     padding-left: 10px;
 }
 #search-container.home {
-    margin-top: 84px;
+    margin-top: 80px;
     padding-left: 30px;
     padding-right: 20px;
 }
@@ -334,6 +334,7 @@ label {
 #search-btn.home {
     margin-left: -1px;
 	width: 100%;
+	margin-top: 33px;
 }
 
 #search-btn:hover {
@@ -482,12 +483,18 @@ img {
     margin-top:20px;
 }
 #site-title {
-	color: #FA4616;
-	font-family: 'Roboto', sans-serif;
-	text-transform: uppercase;
+    color: #9D4316;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 14px;
+    font: 700 24px "gentona", "Georgia", serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 .site-desc {
-	
+	margin-bottom: 10px;
 }
 #allrecipes-filter-container {
     padding-right: 0px;
@@ -704,4 +711,29 @@ div#dataTable_filter {
 .carousel-item img {
     max-width: 600px;
     max-height: 500px;
+}
+#tuple_btn {
+	width: 252px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: none;
+    padding-left: 6px;
+    margin-bottom: 25px;
+    height: 55px;
+}
+#numTuples {
+	flex: 1;
+    height: 55px;
+    margin-left: 10px;
+    text-align: center;
+    align-items: center;
+    line-height: 48px;
+    border: 3px solid #9D4316;
+    font-weight: 700;
+    font-size: x-large;
+    color: #003260;
+}
+#tuple_container {
+	display: flex;
+    flex-direction: row;
 }

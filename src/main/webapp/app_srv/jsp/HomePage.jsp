@@ -34,23 +34,28 @@ function calculateTuples(){
 		  beforeSend: function() {
 			  callme();
 		  },
-		  success: function (success) {
+		  success: function (numTuples) {
 			  $.unblockUI();
-			  alert("MORE Than 14 times of what YOU expected, huh! :"+success);
+			  $("#numTuples").text(numTuples);
 		  },
 		  error: function (error) {
 			  $.unblockUI();
-			  alert("Error while querying with given filters. Please check your filters/ingredients and try again.");
+			  alert("Error trying to get the tuples. There are possibly way too many.");
 		  }
 	  });
 }
 </script>
 <div class="row">
     <div id="search-container" class="col-md-4 home">
+    	
+		<div id="tuple_container">
+			<button id="tuple_btn" class="btn btn-primary btn-lg btn-block" onclick="calculateTuples();">Click me for the total #tuples :</button>
+			<div id="numTuples">
+			</div>
+		</div>
       <div style="display: flex;flex-direction: row;">
         <input type="text" placeholder="Search Ingredients.." name="search" id="search" class="home">
         <button type="button" id="search-icon" class="home" onclick="addIngr();"><i class="fa fa-plus"></i></button>
-        <button type="button" id="tupleCount" onclick="calculateTuples();">CLICK ME CLICK ME CLICK ME PLeeeeeeeeease '.'</button>
       </div>
       <div id="ingrContainer" class="home" style="display:none;"></div>
 	  <button type="button" value="" class="btallrec home" id="search-btn" onclick="search();">Search Recipes</button>
@@ -61,7 +66,7 @@ function calculateTuples(){
   <div id="site-welcome">Welcome!</div>
   <div id="site-title" align='center'>Can I Cook?</div>
 	<div class="site-desc" align='center'>Of course you can!! Just add the ingredients in your fridge and search for some amazing recipes that are simple to cook and amazing in taste!</div>
-	<div align='center' class="site-desc">Want curated suggestions just for you? Sign Up with us today!</div>
+	<div align='center' class="site-desc">Want curated suggestions just for you? <a id="home_sign_up" href="/CIC/Register">Sign Up</a> with us today!</div>
 			<div class="col-md-11" align='center'> 	
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
