@@ -1,4 +1,20 @@
 <script>
+var LOG_LEVEL = "INFO";
+function logDebug(string) {
+	if(LOG_LEVEL != "DEBUG") {
+		console.log(string);
+	}
+}
+function logInfo(string) {
+	if(LOG_LEVEL == "ERROR" || LOG_LEVEL == "INFO") {
+		console.log(string);
+	}
+}
+function logError(string) {
+	if(LOG_LEVEL == "ERROR") {
+		console.log(string);
+	}
+}
 $(document).ready(function() {
 	$("#home").addClass("active");
 	$("#search").keyup(function(event) {
@@ -24,9 +40,16 @@ function removeIngr(elem) {
 		  $("#ingrContainer").hide();
 	  }
 }
-</script>
-
-<script>
+function search() {
+	var ingr=[];
+	if($("#search").val().trim()!="") ingr.push($("#search").val().trim());
+	ingrSet.forEach(function (value1, value2, set) {
+		ingr.push(value1);
+	});
+	ingr = ingr.join(",");
+	logDebug("ingr = " + ingr);
+	window.location.href="/CIC/FetchRecipeDetails?ingredients=" + ingr;
+}
 function calculateTuples(){
 	 $.ajax({
 		  type: "POST",

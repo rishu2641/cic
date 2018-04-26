@@ -1,3 +1,10 @@
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
 
 <title>All Recipes</title>
 <script>
@@ -17,9 +24,7 @@ function logError(string) {
 		console.log(string);
 	}
 }
-$(document).ready(function() {
-	window.document.title = "AllRecipes";
-	$("#allrecipes").addClass("active");
+function attachEventHandlers() {
 	$('input[type=radio][name=prepTime]').change(function() {
         if (this.value == 'prepTimeCustom') {
         	$("#from-prepTime").removeAttr("disabled");
@@ -47,6 +52,14 @@ $(document).ready(function() {
         	$("#to-totalTime").attr("disabled", "disabled");
         }
     });
+	$("#search").keyup(function(event) {
+	    if (event.keyCode === 13) {
+	        $("#search-icon").click();
+	        $("#search").val("");
+	    }
+	});
+}
+function attachEggAnimation() {
 	$.each($(".filter-container1 button"), function(index, value) {
 		$(value).click(function() {
 			var divId = this.id.split("-btn")[0];
@@ -111,16 +124,39 @@ $(document).ready(function() {
 			 anim.playSegments([anim.currentFrame, 300], true)
 		}
 	});
-	  $("#search").keyup(function(event) {
-		    if (event.keyCode === 13) {
-		        $("#search-icon").click();
-		        $("#search").val("");
-		    }
-		});
-  });
+}
+function renderIngredients() {
+	var ingr = "${searchString}".split(",");
+	for(var i=0;i<ingr.length;i++) {
+		addIngr(ingr[i]);
+	}
+	var arr=[];
+	<c:forEach var="rec" items="${recipeList}">
+		var obj={};
+		obj.image_link = '${rec.image_link}';
+		obj.name = '${rec.image_link}';
+		obj.chefname = '${rec.chefname}';
+		obj.description = '${rec.description}';
+		obj.id = '${rec.id}';
+		arr.push(obj);
+	</c:forEach>
+	parseResponse(arr);
+}
+function renderGetRequest() {
+	renderIngredients();
+}
+$(document).ready(function() {
+	window.document.title = "AllRecipes";
+	$("#allrecipes").addClass("active");
+	attachEventHandlers();
+	attachEggAnimation();
+	if("${searchString}") {
+		renderGetRequest();
+	}
+});
   var ingrSet = new Set();
-  function addIngr() {
-	  var ingr = $("#search").val().trim();
+  function addIngr(ingredient) {
+	  var ingr = ingredient || $("#search").val().trim();
 	  if(!ingrSet.has(ingr) && ingr != "") {
 		  $("#ingrContainer").show();
 		  ingrSet.add(ingr);

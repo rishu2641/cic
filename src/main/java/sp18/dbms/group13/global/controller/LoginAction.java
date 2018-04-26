@@ -149,6 +149,7 @@ public class LoginAction {
 	@RequestMapping(value = "/FetchRecipeDetails", method = RequestMethod.GET)
 	public String fetchRecipeDetails(@RequestParam(value="ingredients", required=true) String searchString, Recipe recipe, HttpServletRequest request) {
 		recipe.setSearchString(searchString);
+		recipe.setIngr(searchString);
 		List<Recipe> result = loginService.getRecipeDetails(recipe);
 		request.setAttribute("recipeList", result);
 		request.setAttribute("searchString", searchString);

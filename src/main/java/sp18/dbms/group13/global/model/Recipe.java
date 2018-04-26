@@ -42,26 +42,26 @@ public class Recipe {
 		this.name = name;
 	}
 
-	String ingr;
-	String diet;
-	String prepTimeMin;
-	String prepTimeMax;
-	String cookTimeMin;
-	String cookTimeMax;
-	String totalTimeMin;
-	String totalTimeMax;
-	String caloriesMin;
-	String caloriesMax;
-	String cholesterolMin;
-	String cholesterolMax;
-	String sodiumMin;
-	String sodiumMax;
-	String proteinMin;
-	String proteinMax;
-	String carbohydrateMin;
-	String carbohydrateMax;
-	String fatMin;
-	String fatMax;
+	String ingr ="";
+	String diet ="";
+	String prepTimeMin="";
+	String prepTimeMax="";
+	String cookTimeMin="";
+	String cookTimeMax="";
+	String totalTimeMin="";
+	String totalTimeMax="";
+	String caloriesMin="";
+	String caloriesMax="";
+	String cholesterolMin="";
+	String cholesterolMax="";
+	String sodiumMin="";
+	String sodiumMax="";
+	String proteinMin="";
+	String proteinMax="";
+	String carbohydrateMin="";
+	String carbohydrateMax="";
+	String fatMin="";
+	String fatMax="";
 	
 	
 	
