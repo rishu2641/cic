@@ -125,6 +125,7 @@ span.label-container {
     margin: 0;
     display: block;
     font-weight: 500;
+    max-width: 200px;
 }
 
 .dialog {
@@ -533,20 +534,22 @@ img {
 	flex-direction:row;
 	margin-bottom: 20px;
 	cursor: pointer;
+	align-items: center;
 }
 .recipe_item_container:hover {
 	
 }
 .recipe_item_thumbnail {
 	display: flex;
-    max-width: 100px;
-    max-height: 100px;
+    width: 100px;
+    height: 100px;
     align-items: center;
 }
 .recipe_item_thumbnail img {
-    display: flex;
-    max-width: 100px;
-    max-height: 100px;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 .recipe_item_content {
 	flex:1;
@@ -586,7 +589,7 @@ img {
     color: #fff;
     margin-bottom: 15px;
 }
-.input-container input {
+.input-container input, .input-container select {
     max-width: 300px;
     font-weight: 100;
 }
@@ -613,9 +616,13 @@ img {
     padding-right: 15px;
 }
 .input-container label {
+	padding-left: 10px;
+    max-width: 100px;
+    padding-right: 0px;
+    margin-right: 0;
     min-width: 88px;
     text-align: left;
-    font-weight: 600;
+    font-weight: 600;	
 }
 #sub-secondary-container3 {
 	display: flex;
@@ -765,4 +772,53 @@ button#tuple_btn i {
 }
 .input-label-container {
     height: 60px;
+}
+.input-container label {
+    padding-left: 0px;
+    width: 88px;
+    padding-right: 0px; 
+    margin-right: 0;
+}
+#user_list_container input {
+    display: none;
+}
+#user_list_container label:hover {
+    background: #FA7236 !important;
+	color: #fff !important;
+}
+#user_list_container label.active {
+	color: #fff !important;
+    border: 3px solid transparent !important;
+    background: #9D4316 !important;
+    box-shadow: none !important;
+    font-weight: 500 !important;
+    font-family: "gentona" !important;
+}
+#user_list_container label {
+	color: #003260 !important;
+    border: 3px solid #9D4316 !important;
+    background: none !important;
+    box-shadow: none !important;
+    font-weight: 500 !important;
+    font-family: "gentona" !important;
+    cursor: pointer;
+}
+#recipe_title {
+    font: 700 28px"gentona", "Georgia", serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #003260;
+    margin-top: 20px;
+    float: left;
+}
+#recipe_heading {
+	display: flex;
+    width: 75%;
+    justify-content: space-between;
+}
+#user_list_container {
+	width: 185px;
+    height: 50px;
+    margin-top: 15px;
+    margin-bottom: 0;
 }

@@ -79,7 +79,9 @@
 			  }
 		  } else if(id == "dateOfBirth") {
 			  var val = $("#dateOfBirth").val();
-			  var age = 37;
+			  var year = parseInt(val.split("-")[0]);
+			  var currYear = new Date().getFullYear();
+			  var age = currYear-year;
 			  $("#help-block-dateOfBirth").text("This makes you " + age);
 			  $("#help-block-dateOfBirth").show();
 		  }
@@ -255,8 +257,8 @@
 					</div>
 					<div class="input-container">
 						<label for="dateOfBirth" class="col-md-5 col-form-label">Date of Birth</label>
-						<input type="date" class="form-control" id="dateOfBirth"><span
-								id="help-block-dateOfBirth" class="help-block help-block-dateOfBirth"></span>
+						<div class="input-label-container"><input type="date" class="form-control" id="dateOfBirth"><span
+								id="help-block-dateOfBirth" class="help-block help-block-dateOfBirth"></span></div>
 					</div>
 					<div class="input-container">
 						<label for="weight"

@@ -49,7 +49,7 @@ function addEventListeners() {
 }
 $(document).ready(function() {
 	window.document.title = RECIPE_NAME;
-	addEventListeners();
+	//addEventListeners();
 });
 function addCustomList() {
 	var listName = $("#add_custom_list").val();
@@ -58,20 +58,20 @@ function addCustomList() {
 <div id="recipe_container">
 	<div id="recipe_heading">
 		<div id="recipe_title">Big boobs coz ppl dont like balls.</div>
-		<div id="user_list_container">
-			<label id="custom1-label" class="btn btn-primary active">
+		<div id="user_list_container" class="btn-group" data-toggle="buttons">
+			<label id="custom1-label" class="btn btn-primary">
 				<input type="checkbox" value="custom1" name="list" autocomplete="off">
 				<i class="fa fa-plus"></i>
 			</label>
-			<label id="custom2-label" class="btn btn-primary active">
+			<label id="custom2-label" class="btn btn-primary">
 				<input type="checkbox" value="custom2" name="list" autocomplete="off">
 				<i class="fa fa-plus"></i>
 			</label>
-			<label id="favorite-label" class="btn btn-primary active">
+			<label id="favorite-label" class="btn btn-primary">
 				<input type="checkbox" value="favorite" name="list" autocomplete="off">
 				<i class="fa fa-heart"></i>
 			</label>
-			<label id="cooked-label" class="btn btn-primary active">
+			<label id="cooked-label" class="btn btn-primary">
 				<input type="checkbox" value="cooked" name="list" autocomplete="off">
 				<i class="fa fa-check"></i>
 			</label>
