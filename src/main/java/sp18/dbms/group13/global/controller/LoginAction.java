@@ -156,8 +156,8 @@ public class LoginAction {
 
 	}
 	
-	@RequestMapping(value = "/recipe/{id}", method = RequestMethod.GET)
-	public String getRecipeDetails(@PathVariable(value="id") String id, HttpServletRequest request) {
+	@RequestMapping(value = "/recipe", method = RequestMethod.GET)
+	public String getRecipeDetails(@RequestParam(value="id", required=true) String id, HttpServletRequest request) {
 		Recipe recipeObject = loginService.getRecipeDetail(id);
 		request.setAttribute("recipeString", recipeObject);
 		return "recipes";
