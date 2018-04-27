@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import sp18.dbms.group13.global.dao.LoginDao;
 import sp18.dbms.group13.global.model.FavCookedOrOther;
 import sp18.dbms.group13.global.model.LoginForm;
+import sp18.dbms.group13.global.model.Rating;
 import sp18.dbms.group13.global.model.Recipe;
 import sp18.dbms.group13.global.model.UserDetails;
 import sp18.dbms.group13.global.model.UserInfo;
@@ -253,6 +253,14 @@ public class LoginAction {
 			userId = userInfo.getUserid();
 		}
 		boolean result = loginService.insertIntoFavOrCooked(favForm,userId);
+		return result;
+
+	}
+	
+	@RequestMapping(value = "/UserRating", method = RequestMethod.POST)
+	public @ResponseBody boolean UserRating(Rating rating, HttpServletRequest request) {
+		
+		boolean result = loginService.updateRatings(rating);
 		return result;
 
 	}
