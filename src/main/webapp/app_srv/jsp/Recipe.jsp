@@ -96,9 +96,9 @@ function addEventListeners() {
 			  type: "POST",
 			  url: "/CIC/FavCookOrOther",
 			  data: {
-				  "id" : RECIPE_ID,
-				  "listname": input.value == "fav" || input.value == "cook" ? input.value : "other",
-				  "othername": input.value != "fav" && input.value != "cook" ? input.value : "",
+				  "recipeid" : RECIPE_ID,
+				  "listName": input.value == "fav" || input.value == "cook" ? input.value : "other",
+				  "otherListNames": input.value != "fav" && input.value != "cook" ? input.value : "",
 				  "flag": $(this).hasClass("active") ? 0 : 1
 			  },
 			  success: function (success) {
@@ -143,9 +143,9 @@ function addNewList() {
 		  type: "POST",
 		  url: "/CIC/FavCookOrOther",
 		  data: {
-			  "id" : RECIPE_ID,
-			  "listname": "other",
-			  "othername": listName,
+			  "recipeid" : RECIPE_ID,
+			  "listName": "other",
+			  "otherListNames": listName,
 			  "flag": "1"
 		  },
 		  success: function (listName) {
@@ -185,7 +185,7 @@ $(document).ready(function() {
 </script>
 <div id="recipe_container">
 	<div id="recipe_title">${recipeString.name}</div>
-	<span>by <a href="/CIC/FetchChefDetails?chefname=" + '${recipeString.chefname}>'${recipeString.chefname}</a></span>
+	<span>by <a href="/CIC/FetchChefDetails?chefname=${recipeString.chefname}">${recipeString.chefname}</a></span>
 	<div class="sub_container">
 		<div class="recipe_sub_title">
 			My lists

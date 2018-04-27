@@ -1,3 +1,11 @@
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
+
 <script>
 var LOG_LEVEL = "INFO";
 function logDebug(string) {
@@ -16,14 +24,14 @@ function logError(string) {
 	}
 }
 $(document).ready(function() {
-	var chefname = '${searchString.chefname}';
+	var chefname = '${searchString}';
 	window.document.title = chefname;
 	$.ajax({
 		  type: "POST",
 		  url: "/CIC/FetchChefDetails",
 		  data: {
 			  "chefname": chefname,
-		  }
+		  },
 		  beforeSend: function() {
 			  callme();
 		  },

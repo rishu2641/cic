@@ -179,8 +179,8 @@ public class LoginAction {
 	}
 	
 	@RequestMapping(value = "/FetchChefDetails", method = RequestMethod.POST)
-	public @ResponseBody List<Recipe> fetchChefDetailsPOST(@RequestParam(value="chefname", required=true) String searchString, Recipe recipe, HttpServletRequest request) {
-		recipe.setSearchString(searchString);
+	public @ResponseBody List<Recipe> fetchChefDetailsPOST(Recipe recipe, HttpServletRequest request) {
+		recipe.setSearchString(recipe.getChefname());
 		List<Recipe> result = loginService.getChefDetails(recipe);
 		return result;
 

@@ -287,6 +287,7 @@ public class LoginDao {
 
 	public List<Recipe> getChefDetails(Recipe recipe) {
 		String query = "  select * from recipe where id in (select r.id from recipe r where lower(r.chefname) like '%"+recipe.getSearchString().toLowerCase()+"%' ) " ;
+		System.out.println(query);
 		List<Recipe> users  = jdbcTemplate.query(query,
 				new BeanPropertyRowMapper(Recipe.class));
 		
@@ -356,7 +357,7 @@ public class LoginDao {
 
 	public Recipe getRecipeDetail(String id, String userId) {
 		String query = "select t1.*,t2.isFav, t3.isCook, t4.isOther,t4.names from "+
-				" (SELECT r.ID, r.NAME, r.DESCRIPTION, r.CHEFNAME, r.PREPTIME, r.COOKTIME, nvl(r.INSTRUCTIONS,'') as instructions, "+
+				" (SELECT r.ID, r.NAME, replace(r.DESCRIPTION,'''', '') as description, r.CHEFNAME, r.PREPTIME, r.COOKTIME, replace(nvl(r.INSTRUCTIONS,''),'''', '') as instructions, "+
 				" 	nvl(r.CUISINE,'NA') as cuisine, nvl(r.RATING,0) as rating, "
 				+ " nvl(r.NUM_OF_REVIEWS,0) as num_of_reviews, nvl(r.SERVINGS,1) as servings, "+ 
 				" 	r.RECIPE_LINK, nvl(r.KEYWORDS,'') as keywords, nvl(n.RECIPEID,0)as recipeid, nvl(n.CHOLESTROL,0) as cholestrol, " + 
@@ -375,6 +376,8 @@ public class LoginDao {
 				" 	and r2.id = "+Integer.parseInt(id)+ " and F.\"is_valid\"=1 "+
 				" 	and F.USERID = '"+userId+"') t4 "; 
 		List<Recipe> users  = jdbcTemplate.query(query, new BeanPropertyRowMapper(Recipe.class));
+		
+		System.out.println(query);
 		return users.size()>0?users.get(0):null;
 	}
 
