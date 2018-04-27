@@ -345,8 +345,7 @@ public class LoginDao {
 
 	public boolean insertIntoHistory(LoginForm loginForm) {
         int count = jdbcTemplate.queryForObject("select count(*) from history", Integer.class)+1; 
-        Date date = new Date();
-		String query = "insert into history (id, userid, recipeid, DT) values ("+count+",'"+loginForm.getUserid()+"',"+loginForm.getRecipeId()+",'"+date+"')";
+		String query = "insert into history (id, userid, recipeid, DT) values ("+count+",'"+loginForm.getUserid()+"',"+loginForm.getRecipeId()+",sysdate)";
 		int result = jdbcTemplate.update(query);
 		
 		if(result>0)
