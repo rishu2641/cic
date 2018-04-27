@@ -185,6 +185,7 @@ $(document).ready(function() {
 </script>
 <div id="recipe_container">
 	<div id="recipe_title">${recipeString.name}</div>
+	<span>by <a href="/CIC/FetchChefDetails?chefname=" + '${recipeString.chefname}>'${recipeString.chefname}</a></span>
 	<div class="sub_container">
 		<div class="recipe_sub_title">
 			My lists
