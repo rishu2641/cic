@@ -36,3 +36,5 @@ local.properties
 .settings/
 .classpath
 data-access.xml
+src/main/resources/data-access.xml
+src/main/resources/data-access.xml

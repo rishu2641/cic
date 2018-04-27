@@ -92,7 +92,7 @@ function addEventListeners() {
 }
 function addNewList() {
 	var listName = $("#new-custom-input").val();
-	$('<label id="' + listName + '-label" class="btn btn-primary"><input type="checkbox" value="' + listName + '" name="list" autocomplete="off">' + listName + '<i class="fa fa-plus"></i></label>').insertBefore("#new-custom");
+	$('<label id="' + listName + '-label" class="btn btn-primary active"><input type="checkbox" value="' + listName + '" name="list" autocomplete="off">' + listName + '<i class="fa fa-plus"></i></label>').insertBefore("#new-custom");
 	$("#new-custom").removeAttr("disabled");
 	$("#new-custom-input-container").css("width", "0px");
 	
