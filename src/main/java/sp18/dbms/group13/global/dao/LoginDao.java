@@ -374,8 +374,7 @@ public class LoginDao {
 				"   recipe r2 where F.\"recipeid\" = r2.id and F.\"is_OTHER\"= 1 "+
 				" 	and r2.id = "+Integer.parseInt(id)+ " and F.\"is_valid\"=1 "+
 				" 	and F.USERID = '"+userId+"') t4 "; 
-		List<Recipe> users  = jdbcTemplate.query(query,
-				new BeanPropertyRowMapper(Recipe.class));
+		List<Recipe> users  = jdbcTemplate.query(query, new BeanPropertyRowMapper(Recipe.class));
 		return users.size()>0?users.get(0):null;
 	}
 

@@ -369,10 +369,10 @@ $(document).ready(function() {
 			  "recipeId" : recipeId
 		  },
 		  success: function () {
-			  alert("Data saved in history!");
+			  console.log("Data saved in history!");
 		  },
 		  error: function () {
-			  alert("Data saved in history!");
+			  console.log("Data saved in history!");
 		  }
 	  });
 	  window.location.href = "/CIC/recipe?id=" + recipeId;
