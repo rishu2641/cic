@@ -359,11 +359,11 @@ public class LoginDao {
 				" (SELECT r.ID, r.NAME, r.DESCRIPTION, r.CHEFNAME, r.PREPTIME, r.COOKTIME, nvl(r.INSTRUCTIONS,'') as instructions, "+
 				" 	nvl(r.CUISINE,'NA') as cuisine, nvl(r.RATING,0) as rating, "
 				+ " nvl(r.NUM_OF_REVIEWS,0) as num_of_reviews, nvl(r.SERVINGS,1) as servings, "+ 
-				" 	r.RECIPE_LINK, nvl(r.KEYWORDS,'') as keywords, r.IMAGE_LINK, "
-				+ " n.RECIPEID, n.CHOLESTROL, n.SODIUM, n.PROTEIN, n.CARB, n.FAT, n.CALORIES "+
-				" 	FROM recipe r, nutritional_information n "+
-				" 	where r.ID = n.RECIPEID "+
-				" 	and r.id = "+Integer.parseInt(id)+ ") t1, "+
+				" 	r.RECIPE_LINK, nvl(r.KEYWORDS,'') as keywords, nvl(n.RECIPEID,0)as recipeid, nvl(n.CHOLESTROL,0) as cholestrol, " + 
+				"	nvl(n.SODIUM,0) as sodium, nvl(n.PROTEIN,0) as protein, nvl(n.CARB,0) as carb, nvl(n.FAT,0) as fat, nvl(n.CALORIES,0) as calories "+
+				" 	FROM recipe r LEFT OUTER JOIN nutritional_information n "+
+				" 	on r.ID = n.RECIPEID "+
+				" 	where r.id = "+Integer.parseInt(id)+ ") t1, "+
 				" 	(select count(*) as isFav from FAVORCOOKED F, recipe r2 where F.\"recipeid\" = r2.id and F.\"is_FAV\"= 1 "+
 				" 	and r2.id = "+Integer.parseInt(id)+ " and F.\"is_valid\"=1 "+
 				" 	and F.USERID = '"+userId+"') t2, "+

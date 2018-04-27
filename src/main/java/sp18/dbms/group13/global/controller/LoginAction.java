@@ -235,11 +235,13 @@ public class LoginAction {
 	public @ResponseBody boolean InsertIntoHistory(LoginForm loginForm, HttpServletRequest request) {
 		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("UserInfo");
 		String userId = "";
+		boolean result = false;
 		if(userInfo!=null) {
 			userId = userInfo.getUserid();
+			loginForm.setUserid(userId);
+			result = loginService.insertIntoHistory(loginForm);
 		}
-		loginForm.setUserid(userId);
-		boolean result = loginService.insertIntoHistory(loginForm);
+		
 		return result;
 
 	}
