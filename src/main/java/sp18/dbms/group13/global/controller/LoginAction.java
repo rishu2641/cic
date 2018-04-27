@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import sp18.dbms.group13.global.dao.LoginDao;
+import sp18.dbms.group13.global.model.FavCookedOrOther;
 import sp18.dbms.group13.global.model.LoginForm;
 import sp18.dbms.group13.global.model.Recipe;
 import sp18.dbms.group13.global.model.UserDetails;
@@ -243,6 +244,18 @@ public class LoginAction {
 
 	}
 	
+	
+	@RequestMapping(value = "/FavCookOrOther", method = RequestMethod.POST)
+	public @ResponseBody boolean FavCookOr(FavCookedOrOther favForm, HttpServletRequest request) {
+		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("UserInfo");
+		String userId = "";
+		if(userInfo!=null) {
+			userId = userInfo.getUserid();
+		}
+		boolean result = loginService.insertIntoFavOrCooked(favForm,userId);
+		return result;
+
+	}
 	
 	
 	

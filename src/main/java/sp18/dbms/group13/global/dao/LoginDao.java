@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import sp18.dbms.group13.global.model.FavCookedOrOther;
 import sp18.dbms.group13.global.model.LoginForm;
 import sp18.dbms.group13.global.model.Recipe;
 import sp18.dbms.group13.global.model.UserDetails;
@@ -19,9 +20,9 @@ public class LoginDao {
 	
 	@Autowired JdbcTemplate jdbcTemplate;
 
-	public boolean createLogin(LoginForm loginForm) {
+	public boolean createDiet(LoginForm loginForm) {
 		
-		int result = jdbcTemplate.update("insert into diet (id,name) values (1,'keto')");
+		int result = jdbcTemplate.update("insert into diet (id,name) values ("+loginForm.getDietID()+",'"+loginForm.getOtherList()+"')");
 		if(result>0) {
 			return true;
 			
@@ -337,7 +338,7 @@ public class LoginDao {
 
 	public int calculateSchemaRows(LoginForm loginForm) {
 		String query = "select sum(get_rows(table_name)) as totalrows from user_tables";
-        int count = jdbcTemplate.queryForObject(query, Integer.class)+1; 
+        int count = jdbcTemplate.queryForObject(query, Integer.class); 
 		return count;
 	}
 
@@ -376,6 +377,48 @@ public class LoginDao {
 		List<Recipe> users  = jdbcTemplate.query(query,
 				new BeanPropertyRowMapper(Recipe.class));
 		return users.size()>0?users.get(0):null;
+	}
+
+	public boolean insertIntoFavOrCooked(FavCookedOrOther favForm, String userId) {
+		String insertOrDelete = favForm.getFlag();
+		int isFav = 0;
+		int isCooked = 0;
+		int isOther = 0;
+		if(favForm.getListName().equals("fav")) {
+			isFav = 1;
+		}
+		else if(favForm.getListName().equals("cook")) {
+			isCooked = 1;
+		}
+		else if(favForm.getListName().equals("other")) {
+			isOther = 1;
+		}
+		
+		int result  = 0;
+		
+		//Case insert, flag = 1
+		if(insertOrDelete.equals("1")) {
+			String query = " insert into favorcooked (favorcooked.id,favorcooked.userid,favorcooked.\"is_FAV\",favorcooked.\"is_COOKED\",favorcooked.\"is_OTHER\",\r\n" + 
+					"favorcooked.other_name,favorcooked.\"recipeid\",favorcooked.\"is_valid\")\r\n" + 
+					"select max(id)+1 ,'"+userId+"',"+isFav+","+isCooked+","+isOther+",'"+favForm.getOtherListNames()+"',"+favForm.getRecipeid()+",1 from favorcooked ";
+			
+			result = jdbcTemplate.update(query);
+		}
+		
+		if(insertOrDelete.equals("0")) {
+			String query = " update favorcooked\r\n" + 
+					" set FAVORCOOKED.\"is_valid\" = 0\r\n" + 
+					"where FAVORCOOKED.\"recipeid\" = "+favForm.getRecipeid()+"\r\n" + 
+					"and FAVORCOOKED.USERID = '"+userId+"' ";
+			
+			result = jdbcTemplate.update(query);
+		}
+		
+				
+		if(result>0)
+			return true;
+		else
+			return false;
 	}
 	
 	
