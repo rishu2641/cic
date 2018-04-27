@@ -533,7 +533,6 @@ img {
 	display:flex;
 	flex-direction:row;
 	margin-bottom: 20px;
-	cursor: pointer;
 	align-items: center;
 }
 .recipe_item_container:hover {
@@ -544,6 +543,7 @@ img {
     width: 100px;
     height: 100px;
     align-items: center;
+    cursor: pointer;
 }
 .recipe_item_thumbnail img {
     width: auto;
@@ -568,6 +568,7 @@ img {
     font-size: 23px;
     font-weight: 500;
     letter-spacing: 1px;
+    cursor: pointer;
 }
 .recipe_item_author {
     text-align: left;

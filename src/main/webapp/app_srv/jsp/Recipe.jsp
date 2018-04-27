@@ -98,6 +98,7 @@ function addNewList() {
 	
 }
 $(document).ready(function() {
+	console.log('${recipeString}');
 	window.document.title = RECIPE_NAME;
 	addEventListeners();
 	$("#body").css({
@@ -106,6 +107,17 @@ $(document).ready(function() {
     	"justify-content": "center",
     	"align-items": "center"
 	});
+	
+	var listNames = [];
+	var activeListNames = [];
+	for(var i=0;i<listNames.length;i++) {
+		var str = '<label class="btn btn-primary';
+		if(listNames[i] in activeListNames) {
+			str +=  'active';
+		}
+		str += '"><input type="checkbox" value="' + listNames[i] + '" name="list" autocomplete="off">' + listNames[i] + '<i class="fa fa-plus"></i></label>';
+		$("#new-custom-input-container").insertBefore(str);
+	}
 });
 function addCustomList() {
 	/*
@@ -132,7 +144,7 @@ function addCustomList() {
 }
 </script>
 <div id="recipe_container">
-	<div id="recipe_title">Big boobs coz ppl dont like balls.</div>
+	<div id="recipe_title">'${recipeString.name}'</div>
 	<div class="sub_container">
 		<div class="recipe_sub_title">
 			My lists
@@ -145,15 +157,7 @@ function addCustomList() {
 			<label id="cooked-label" class="btn btn-primary">
 				<input type="checkbox" value="cooked" name="list" autocomplete="off">
 				Cooked<i class="fa fa-check"></i>
-			</label>
-			<label id="custom1-label" class="btn btn-primary">
-				<input type="checkbox" value="custom1" name="list" autocomplete="off">
-				Custom List1<i class="fa fa-plus"></i>
-			</label>
-			<label id="custom2-label" class="btn btn-primary">
-				<input type="checkbox" value="custom2" name="list" autocomplete="off">
-				Custom List2<i class="fa fa-plus"></i>
-			</label>
+			</label>			
 			<div id="new-custom-input-container">
 				<input type="text" id="new-custom-input" placeholder="My list name.."></input>
 				<button type="button" id="new-custom-submit" onclick="addNewList()" class="btn btn-primary">Submit</button>
