@@ -135,8 +135,8 @@
 				  "dateOfBirth": $("#dateOfBirth").val(),
 				  "height" : $("#height").val() || 0,
 				  "weight" : $("#weight").val() || 0,
-				  "strLifeStyle": $("#strLifeStyle").val(),
-				  "dietID": $("#dietID").val()
+				  "lifestyle": $("#lifestyle").val(),
+				  "dietid": $("#diet").val()
 			  },
 			  success: function (response) {
 				  if(response) {

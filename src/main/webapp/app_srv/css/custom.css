@@ -591,7 +591,7 @@ img {
     margin-bottom: 15px;
 }
 .input-container input, .input-container select {
-    width: 300px;
+    width: 200px;
     font-weight: 100;
 }
 #primary-container, #secondary-container {
@@ -604,9 +604,11 @@ img {
 	flex-direction:column;
 }
 #sub-secondary-container1, #sub-secondary-container2 {
-	display:flex;
-	justify-content:center;
-	flex-direction:column;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 50%;
+    overflow: hidden;
 }
 .input-container {
     display: flex;
@@ -635,9 +637,12 @@ img {
 	margin-top: 10px;
 }
 #gender-container>div>label {
-	cursor: pointer;
-	width: 30px;
-	font-weight:100;
+    cursor: pointer;
+    width: 30px;
+    font-weight: 100;
+    height: 35px;
+    text-align: center;
+    line-height: 16px;
 }
 #gender-container input {
 	cursor:pointer;
