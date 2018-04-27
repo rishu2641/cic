@@ -8,6 +8,7 @@
 
 
 <script>
+	localStorage.setItem("userid", '${userDetails.userid}');
 	  $(document).ready(function () {
 		  window.document.title = "UserDashboard";
 		  $("#sign-in").addClass("active");

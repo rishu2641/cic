@@ -36,7 +36,7 @@
   </head>
   <body class="text-center">
     <div id="navbar" class="topnav">
-      <a id="uf" href="http://www.ufl.edu/" class="logo"><img src="https://accessibility.ufl.edu/media/templates/uf2015/img/logo-uf.svg" alt="logo-uf" style="width:-1px;height:-1px;" class=""></a>
+      <a id="logo" href="/CIC/HomePage" class="logo"><img src="/CIC/resources/app_srv/images/lucky-13.jpg" alt="lucky-13" style="width:-1px;height:-1px;" class=""></a>
       <div style="display: flex;flex-direction: row;flex: 1;">
 	      <a id="home" href="/CIC/HomePage"><i class="fa fa-home"></i>Home</a>
 	      <a id="allrecipes" href="/CIC/AllRecipes">All Recipes</a>
@@ -54,6 +54,18 @@
     </div>
     
     <script>
+    $(document).ready(function() {
+    	$("#sign-out").click(function() {
+    		localStorage.removeItem("userid");
+    	});
+    	if(localStorage.getItem("userid")) {
+    		$("#login").text("My Dashboard");
+    		$(".topnav a").css({
+    			"padding-right": "32px",
+    			"padding-left": "25px"
+    		});
+    	}
+    });
     function callme(){
     	$.blockUI.defaults.css = { 
                 padding: 0,
