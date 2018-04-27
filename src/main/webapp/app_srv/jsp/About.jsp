@@ -12,9 +12,9 @@ $(document).ready(function() {
 <div id="about-container">
 	<div class="about-sub-container">
 		<div class="about-title">About CanICook</div>
-		<div id="about-description">CanICook was envisioned as part of course XXX and has bloomed into a legit recipe website
+		<div id="about-description">CanICook was envisioned as part of course COP5725 and has bloomed into a legit recipe website
 		with the most number of recipes ever found on a website, itself being the aggregation of the largest recipe databases
-		on the internet. With over 149999 tuples till date, and data curated from select popular websites, CanICook has
+		on the internet. With over 1400000 tuples till date, and data curated from select popular websites, CanICook has
 		the potential to kick major businesses out of the market.</div>
 	</div>
 	<div class="about-sub-container">
@@ -77,7 +77,7 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
-<div style="text-align:center;display:none;">
+<div style="text-align:center;">
 	<h3>Website developed as a part of Database Management Systems coursework at University of Florida, Spring 2018.<br/>
 	Professor: <a href="https://www.cise.ufl.edu/~mschneid/">Markus Schneider</a><br/>
 	Teaching Assistant: <a href="https://cise.ufl.edu/~matin/">Matin Kheirkhahan</a></h3>

@@ -872,6 +872,17 @@ button#tuple_btn i {
 	background-color: #FF1493 !important;
 	border-color: #FF1493 !important;
 }
+.recipe_icon_container {
+	float:right;
+	font-size: 22px;
+	letter-spacing: 20px;
+}
+.recipe_icon_container .fa-heart {
+	font: #FF1493;
+}
+.recipe_icon_container .fa-plus {
+	font: #28a745;
+}
 #cooked-label {
 	color: #28a745 !important;
 	border-color: #28a745 !important;

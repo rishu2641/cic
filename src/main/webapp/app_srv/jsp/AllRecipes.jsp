@@ -382,7 +382,14 @@ $(document).ready(function() {
 	  for(var i=0;i<arr.length;i++) {
 			var obj = arr[i];
 			var recipe_item_thumbnail = '<div class="recipe_item_thumbnail" onclick="onRecipeClick(' + obj.id + ')"><img src="' + obj.image_link + '" alt="' + obj.name + '" title="' + obj.name + '"></div>';
-			var recipe_item_title = '<div class="recipe_item_title" onclick="onRecipeClick(' + obj.id + ')">' + obj.name + '</div>';
+			var recipe_item_title = '<div><div class="recipe_item_title" onclick="onRecipeClick(' + obj.id + ')">' + obj.name + '</div><span class="recipe_icon_container">';
+			if(obj.isFav) {
+				recipe_item_title += '<i class ="fa fa-heart"></i>';
+			}
+			if(obj.isCook) {
+				recipe_item_title += '<i class="fa fa-plus"></i>';
+			}
+			recipe_item_title += '</span></div>';
 			var recipe_item_author = '<div class="recipe_item_author"> by <a href="/CIC/FetchChefDetails?chefname=' + obj.chefname + '" title="View ' + obj.chefname + '\'s recipes">' + obj.chefname + '</a></div>';
 			var recipe_item_desc = '<div class="recipe_item_desc">' + obj.description + '<a class="view_recipe_link" onclick="onRecipeClick(' + obj.id + ')">View Recipe</a></div>';
 			var recipe_item_content='<div class="recipe_item_content">' + recipe_item_title + recipe_item_author + recipe_item_desc +'</div>';

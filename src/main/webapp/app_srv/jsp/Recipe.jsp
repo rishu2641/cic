@@ -133,6 +133,12 @@ function addEventListeners() {
 		$("#recipe_nutritional_information").append('<div>' + key + ' : ' + nutritionObj[key] + '</div>');
 	}
 	$("#totalTime").append('<b> Total time : </b>' + totaltime + ' mins');
+	if('${recipeString.isFav}' == "1") {
+		$("#favorite-label").addClass("active");
+	}
+	if('${recipeString.isCook}' == "1") {
+		$("#cooked-label").addClass("active");
+	}
 }
 function addNewList() {
 	var listName = $("#new-custom-input").val();
