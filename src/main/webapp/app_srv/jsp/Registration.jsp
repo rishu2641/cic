@@ -81,7 +81,7 @@
 			  var val = $("#dateOfBirth").val();
 			  var year = parseInt(val.split("-")[0]);
 			  var currYear = new Date().getFullYear();
-			  var age = currYear-year;
+			  var age = currYear-year-1;
 			  $("#help-block-dateOfBirth").text("This makes you " + age);
 			  $("#help-block-dateOfBirth").show();
 		  }
